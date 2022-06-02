@@ -13,8 +13,8 @@ function Sign_up (){
     password:input_pw.current.value,
     email:input_em.current.value,
     nickname:input_nm.current.value,
-    status:"Y",category:0,dropDate:0,id:null,
-    regDate: JSON.stringify( 
+    status:"Y",category:120,dropDate:0,id:null,
+    regDate: JSON.stringify(
     current_date.getFullYear()+"년 "
     +join_month+"월 "
     +current_date.getDate()+"일 "

@@ -21,8 +21,7 @@ function Home_page (){
          if(json.status==="Y"){
            sessionStorage.setItem("login_information",JSON.stringify(json));
             alert("로그인 성공");
-            window.location.href="/"
-             console.log(window.location.href);
+            window.location.reload()
            }
           else if(json.status ===500){alert("로그인 실패"); }
          }); 
