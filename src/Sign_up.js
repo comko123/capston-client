@@ -33,8 +33,6 @@ function Sign_up (){
      else(alert("Fail to Sign Up :("))
   }
    ); }
-
-
 return(<div>
   <h1>회원가입</h1>
       <input type="tetx" placeholder="NICKNAME" ref={input_nm}/> 
