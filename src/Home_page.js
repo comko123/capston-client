@@ -1,7 +1,10 @@
 import { Link } from "react-router-dom";
 import { useState,useRef } from "react";
 import {ChangeToUserData} from "./Userdata";
+import { useMediaQuery } from 'react-responsive';
 
+
+console.log(Desktop)
 function Home_page (){
   const input_id=useRef();
     const input_pw=useRef();
