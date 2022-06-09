@@ -1,5 +1,4 @@
 import {createContext} from "react";
-
 export const InputUserData = {
     Id :"",
     Email : "",
@@ -14,5 +13,4 @@ export default function Userdata(props){
             InputUserData.Nickname = user_login_data.nickname)
      }} 
     DataStruct()
-    
 return(<ChangeToUserData.Provider value = { InputUserData}>{props.children}</ChangeToUserData.Provider>);}

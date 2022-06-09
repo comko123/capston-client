@@ -1,6 +1,5 @@
 import axios from "axios";
 import { useState,useRef} from "react";
-import Tablet from "../Reactive type/NewReactiveType";
 export default function IdFind(){
 let [IdFind_state,setIdFind_State]=useState(true);
 const [id_value,setId_value] = useState("");
@@ -16,12 +15,10 @@ const id_find = async() => {
     <>
     {IdFind_state?
     <>
-    <Tablet>
     <h1>ID 찾기</h1>
     <input type="text" placeholder="EMAIL" ref={find_id_email}/>
     <br/> <br/>
     <button onClick={id_find}>다음</button>
-    </Tablet>
     </>
     :
     <>
