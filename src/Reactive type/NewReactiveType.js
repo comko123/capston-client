@@ -4,8 +4,6 @@ export  const Desktop = ({ children }) => {
     const isTablet = useMediaQuery({ minWidth: 768, maxWidth: 991 })
     const isMobile = useMediaQuery({ maxWidth: 767 })
     const isNotMobile = useMediaQuery({ minWidth: 768 })
-    console.log(isDesktop)
-    console.log(children)
     return isDesktop ? 
     children : isTablet? 
     children:isMobile? 
