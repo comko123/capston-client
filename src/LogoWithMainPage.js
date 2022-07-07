@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom"
-
+import { useState,useEffect } from "react";
 const LogoWithMainPage =()=>{
     const [logo,setLogo] = useState(true)
 
@@ -12,7 +12,6 @@ const LogoWithMainPage =()=>{
         else{setLogo(false)}
     }
     useEffect(()=>{input()},[])
-//intelli j confirm
     return(
             <>
             {
@@ -21,7 +20,8 @@ const LogoWithMainPage =()=>{
             :
             <>
             <span>weather coder logo</span>
-            <span><Link>마이 페이지</Link></span>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <span><Link to = {`/weather_coder/my_page`}>마이 페이지</Link></span>
             </>
             }        
             </>

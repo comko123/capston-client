@@ -43,7 +43,7 @@ return (<div>
               <div>
               <h1>user data</h1>
               <ChangeToUserData.Consumer>
-		      {(K)=>{return <h1><Link to={`/UserInformation/${K.Id}`}>회원정보</Link></h1>}}
+		      {(K)=>{return <h1><Link to={`/weather_coder/UserInformation/${K.Id}`}>회원정보</Link></h1>}}
 	            </ChangeToUserData.Consumer>
               <br/>
               <button className ="LOGOUT" onClick={()=>{fetch('/logout', {method : "delete"}).then(()=>{
