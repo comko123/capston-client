@@ -35,7 +35,7 @@ function Sign_up (){
    ); }
 return(<>
   <h1>회원가입</h1>
-  <form>
+  <form onSubmit={e=>e.preventDefault()}>
       <input type="tetx" placeholder="닉네임" ref={input_nm}/> 
       <br /> <br />
       <input type="tetx" placeholder="ID" ref={input_id} /> 

@@ -27,12 +27,12 @@ function Home_page (){
 return (<div>
     <h1> tlttle </h1>
 
-            <form>
+            <form onSubmit={(e)=>e.preventDefault()}>
             <input className="ID" type="text" placeholder="ID" ref={input_id} /><br />
             <input className="PW"type="password" placeholder="PASSWORD" ref={input_pw}/>
             <button className ="in" onClick={Login_Function}>LOGIN</button><br/><br/>
-            <Link to={'/Id_find'}>아이디</Link> 찾기
             </form>  
+            <Link to={'/weather_coder/Id_find'}>아이디</Link> 찾기
         
 </div>);
 }
