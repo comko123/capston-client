@@ -6,8 +6,7 @@ const LogoWithMainPage =()=>{
     const input = () =>{
         if(sessionStorage.getItem("logo") === null){
             setTimeout(()=>{setLogo(false)},3000)
-            console.log(logo)
-            if(logo){sessionStorage.setItem("logo","checked");console.log(logo)}
+            if(logo){sessionStorage.setItem("logo","checked");}
         }
         else{setLogo(false)}
     }
