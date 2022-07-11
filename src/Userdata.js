@@ -1,16 +1,16 @@
 import {createContext} from "react";
-export const InputUserData = {
-    Id :"",
-    Email : "",
-    Nickname:""
-}
+export const InputUserData = {}
 export const ChangeToUserData = createContext();
 export default function Userdata(props){
-    const DataStruct = ()=> {if (JSON.parse(sessionStorage.getItem("login_information"))!== null){
-        let user_login_data = JSON.parse(sessionStorage.getItem("login_information"));
-        return(InputUserData.Id = user_login_data.userId,
-            InputUserData.Email = user_login_data.email,
-            InputUserData.Nickname = user_login_data.nickname)
-     }} 
-    DataStruct()
+    const DataStruct = ()=> {
+        
+        return(<div>
+            <h3> 날씨정보로 추천받기 </h3>
+            <h3> 내 정보로 추천받기 </h3>
+            <h3> 내 옷들로 추천받기 </h3>
+            <h3> 게시판 </h3>
+            </div>)
+    } 
+   
+  
 return(<ChangeToUserData.Provider value = { InputUserData}>{props.children}</ChangeToUserData.Provider>);}
