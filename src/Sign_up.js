@@ -1,6 +1,6 @@
 import {useRef} from 'react';
 
-function Sign_up (){
+export default function Sign_up (){
   const input_id=useRef();
   const input_pw=useRef();
   const input_em=useRef();
@@ -71,7 +71,7 @@ return(<>
         </div>
       <div>
       <h3>신장</h3>
-        156 ~ 160cm <input type = "checkbox" value = "height155over" onChange={(e)=>console.log(e.target.defaultValue)}/>
+        156 ~ 160cm <input type = "checkbox" value = "height155over"/>
         <br/>
         160 ~ 165cm <input type = "checkbox" value = "height160over"/>
         <br/>
@@ -98,4 +98,3 @@ return(<>
   </>);
 }
 
-export default Sign_up;

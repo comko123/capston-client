@@ -1,3 +1,4 @@
+import MenuBar from "./Bar/MenuBar";
 const Myadress = () => {
 
     return(
@@ -68,6 +69,7 @@ const Myadress = () => {
 <br/>
 스트릿 <input type = "checkbox" value = "street"/>
 </>
+<MenuBar/>
 </>
 
     )

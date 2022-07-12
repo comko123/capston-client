@@ -1,5 +1,5 @@
-import { Link } from "react-router-dom";
-function Information (){
+import MenuBar from "./Bar/MenuBar";
+export default function Information (){
   
     
     return (<>
@@ -82,10 +82,10 @@ function Information (){
 <br/>
 </>
 <br/>
-    <Link to = '/'> 홈페이지 </Link>
+<MenuBar/>
     </>
     )
 
     
 }
-export default Information;
+
