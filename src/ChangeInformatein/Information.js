@@ -1,12 +1,12 @@
-import MenuBar from "./Bar/MenuBar";
-const Myadress = () => {
+import MenuBar from "../Bar/MenuBar";
+export default function Information (){
+    return (<>
 
-    return(
-<>
-<h3>자신의옷 등록하기</h3>
-<h5>마이페이지&gt;자신의옷 등록하기</h5>
-<>
-<h1>봄</h1>
+    <h3>내정보 수정</h3> 
+    <h5>마이페이지&gt;내정보 수정하기</h5>
+
+    <form onSubmit = {e=>e.preventDefault()}>
+<h3>봄</h3> <input type = "button" value = "제출" /><br/>
 청바지 <input type = "checkbox" value = "spring-jeans"/>
 <br/>
 맨투맨 <input type = "checkbox" value = "spring-pullover"/>
@@ -16,10 +16,12 @@ const Myadress = () => {
 후드티 <input type = "checkbox" value = "spring-hoodie"/>
 <br/>
 가디건 <input type = "checkbox" value = "spring-Cardigan"/>
-</>
+</form>
+
 <br/>
-<>
-<h1>여름</h1>
+
+<form onSubmit = {e=>e.preventDefault()}>
+<h3>여름</h3> <input type = "button" value = "제출"/><br/>
 반바지 <input type = "checkbox" value = "summer-shorts"/>
 <br/>
 반팔티셔츠 <input type = "checkbox" value = "summer-shortsleeve"/>
@@ -29,10 +31,12 @@ const Myadress = () => {
 민소매티셔츠 <input type = "checkbox" value = "summer-Sleeveless"/>
 <br/>
 청바지 <input type = "checkbox" value = "summer-jeans"/>
-</>
+</form>
+
 <br/>
-<>
-<h1>가을</h1>
+
+<form onSubmit = {e=>e.preventDefault()}>
+<h3>가을</h3> <input type = "button" value = "제출"/><br/>
 청바지 <input type = "checkbox" value = "fall-jeans"/>
 <br/>
 맨투맨 <input type = "checkbox" value = "fall-pullover"/>
@@ -42,10 +46,12 @@ const Myadress = () => {
 후드티 <input type = "checkbox" value = "fall-hoodie"/>
 <br/>
 니트/스웨터 <input type = "checkbox" value = "fall-Cardigan"/>
-</>
+</form>
+
 <br/>
-<>
-<h1>겨울</h1>
+
+<form onSubmit = {e=>e.preventDefault()}>
+<h3>겨울</h3> <input type = "button" value = "제출"/><br/>
 청바지 <input type = "checkbox" value = "winter-jeans"/>
 <br/>
 코트 <input type = "checkbox" value = "winter-coat"/>
@@ -55,10 +61,12 @@ const Myadress = () => {
 후드티 <input type = "checkbox" value = "winter-hoodie"/>
 <br/>
 니트/스웨터 <input type = "checkbox" value = "winter-knit"/>
-</>
+</form>
+
 <br/>
-<>
-<h1>스타일</h1>
+
+<form onSubmit = {e=>e.preventDefault()}>
+<h3>스타일</h3> <input type = "button" value = "제출"/><br/>
 빈티지 <input type = "checkbox" value = "vintage"/>
 <br/>
 댄디 <input type = "checkbox" value = "dandy"/>
@@ -68,11 +76,28 @@ const Myadress = () => {
 놈코어 <input type = "checkbox" value = "normcore"/>
 <br/>
 스트릿 <input type = "checkbox" value = "street"/>
-</>
-<MenuBar/>
-</>
+</form>
 
+<br/>
+
+<form onSubmit = {e=>e.preventDefault()}>
+<h3>비밀번호 변경</h3>
+현재 비밀번호&nbsp;<input type="password" />
+<br/><br/>
+새로운 비밀번호<input type="password"/>
+<br/><br/>
+새로운 비밀번호 <input type="password"/><br/>
+확인
+<br/>
+<input type = "button" value = "비밀번호 수정"/>
+<br/>
+</form>
+<br/>
+<MenuBar/>
+    
+  </>
     )
 
+    
 }
-export default Myadress;
+

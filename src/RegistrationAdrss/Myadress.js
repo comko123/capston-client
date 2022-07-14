@@ -1,12 +1,11 @@
-import MenuBar from "./Bar/MenuBar";
-export default function Information (){
-  
-    
-    return (<>
-    <h3>내정보 수정</h3> 
-    <h5>마이페이지&gt;내정보 수정하기</h5>
-    <>
-<h1>봄</h1> <input type = "button" value = "제출"/><br/>
+import MenuBar from "../Bar/MenuBar";
+const Myadress = () => {
+    return(
+<>
+<h3>자신의옷 등록하기</h3>
+<h5>마이페이지&gt;자신의옷 등록하기</h5>
+<>
+<h1>봄</h1>
 청바지 <input type = "checkbox" value = "spring-jeans"/>
 <br/>
 맨투맨 <input type = "checkbox" value = "spring-pullover"/>
@@ -19,7 +18,7 @@ export default function Information (){
 </>
 <br/>
 <>
-<h1>여름</h1> <input type = "button" value = "제출"/><br/>
+<h1>여름</h1>
 반바지 <input type = "checkbox" value = "summer-shorts"/>
 <br/>
 반팔티셔츠 <input type = "checkbox" value = "summer-shortsleeve"/>
@@ -32,7 +31,7 @@ export default function Information (){
 </>
 <br/>
 <>
-<h1>가을</h1> <input type = "button" value = "제출"/><br/>
+<h1>가을</h1>
 청바지 <input type = "checkbox" value = "fall-jeans"/>
 <br/>
 맨투맨 <input type = "checkbox" value = "fall-pullover"/>
@@ -45,7 +44,7 @@ export default function Information (){
 </>
 <br/>
 <>
-<h1>겨울</h1> <input type = "button" value = "제출"/><br/>
+<h1>겨울</h1>
 청바지 <input type = "checkbox" value = "winter-jeans"/>
 <br/>
 코트 <input type = "checkbox" value = "winter-coat"/>
@@ -58,7 +57,7 @@ export default function Information (){
 </>
 <br/>
 <>
-<h1>스타일</h1> <input type = "button" value = "제출"/><br/>
+<h1>스타일</h1>
 빈티지 <input type = "checkbox" value = "vintage"/>
 <br/>
 댄디 <input type = "checkbox" value = "dandy"/>
@@ -69,23 +68,10 @@ export default function Information (){
 <br/>
 스트릿 <input type = "checkbox" value = "street"/>
 </>
-<>
-<h1>비밀번호 변경</h1>
-현재 비밀번호&nbsp;<input type="password" />
-<br/><br/>
-새로운 비밀번호<input type="password"/>
-<br/><br/>
-새로운 비밀번호 <input type="password"/><br/>
-확인
-<br/>
-<input type = "button" value = "비밀번호 수정"/>
-<br/>
-</>
-<br/>
 <MenuBar/>
-    </>
+</>
+
     )
 
-    
 }
-
+export default Myadress;

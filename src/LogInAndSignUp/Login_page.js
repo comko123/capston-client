@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import {useRef } from "react";
 
-function Home_page (){
+function Login_page (){
   const input_id=useRef();
     const input_pw=useRef();
    function Login_Function()
@@ -36,4 +36,4 @@ return (<div>
         
 </div>);
 }
-export default Home_page;
+export default Login_page;
