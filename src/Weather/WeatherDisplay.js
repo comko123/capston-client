@@ -1,6 +1,6 @@
 export default function Display({humidity,temp,weather,dt}){
-        let dateValue = new Date()
-        let value = new Date(dt*1000)
+        const dateValue = new Date()
+        const value = new Date(dt*1000)
        
     return(
     <>
