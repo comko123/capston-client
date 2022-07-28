@@ -1,16 +1,16 @@
 import axios from "axios";
-import { useEffect, useState } from "react";
+import React,{ useEffect, useState } from "react";
 const NowWeather = (props) => {
     const  {latitude,longitude} = props
     const [weatherTemp,setWeatherTemp]=useState({}) 
     const [realWeather,setRealWeather]=useState([])
    
         useEffect(()=>{const nowWeather = async() =>{
-    const nowWeatherData = (await axios(`https://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&appid=0b9dc2c29f0c437b89527b6b12e02421&units=metric`)).data
-        setWeatherTemp(nowWeatherData.main);setRealWeather(nowWeatherData.weather);
+    const nowWeatherData = (await axios(`https://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&appid=f980d31253eb2b185606cca64544373f&units=metric`)).data
+     setWeatherTemp(nowWeatherData.main);setRealWeather(nowWeatherData.weather);
     }
 nowWeather()
-},[props])
+},[])
 return(
     <>
     <h1>현재</h1>
@@ -25,4 +25,4 @@ return(
     </>
 )
 }
-export default NowWeather;
+export default React.memo(NowWeather);

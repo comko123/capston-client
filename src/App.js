@@ -11,29 +11,21 @@ import InfoToWeather from "./BarPages/InfoToWeather";
 import Information from "./ChangeInformatein/Information";
 import InfoToMyClothing from "./BarPages/InfoToMyClothing";
 import NewReactiveType from "./ReactiveType/NewReactiveType";
-import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
-const App = () => {
+import { Routes, Route } from "react-router-dom";
+export default function App  (){
 return(
-<Userdata>
-<Router>
-<Switch>
-<NewReactiveType>
-<Route path="/" exact component={LogoWithMainPage}/>
-<Route path="/weather_code/Board" component={Board}/>
-<Route path="/weather_coder/My_page" component={Mypage}/>
-<Route path="/weather_coder/Id_find" component={IdFind}/>
-<Route path="/weather_coder/Login" component={Login_page}/>
-<Route path="/weather_coder/Sign_up" component={Sign_up}/>
-<Route path="/weather_coder/Input_adress" component={Myadress}/>
-<Route path="/weather_coder/UserInformation/:id" component={Information}/>
-<Route path="/weather_code/Recommendation/weather" component={InfoToWeather}/>
-<Route path="/weather_code/Recommendation/Informatin" component={InfoToMyInfo}/>
-<Route path="/weather_code/Recommendation/Clothing" component={InfoToMyClothing}/>
-</NewReactiveType>
-</Switch>
-</Router>
-</Userdata>
+<Routes>
+<Route path="/" element={<LogoWithMainPage/>}/>
+<Route path="/weather_code/Board" element={<Board/>}/>
+<Route path="/weather_coder/My_page" element={<Mypage/>}/>
+<Route path="/weather_coder/Id_find" element={<IdFind/>}/>
+<Route path="/weather_coder/Login" element={<Login_page/>}/>
+<Route path="/weather_coder/Sign_up" element={<Sign_up/>}/>
+<Route path="/weather_coder/Input_adress" element={<Myadress/>}/>
+<Route path="/weather_coder/UserInformation/:id" element={<Information/>}/>
+<Route path="/weather_code/Recommendation/weather" element={<InfoToWeather/>}/>
+<Route path="/weather_code/Recommendation/Informatin" element={<InfoToMyInfo/>}/>
+<Route path="/weather_code/Recommendation/Clothing" element={<InfoToMyClothing/>}/>
+</Routes>
     );
 }
-
-export default App;

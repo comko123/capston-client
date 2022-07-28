@@ -2,57 +2,54 @@ import axios from "axios";
 import NowWeather from "./NowWeather";
 import WeatherDisplay from "./WeatherDisplay";
 import WeatherAlgorithm from "./WeatherAlgorithm";
-import { useEffect, useMemo, useState } from "react"
-export default function TodayWeather(props){
+import React,{BrowserRouter,useEffect,  useState } from "react"
+
+const temp = (...rest) => {
+    const dateValue = new Date()
+    const  array = rest[0].map((R)=>{
+const value = new Date(R.dt*1000); 
+    return dateValue.getDate()!==value.getDate()?
+  null:R.temp })
+  const data = array.filter(E=>E!==null)
+  const hotdata = Math.max.apply(null,data)
+  const colddata = Math.min.apply(null,data)
+  rest[1](hotdata)
+  rest[2](colddata)
+  rest[3](false);
+(colddata<=12||hotdata>=23)?rest[4](true):rest[4](false)}
+
+const rain = (...rest) => {
+    const dateValue = new Date()
+    const rainning =  
+    rest[0].map((R)=>{ 
+   const value = new Date(R.dt*1000); 
+      return dateValue.getDate()!==value.getDate()?
+      null:R.rain??null })
+      const rainData = rainning.filter(E=>E!==null);
+      (rainData.length!==0)? rest[1](true): rest[1](false) 
+}
+
+const TodayWeather = (props) =>{
     const  {latitude,longitude} = props
+    const [weatherObject,setWeatherObject] = useState([])
+    const [rainData,setRainData] = useState(false)
     const [lowTemp,setLowTemp] = useState(0) 
     const [highTemp,setHighTemp] = useState(0) 
     const [loading,setLoading] = useState(true)
-    const [rainData,setRainData] = useState(false)
     const [pageLoading,setPageLoading] = useState(true)
-    const [weatherObject,setWeatherObject] = useState([])
     const [outerClothing,setOuterClothing] = useState(false)
-
-const todayLocation = useMemo(()=>{
-    return {
-        yourLatitude:latitude,
-        yourLongitude:longitude
-    }
-},[props])
-
-const {yourLatitude,yourLongitude} = todayLocation
-
-useEffect(()=>{const todayWeather = async() => {if(yourLatitude!==0&&yourLongitude!==0){
+useEffect(()=>{const todayWeather = async() => {if(latitude!==0&&longitude!==0){
     setWeatherObject(
         await(
-            await axios(`https://api.openweathermap.org/data/2.5/onecall?lat=${yourLatitude}&lon=${yourLongitude}&appid=0b9dc2c29f0c437b89527b6b12e02421&units=metric`)
+            await axios(`https://api.openweathermap.org/data/2.5/onecall?lat=${latitude}&lon=${longitude}&appid=f980d31253eb2b185606cca64544373f&units=metric`)
     ).data.hourly)
-    setLoading(false)   
+    setLoading(false);   
   }}
 todayWeather()
-},[todayLocation])
-    
+},[props])
         const RainAndTemp = () => {
-            const dateValue = new Date()
-            const  array = weatherObject.map((R)=>{
-        const value = new Date(R.dt*1000); 
-            return dateValue.getDate()!==value.getDate()?
-          null:R.temp })
-          const data = array.filter(E=>E!==null)
-          const hotdata = Math.max.apply(null,data)
-          const colddata = Math.min.apply(null,data)
-          setHighTemp(hotdata)
-          setLowTemp(colddata)
-          setPageLoading(false);
-        (colddata<=12||hotdata>=23)?setOuterClothing(true):setOuterClothing(false)
-
-         const rainning =  
-         weatherObject.map((R)=>{ 
-        const value = new Date(R.dt*1000); 
-           return dateValue.getDate()!==value.getDate()?
-           null:R.rain??null })
-           const rainData = rainning.filter(E=>E!==null);
-           (rainData.length!==0)?setRainData(true):setRainData(false) 
+            temp(weatherObject,setHighTemp,setLowTemp,setPageLoading,setOuterClothing)
+            rain(weatherObject,setRainData)
         }
         useEffect(()=>RainAndTemp(),[weatherObject])
     return (<>{loading?
@@ -61,12 +58,11 @@ todayWeather()
         </>
         :pageLoading?
         <>
-        <h1>loading.....</h1>
+        <h1>오늘의 날씨</h1>
         </>:
         <> 
-        <h1>오늘의 날씨</h1>
-
-        <NowWeather latitude={yourLatitude} longitude = {yourLongitude}/>
+        <h1>Today weathers</h1>
+        <NowWeather latitude={latitude} longitude = {longitude}/>
 
             {weatherObject.map((R)=>{
             return<WeatherDisplay 
@@ -79,3 +75,4 @@ todayWeather()
            <WeatherAlgorithm Htemp = {highTemp} Mtemp={lowTemp} outp = {outerClothing} rain={rainData}/>
         </>}  
         </>)}
+        export default React.memo(TodayWeather);
