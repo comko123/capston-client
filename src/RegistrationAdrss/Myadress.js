@@ -1,16 +1,16 @@
 import React,{useState} from "react";
 import MenuBar from "../Bar/MenuBar";
 const userClothing = {spring:[],summer:[],fall:[],winter:[],style:[]}
- const userSeasonStyle = (textSeason,stringSeason,nowSeanson) =>{
+ const userSeasonStyle = (...rest) =>{
 return(<>
-<h3 style={{"margin":"0px"}}>{textSeason}</h3>
-{stringSeason.map((clothing)=>{
+<h3 style={{"margin":"0px"}}>{rest[0]}</h3>
+{rest[1].map((clothing)=>{
 return (<>{clothing}<input type ="checkbox" 
-value = {textSeason+"/"+`${clothing}`} onClick ={(e)=>
+value = {rest[0]+"/"+`${clothing}`} onClick ={(e)=>
   {if(e.target.checked===true){
-   nowSeanson.push(e.target.value)  
-  const inputStyle =nowSeanson.filter((element,index)=>nowSeanson.indexOf(element)===index)}
-    else{const deleteStyle =nowSeanson.splice(nowSeanson.indexOf(e.target.value),1)}
+   rest[2].push(e.target.value)  
+  const inputStyle =rest[2].filter((element,index)=>rest[2].indexOf(element)===index)}
+    else{const deleteStyle =rest[2].splice(rest[2].indexOf(e.target.value),1)}
 }
 }/> <br/></>)
 })}</>)}

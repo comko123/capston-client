@@ -6,10 +6,13 @@ const [id_value,setId_value] = useState("");
 const find_id_email=useRef();
 const id_find = async() => {
     const data = find_id_email.current.value
+    try{
     setId_value((await axios.post(`/login/${data}`,{email:data})
-    .catch(()=>alert("이메일을 잘못입력하셨거나 가입된이메일이 아닙니다."))
     ).data.userId)
-    setIdFind_State(false) 
+    setIdFind_State(false) }
+    catch(e){alert("이메일을 잘못입력하셨거나 가입된이메일이 아닙니다.")
+        console.log(e)
+}
     }
     return(
     <>

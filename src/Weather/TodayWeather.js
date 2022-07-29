@@ -2,7 +2,7 @@ import axios from "axios";
 import NowWeather from "./NowWeather";
 import WeatherDisplay from "./WeatherDisplay";
 import WeatherAlgorithm from "./WeatherAlgorithm";
-import React,{BrowserRouter,useEffect,  useState } from "react"
+import React,{useEffect,useState,useTransition,useDeferredValue } from "react"
 
 const temp = (...rest) => {
     const dateValue = new Date()
@@ -35,24 +35,27 @@ const TodayWeather = (props) =>{
     const [rainData,setRainData] = useState(false)
     const [lowTemp,setLowTemp] = useState(0) 
     const [highTemp,setHighTemp] = useState(0) 
-    const [loading,setLoading] = useState(true)
     const [pageLoading,setPageLoading] = useState(true)
     const [outerClothing,setOuterClothing] = useState(false)
-useEffect(()=>{const todayWeather = async() => {if(latitude!==0&&longitude!==0){
+    const [isPending,startTransition] = useTransition()
+    const weatherState = useDeferredValue(weatherObject)
+useEffect(()=>{try{
+    startTransition(
+     async() => {if(latitude!==0&&longitude!==0){
     setWeatherObject(
         await(
             await axios(`https://api.openweathermap.org/data/2.5/onecall?lat=${latitude}&lon=${longitude}&appid=f980d31253eb2b185606cca64544373f&units=metric`)
-    ).data.hourly)
-    setLoading(false);   
+    ).data.hourly)  
   }}
-todayWeather()
+    )}catch(e){console.log(e)}
 },[props])
         const RainAndTemp = () => {
-            temp(weatherObject,setHighTemp,setLowTemp,setPageLoading,setOuterClothing)
-            rain(weatherObject,setRainData)
-        }
-        useEffect(()=>RainAndTemp(),[weatherObject])
-    return (<>{loading?
+            if(weatherState.length!==0){
+            temp(weatherState,setHighTemp,setLowTemp,setPageLoading,setOuterClothing)
+            rain(weatherState,setRainData)
+        }        }
+        useEffect(()=>RainAndTemp(),[weatherState])
+    return (<>{isPending?
         <>
         <h1>loading.....</h1>
         </>
@@ -64,7 +67,7 @@ todayWeather()
         <h1>Today weathers</h1>
         <NowWeather latitude={latitude} longitude = {longitude}/>
 
-            {weatherObject.map((R)=>{
+            {weatherState.map((R)=>{
             return<WeatherDisplay 
             key={R.dt} 
             dt={R.dt} 

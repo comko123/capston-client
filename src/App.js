@@ -1,5 +1,6 @@
 import Userdata from "./Userdata";
 import IdFind from "./Find/IdFind";
+import ErrorPages from "./ErrorPages";
 import Mypage from "./MyPage/Mypage";
 import Board from "./BarPages/Board";
 import Sign_up from "./LogInAndSignUp/Sign_up";
@@ -14,7 +15,10 @@ import NewReactiveType from "./ReactiveType/NewReactiveType";
 import { Routes, Route } from "react-router-dom";
 export default function App  (){
 return(
+<NewReactiveType>
+<Userdata>
 <Routes>
+<Route path="*" element = {<ErrorPages/>}/>
 <Route path="/" element={<LogoWithMainPage/>}/>
 <Route path="/weather_code/Board" element={<Board/>}/>
 <Route path="/weather_coder/My_page" element={<Mypage/>}/>
@@ -27,5 +31,7 @@ return(
 <Route path="/weather_code/Recommendation/Informatin" element={<InfoToMyInfo/>}/>
 <Route path="/weather_code/Recommendation/Clothing" element={<InfoToMyClothing/>}/>
 </Routes>
+</Userdata>
+</NewReactiveType>
     );
 }

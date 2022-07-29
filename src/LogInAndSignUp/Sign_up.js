@@ -1,9 +1,9 @@
 import React,{ useRef,useState} from 'react';
+import {useNavigate } from "react-router-dom";
 const userObject = {id:[],email:[],password:[],password2:[],nickname:[],gender:[],age:[],height:[],weight:[]}
 const current_date = new Date()
 const join_month = current_date.getMonth()+1
-
-const signUpFunction = async() => {
+const signUpFunction = async(call) => {
   const userData =
   { userId:userObject.id[0],
     password:userObject.password[0],
@@ -29,19 +29,19 @@ const signUpFunction = async() => {
     headers : {"Content-Type" : "application/json"},
   })
   if(sign.ok){alert("Completed for Sign Up :) ")
-  window.location.href = '/'
+  call('/')
 }}
   catch(e){console.log(e); alert("Fail To Sign Up :(")}
 }
 
-const userInFormationRadio = (imformation,item,array) => {
-return(<><h3 style = {{"marginBottom":"0px"}}>{item}</h3>
-{imformation.map((childInformation,index)=>{
-return (<>{childInformation}<input key={index} type ="radio"name={item} value = {item+":"+`${childInformation}`} onClick ={(e)=>
+const userInFormationRadio = (...rest) => {
+return(<><h3 style = {{"marginBottom":"0px"}}>{rest[1]}</h3>
+{rest[0].map((childInformation,index)=>{
+return (<>{childInformation}<input key={index} type ="radio"name={rest[1]} value = {rest[1]+":"+`${childInformation}`} onClick ={(e)=>
   {if(e.target.checked===true){
-   array.push(e.target.value)  
-  const inputStyle =array.filter((element,index)=>array.indexOf(element)===index)}
-    else{const deleteStyle =array.splice(array.indexOf(e.target.value),1)}
+   rest[2].push(e.target.value)  
+  const inputStyle =rest[2].filter((element,index)=>rest[2].indexOf(element)===index)}
+    else{const deleteStyle =rest[2].splice(rest[2].indexOf(e.target.value),1)}
 }}/> <br/></>)})}</>)
 }
 const userInFormationInput = (type,plho,ref,array) => {
@@ -53,6 +53,7 @@ const userInFormationInput = (type,plho,ref,array) => {
 <br/> <br/></>
   )}
 export default function Sign_Up (){
+  const trans = useNavigate()
   const [age] =useState(["10 ~ 19세","20 ~ 29세","30 ~ 39세","40 ~ 49세","50세 이상"])
   const [gender] =useState(["남자","여자"])
   const [height] =useState(["156 ~ 160cm","160 ~ 165cm","165 ~ 170cm","170 ~ 175cm","175이상"])
@@ -71,9 +72,9 @@ return(<>
       {userInFormationRadio(height,"신장",userObject.height)}
       {userInFormationRadio(weight,"체중",userObject.weight)}
       <br/>
-      <input type="button" value="가입"onClick={()=>signUpFunction}/>   
+      <input type="button" value="가입"onClick={()=>signUpFunction(trans)}/>   
       <br/>
-      <input type="button" value="홈페이지"onClick={()=>{window.location.href = '/'}}/>
+      <input type="button" value="홈페이지"onClick={()=>{trans('/')}}/>
       </form>
 
   </>);
