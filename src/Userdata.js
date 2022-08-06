@@ -7,5 +7,4 @@ export default function Userdata(props){
             </>)
     } 
    
-  
 return(<ChangeToUserData.Provider value = {DataStruct}>{props.children}</ChangeToUserData.Provider>);}

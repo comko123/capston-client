@@ -23,12 +23,12 @@ return(
 <Route path="/weather_code/Board" element={<Board/>}/>
 <Route path="/weather_coder/My_page" element={<Mypage/>}/>
 <Route path="/weather_coder/Id_find" element={<IdFind/>}/>
-<Route path="/weather_coder/Login" element={<Login_page/>}/>
 <Route path="/weather_coder/Sign_up" element={<Sign_up/>}/>
+<Route path="/weather_coder/Login" element={<Login_page/>}/>
 <Route path="/weather_coder/Input_adress" element={<Myadress/>}/>
 <Route path="/weather_coder/UserInformation/:id" element={<Information/>}/>
 <Route path="/weather_code/Recommendation/weather" element={<InfoToWeather/>}/>
-<Route path="/weather_code/Recommendation/Informatin" element={<InfoToMyInfo/>}/>
+<Route path="/weather_code/Recommendation/Information" element={<InfoToMyInfo/>}/>
 <Route path="/weather_code/Recommendation/Clothing" element={<InfoToMyClothing/>}/>
 </Routes>
 </Userdata>

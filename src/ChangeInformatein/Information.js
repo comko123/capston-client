@@ -7,12 +7,13 @@ return(<>
 <form onSubmit = {e=>e.preventDefault()}>
 <input type="button" value = "제출" onClick={()=>console.log(rest[2])}/><br/>
 {rest[1].map((clothing,index)=>{
-return (<>{clothing}<input type ="checkbox" value = {rest[0]+"/"+`${clothing}`} onClick ={(e)=>
+return (<>{clothing}<input type ="checkbox" key = {Date.now()} value = {rest[0]+"/"+`${clothing}`} onClick ={(e)=>
   {if(e.target.checked===true){
    rest[2].push(e.target.value)  
   const inputStyle =rest[2].filter((element,index)=>rest[2].indexOf(element)===index)}
     else{const deleteStyle =rest[2].splice(rest[2].indexOf(e.target.value),1)}
 }}/> <br/></>)})}</form></>)}
+
 export default function  Information() {
   const [spring] = useState(["청바지","맨투맨","셔츠/블라우스","후드티","가디건"])
   const [summer] =useState(["반바지","반팔 티셔츠","셔츠/블라우스","민소매티셔츠","청바지"])
@@ -38,6 +39,7 @@ export default function  Information() {
 <br/>
 <input type = "button" value = "비밀번호 수정"/>
 <br/>
+
 </form>
 <MenuBar/>
     </>);}

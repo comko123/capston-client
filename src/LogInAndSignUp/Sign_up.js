@@ -37,7 +37,7 @@ const signUpFunction = async(call) => {
 const userInFormationRadio = (...rest) => {
 return(<><h3 style = {{"marginBottom":"0px"}}>{rest[1]}</h3>
 {rest[0].map((childInformation,index)=>{
-return (<>{childInformation}<input key={index} type ="radio"name={rest[1]} value = {rest[1]+":"+`${childInformation}`} onClick ={(e)=>
+return (<>{childInformation}<input key = {Date.now()} type ="radio"name={rest[1]} value = {rest[1]+":"+`${childInformation}`} onClick ={(e)=>
   {if(e.target.checked===true){
    rest[2].push(e.target.value)  
   const inputStyle =rest[2].filter((element,index)=>rest[2].indexOf(element)===index)}
@@ -46,7 +46,7 @@ return (<>{childInformation}<input key={index} type ="radio"name={rest[1]} value
 }
 const userInFormationInput = (type,plho,ref,array) => {
   return(
-  <><input type ={type} placeholder={plho} ref={ref} onChange = {()=>{
+  <><input type ={type} key = {Date.now()} placeholder={plho} ref={ref} onChange = {()=>{
   array.push(ref.current.value)
   array.splice(0,array.length-1)
   }}/>
@@ -76,6 +76,5 @@ return(<>
       <br/>
       <input type="button" value="홈페이지"onClick={()=>{trans('/')}}/>
       </form>
-
   </>);
 }

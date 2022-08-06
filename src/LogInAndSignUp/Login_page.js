@@ -21,9 +21,8 @@ const Login_page = () => {
   const trans = useNavigate()
   const input_id=useRef();
     const input_pw=useRef();
-return (<div>
+return (<>
     <h1> Log-in </h1>
-
             <form onSubmit={e=>e.preventDefault()}>
             <input className="ID" type="text" placeholder="아이디를 입력하세요." ref={input_id} /><br />
             <input className="PW"type="password" placeholder="비밀번호를 입력하세요." ref={input_pw}/>
@@ -31,7 +30,6 @@ return (<div>
               test(input_id.current.value,input_pw.current.value,trans)}>LOGIN</button><br/><br/>
             </form>  
             <Link to={'/weather_coder/Id_find'}>아이디</Link> 찾기
-        
-</div>);
+</>);
 }
 export default Login_page;

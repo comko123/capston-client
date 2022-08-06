@@ -23,7 +23,7 @@ const LogoWithMainPage =()=>{
             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
             <span><Link to = {`/weather_coder/My_page`}>마이 페이지</Link></span>
             <br/>
-                    <WeatherComponents/>
+                    <WeatherComponents/> 
                 <br/>
                 <MenuBar/>
             </>

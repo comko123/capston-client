@@ -10,6 +10,7 @@ export  const Desktop = ({ children }) => {
     children:isNotMobile?
     children:null
   }
+
   export default function NewReactiveType({children}){
       return(<div>
             <Desktop>{children}</Desktop>    

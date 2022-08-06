@@ -55,18 +55,19 @@ useEffect(()=>{try{
             rain(weatherState,setRainData)
         }        }
         useEffect(()=>RainAndTemp(),[weatherState])
+       
     return (<>{isPending?
         <>
         <h1>loading.....</h1>
         </>
         :pageLoading?
         <>
-        <h1>오늘의 날씨</h1>
+        <h1>오늘의 날씨</h1> 
         </>:
         <> 
-        <h1>Today weathers</h1>
+        <h1>오늘의 날씨</h1>
         <NowWeather latitude={latitude} longitude = {longitude}/>
-
+            
             {weatherState.map((R)=>{
             return<WeatherDisplay 
             key={R.dt} 

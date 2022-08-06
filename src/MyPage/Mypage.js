@@ -15,7 +15,7 @@ return(
     alert("로그아웃 되었습니다. 메인 화면으로 이동합니다.")
     sessionStorage.clear()
     navi(`/`)
-    }}>로그아웃</span>
+    }}>로그아웃</span> 
 </>
 :
 <>

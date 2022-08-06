@@ -1,7 +1,6 @@
 import axios from "axios";
 import React,{ useEffect, useState,useTransition, useDeferredValue } from "react";
-const NowWeather = (props) => {
-    const  {latitude,longitude} = props
+const NowWeather = ({latitude,longitude}) => {
     const [weatherTemp,setWeatherTemp]=useState({}) 
     const [realWeather,setRealWeather]=useState([])
    const [isPending,startTransition] = useTransition()

@@ -5,7 +5,7 @@ const userClothing = {spring:[],summer:[],fall:[],winter:[],style:[]}
 return(<>
 <h3 style={{"margin":"0px"}}>{rest[0]}</h3>
 {rest[1].map((clothing)=>{
-return (<>{clothing}<input type ="checkbox" 
+return (<>{clothing}<input type ="checkbox" key = {Date.now()}
 value = {rest[0]+"/"+`${clothing}`} onClick ={(e)=>
   {if(e.target.checked===true){
    rest[2].push(e.target.value)  
@@ -25,7 +25,9 @@ const Myadress = () => {
     <h3>자신의옷 등록하기</h3>
 <h5>마이페이지&gt;자신의옷 등록하기</h5>
 <form onSubmit = {e=>e.preventDefault()}>
+  <div style = {{"backgroundColor":"orange"}}>
 {userSeasonStyle("봄",spring,userClothing.spring)}
+</div>
 {userSeasonStyle("여름",summer,userClothing.summer)}
 {userSeasonStyle("가을",fall,userClothing.fall)}
 {userSeasonStyle("겨울",winter,userClothing.winter)}
