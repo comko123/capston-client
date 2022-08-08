@@ -5,7 +5,7 @@ import WeatherComponents from "./Weather/WeatherComponents";
 const LogoWithMainPage =()=>{
     const [logo,setLogo] = useState(true)
     const input = () =>{
-        if(sessionStorage.getItem("logo") === null){
+        if(!!sessionStorage.getItem("logo")){
             setTimeout(()=>{setLogo(false)},3000)
             if(logo){sessionStorage.setItem("logo","checked");}
         }
@@ -15,7 +15,7 @@ const LogoWithMainPage =()=>{
     return(
             <>
             {
-            (sessionStorage.getItem("logo") === null)?
+            (!!sessionStorage.getItem("logo") )?
             <><h1>weather coder</h1></>
             :
             <>
