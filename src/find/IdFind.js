@@ -11,9 +11,7 @@ const id_find = async() => {
     ).data.userId)
     setIdFind_State(false) }
     catch(e){alert("이메일을 잘못입력하셨거나 가입된이메일이 아닙니다.")
-        console.log(e)
-}
-    }
+        console.log(e)}}
     return(
     <>
     {IdFind_state?

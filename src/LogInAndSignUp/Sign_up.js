@@ -1,3 +1,4 @@
+/*eslint-disable*/
 import React,{ useRef,useState} from 'react';
 import {useNavigate } from "react-router-dom";
 const userObject = {id:[],email:[],password:[],password2:[],nickname:[],gender:[],age:[],height:[],weight:[]}
@@ -37,12 +38,12 @@ const signUpFunction = async(call) => {
 const userInFormationRadio = (...rest) => {
 return(<><h3 style = {{"marginBottom":"0px"}}>{rest[1]}</h3>
 {rest[0].map((childInformation,index)=>{
-return (<>{childInformation}<input key = {Date.now()} type ="radio"name={rest[1]} value = {rest[1]+":"+`${childInformation}`} onClick ={(e)=>
+return (<div key = {index}>{childInformation}<input type ="radio"name={rest[1]} value = {rest[1]+":"+`${childInformation}`} onClick ={(e)=>
   {if(e.target.checked===true){
    rest[2].push(e.target.value)  
   const inputStyle =rest[2].filter((element,index)=>rest[2].indexOf(element)===index)}
     else{const deleteStyle =rest[2].splice(rest[2].indexOf(e.target.value),1)}
-}}/> <br/></>)})}</>)
+}}/> <br/></div>)})}</>)
 }
 const userInFormationInput = (type,plho,ref,array) => {
   return(

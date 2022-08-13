@@ -1,3 +1,4 @@
+/*eslint-disable*/
 import axios from "axios";
 import NowWeather from "./NowWeather";
 import WeatherDisplay from "./WeatherDisplay";

@@ -1,3 +1,4 @@
+/*eslint-disable*/
 import axios from "axios";
 import React,{ useEffect, useState,useTransition, useDeferredValue } from "react";
 const NowWeather = ({latitude,longitude}) => {
