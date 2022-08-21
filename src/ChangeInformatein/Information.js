@@ -1,12 +1,13 @@
 /*eslint-disable*/
 import React,{useState} from "react";
 import MenuBar from "../Bar/MenuBar";
-const userClothing = {spring:[],summer:[],fall:[],winter:[],style:[]}
+const userClothing = {springObj:{spring:[]},summerObj:{summer:[]},
+fallObj:{fall:[]},winterObj:{winter:[]},styleObj:{style:[]}}
  const userSeasonStyle = (...rest) =>{
 return(<>
 <h3>{rest[0]}</h3>
 <form onSubmit = {e=>e.preventDefault()}>
-<input type="button" value = "제출" onClick={()=>console.log(rest[2])}/><br/>
+<input type="button" value = "제출" onClick={()=>console.log(rest[3])}/><br/>
 {rest[1].map((clothing,index)=>{
 return (<div key = {index}>{clothing}<input type ="checkbox" value = {rest[0]+"/"+`${clothing}`} onClick ={(e)=>
   {if(e.target.checked===true){
@@ -22,11 +23,11 @@ export default function  Information() {
   const [style] =useState(["빈티지","댄디","캐주얼","놈코어","스트릿"])
   return (<><h3>내정보 수정하기</h3>
 <h5>마이페이지&gt;내정보 수정하기</h5>
-{userSeasonStyle("봄",spring,userClothing.spring)}
-{userSeasonStyle("여름",summer,userClothing.summer)}
-{userSeasonStyle("가을",fall,userClothing.fall)}
-{userSeasonStyle("겨울",winter,userClothing.winter)}
-{userSeasonStyle("스타일",style,userClothing.style)}
+{userSeasonStyle("봄" , spring , userClothing.springObj.spring , userClothing.springObj)}
+{userSeasonStyle("여름" , summer , userClothing.summerObj.summer , userClothing.summerObj)}
+{userSeasonStyle("가을" , fall,userClothing.fallObj.fall , userClothing.fallObj)}
+{userSeasonStyle("겨울" , winter , userClothing.winterObj.winter , userClothing.winterObj)}
+{userSeasonStyle("스타일" , style , userClothing.styleObj.style , userClothing.styleObj)}
 <br/>
 <form onSubmit = {e=>e.preventDefault()}>
 <h3>비밀번호 변경</h3>
