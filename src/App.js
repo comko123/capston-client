@@ -34,4 +34,4 @@ return(
 <Route path="/weather_coder/UserInformation/:id" element={!!login?<Information/>:<Login_page/>}/>
 <Route path="/weather_code/Recommendation/Information" element={!!login?<InfoToMyInfo/>:<Login_page/>}/>
 <Route path="/weather_code/Recommendation/Clothing" element={!!login?<InfoToMyClothing/>:<Login_page/>}/>
-</Routes>);}
+</Routes>)}
