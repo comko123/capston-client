@@ -1,17 +1,20 @@
-import axios from "axios";
-import { useState,useRef} from "react";
-export default function IdFind(){
-let [IdFind_state,setIdFind_State]=useState(true);
-const [id_value,setId_value] = useState("");
-const find_id_email=useRef();
-const id_find = async() => {
+import axios from "axios"
+import { useState,useRef} from "react"
+
+const id_find = async(setIdFind_State,setId_value,find_id_email) => {
     const data = find_id_email.current.value
     try{
-    setId_value((await axios.post(`/login/${data}`,{email:data})
+    setId_value(await(await axios.post(`/login/${data}`,{email:data})
     ).data.userId)
     setIdFind_State(false) }
     catch(e){alert("이메일을 잘못입력하셨거나 가입된이메일이 아닙니다.")
         console.log(e)}}
+
+export default function IdFind(){
+const [IdFind_state,setIdFind_State]=useState(true)
+const [id_value,setId_value] = useState("")
+const find_id_email=useRef()
+
     return(
     <>
     {IdFind_state?
@@ -19,7 +22,7 @@ const id_find = async() => {
     <h1>ID 찾기</h1>
     <input type="text" placeholder="EMAIL" ref={find_id_email}/>
     <br/> <br/>
-    <button onClick={id_find}>다음</button>
+    <button onClick={()=>id_find(setIdFind_State,setId_value,find_id_email)}>다음</button>
     </>
     :
     <>

@@ -3,17 +3,15 @@ import React,{useState,useEffect} from "react";
 const myPageLoginState = sessionStorage.getItem("login_information")
 const Mypage = () =>{
         const [data,setData] = useState({})
-const load = () =>{setData(JSON.parse(myPageLoginState))}
-useEffect(()=>{load()},[])
-const navi = useNavigate()
+        const navi = useNavigate()
+useEffect(()=>{setData(JSON.parse(myPageLoginState))},[])
 return(
 <>
 {myPageLoginState?
 <><span onClick={()=>{
-    alert("로그아웃 되었습니다. 메인 화면으로 이동합니다.")
+    alert("로그아웃 되었습니다.")
     sessionStorage.clear()
-    navi(`/`)
-    }}>로그아웃</span> </>:
+    navi(0)}}>로그아웃</span> </>:
 <>
 <span><Link to ={`/weather_coder/login`}>로그인</Link></span>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;

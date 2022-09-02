@@ -1,17 +1,18 @@
-/*eslint-disable*/
+
 import React,{useState} from "react";
 import MenuBar from "../Bar/MenuBar";
 const userClothing = {spring:[],summer:[],fall:[],winter:[],style:[]}
+const tik = "/"
  const userSeasonStyle = (...rest) =>{
 return(<>
 <h3 style={{"margin":"0px"}}>{rest[0]}</h3>
 {rest[1].map((clothing,index)=>{
 return (<div key = {index}>{clothing}<input type ="checkbox" 
-value = {rest[0]+"/"+`${clothing}`} onClick ={(e)=>
+value = {rest[0]+tik+`${clothing}`} onClick ={(e)=>
   {if(e.target.checked===true){
    rest[2].push(e.target.value)  
-  const inputStyle =rest[2].filter((element,index)=>rest[2].indexOf(element)===index)}
-    else{const deleteStyle =rest[2].splice(rest[2].indexOf(e.target.value),1)}
+  rest[2].filter((element,index)=>rest[2].indexOf(element)===index)}
+    else{rest[2].splice(rest[2].indexOf(e.target.value),1)}
 }}/> <br/></div>)})}</>)}
 const MyClothing = () => {
   const [spring] = useState(["청바지","맨투맨","셔츠/블라우스","후드티","가디건"])

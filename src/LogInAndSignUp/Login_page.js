@@ -19,8 +19,8 @@ const test = async(...rest) => {
 }
 const Login_page = () => {
   const trans = useNavigate()
-  const input_id=useRef();
-    const input_pw=useRef();
+  const input_id=useRef()
+    const input_pw=useRef()
 return (<>
     <h1> Log-in </h1>
             <form onSubmit={e=>e.preventDefault()}>

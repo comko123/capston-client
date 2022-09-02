@@ -1,6 +1,6 @@
 /*eslint-disable*/
-import React,{ useRef,useState} from 'react';
-import {useNavigate } from "react-router-dom";
+import React,{ useRef,useState} from 'react'
+import {useNavigate } from "react-router-dom"
 const userObject = {id:[],email:[],password:[],password2:[],nickname:[],gender:[],age:[],height:[],weight:[]}
 const current_date = new Date()
 const join_month = current_date.getMonth()+1
@@ -31,8 +31,10 @@ const signUpFunction = async(call) => {
   })
   if(sign.ok){alert("Completed for Sign Up :) ")
   call('/')
-}}
+ }
+}
   catch(e){console.log(e); alert("Fail To Sign Up :(")}
+// console.log(userData)
 }
 
 const userInFormationRadio = (...rest) => {
@@ -41,8 +43,8 @@ return(<><h3 style = {{"marginBottom":"0px"}}>{rest[1]}</h3>
 return (<div key = {index}>{childInformation}<input type ="radio"name={rest[1]} value = {rest[1]+":"+`${childInformation}`} onClick ={(e)=>
   {if(e.target.checked===true){
    rest[2].push(e.target.value)  
-  const inputStyle =rest[2].filter((element,index)=>rest[2].indexOf(element)===index)}
-    else{const deleteStyle =rest[2].splice(rest[2].indexOf(e.target.value),1)}
+  rest[2].filter((element,index)=>rest[2].indexOf(element)===index)}
+    else{rest[2].splice(rest[2].indexOf(e.target.value),1)}
 }}/> <br/></div>)})}</>)
 }
 const userInFormationInput = (type,plho,ref,array) => {
@@ -75,7 +77,7 @@ return(<>
       <br/>
       <input type="button" value="가입"onClick={()=>signUpFunction(trans)}/>   
       <br/>
-      <input type="button" value="홈페이지"onClick={()=>{trans('/')}}/>
+      <input type="button" value="홈페이지"onClick={()=>trans('/')}/>
       </form>
-  </>);
+  </>)
 }
