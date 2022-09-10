@@ -20,4 +20,4 @@ const LogoWithMainPage =()=>{
     <WeatherComponents/> 
     <br/><MenuBar/></>}</>)
 }
-export default LogoWithMainPage;
+export default LogoWithMainPage
