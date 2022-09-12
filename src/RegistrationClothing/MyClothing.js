@@ -19,11 +19,12 @@ const MyClothing = () => {
 <h5>마이페이지&gt;자신의옷 등록하기</h5>
 <form onSubmit = {e=>e.preventDefault()}>
     {userIn.map((item,index)=>{return <div style ={{margin:"20px"}} key={index}>{
-    userSeasonStyle(userIn[index],infoUser[item],userClothingRegistration[userSave[index]])}</div>})}
+    userSeasonStyle(userIn[index],infoUser[item],userClothingRegistration[userSave[index]])}
+    </div>})}
 <input type="button" value = "click" onClick={()=>console.log(userClothingRegistration)}/> 
   </form>
     </>
-  );
+  )
 }
 
 export default MyClothing;
