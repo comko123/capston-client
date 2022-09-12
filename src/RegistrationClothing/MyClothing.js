@@ -21,7 +21,7 @@ const MyClothing = () => {
     {userIn.map((item,index)=>{return <div style ={{margin:"20px"}} key={index}>{
     userSeasonStyle(userIn[index],infoUser[item],userClothingRegistration[userSave[index]])}
     </div>})}
-<input type="button" value = "click" onClick={()=>console.log(userClothingRegistration)}/> 
+<input type="submit" value = "click" onClick={()=>console.log(userClothingRegistration)}/> 
   </form>
     </>
   )

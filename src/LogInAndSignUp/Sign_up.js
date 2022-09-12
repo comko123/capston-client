@@ -13,7 +13,7 @@ try{const sign = await fetch(`/join`, {
 if(sign.ok){alert("Completed for Sign Up :) ")
 call('/')}}
 catch(e){console.log(e); alert("Fail To Sign Up :(")}
-// console.log(userInfo)
+//  console.log(userInfo)
 }
 
 const userInFormationRadio = (...rest) => {
@@ -43,7 +43,7 @@ return(<>
   {userSetting.map((item,index)=>userInFormationInput(inputTypeAndPalcehorder[userSetting[index]][0],item,userClientInput[item],index))}
   {basicSetting.map((item,index)=>userInFormationRadio(selectUserData[item],item,userSelect[item],index))}
   <br/>
- <input type="button" value="가입"onClick={()=>signUpFunction(trans)}/>   
+ <input type="submit" value="가입"onClick={()=>signUpFunction(trans)}/>   
   <br/> <br/>
  <input type="button" value="홈페이지"onClick={()=>trans('/')}/>  
   </form></>)}

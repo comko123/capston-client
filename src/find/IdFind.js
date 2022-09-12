@@ -20,9 +20,11 @@ const find_id_email=useRef()
     {IdFind_state?
     <>
     <h1>ID 찾기</h1>
+    <>
     <input type="text" placeholder="EMAIL" ref={find_id_email}/>
     <br/> <br/>
-    <button onClick={()=>id_find(setIdFind_State,setId_value,find_id_email)}>다음</button>
+    <input type="submit" value="다음"  onClick={()=>id_find(setIdFind_State,setId_value,find_id_email)}/>
+    </>
     </>
     :
     <>

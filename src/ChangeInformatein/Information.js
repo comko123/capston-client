@@ -5,7 +5,7 @@ import MenuBar from "../Bar/MenuBar";
 return(<>
 <h3>{rest[0]}</h3>
 <form onSubmit = {e=>e.preventDefault()}>
-<input type="button" value = "제출" onClick={()=>console.log(rest[3])}/><br/>
+<input type="submit" value = "제출" onClick={()=>console.log(rest[3])}/><br/>
 {rest[1].map((clothing,index)=>{
 return (<div key = {index}>{clothing}<input type ="checkbox" value = {rest[0]+sla+`${clothing}`} onClick ={(e)=>
   {if(e.target.checked===true){
@@ -33,7 +33,7 @@ export default function  Information() {
 새로운 비밀번호 <input type="password"/><br/>
 확인
 <br/>
-<input type = "button" value = "비밀번호 수정"/>
+<input type = "submit" value = "비밀번호 수정"/>
 <br/>
 </form>
 <MenuBar/>
