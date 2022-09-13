@@ -1,17 +1,16 @@
 /*eslint-disable*/
-import IdFind from "./Find/IdFind";
-import ErrorPages from "./ErrorPages";
-import Mypage from "./MyPage/Mypage";
-import Board from "./BarPages/Board";
-import Sign_up from "./LogInAndSignUp/Sign_up";
-import { Routes, Route } from "react-router-dom";
-import LogoWithMainPage from "./LogoWithMainPage";
-import InfoToMyInfo from "./BarPages/InfoToMyInfo";
-import Login_page from "./LogInAndSignUp/Login_page";
-import InfoToWeather from "./BarPages/InfoToWeather";
-import Information from "./ChangeInformatein/Information";
-import MyClothing from "./RegistrationClothing/MyClothing";
-import InfoToMyClothing from "./BarPages/InfoToMyClothing";
+import IdFind from "./Find/IdFind"
+import Mypage from "./MyPage/Mypage"
+import Board from "./BarPages/Board"
+import Sign_up from "./LogInAndSignUp/Sign_up"
+import { Routes, Route } from "react-router-dom"
+import LogoWithMainPage from "./LogoWithMainPage"
+import InfoToMyInfo from "./BarPages/InfoToMyInfo"
+import Login_page from "./LogInAndSignUp/Login_page"
+import InfoToWeather from "./BarPages/InfoToWeather"
+import Information from "./ChangeInformatein/Information"
+import MyClothing from "./RegistrationClothing/MyClothing"
+import InfoToMyClothing from "./BarPages/InfoToMyClothing"
 
 const loginState = () => {
     const gett = sessionStorage.getItem("login_information")
@@ -22,9 +21,9 @@ export default function App  (){
 const login = loginState()
 return(
 <Routes>
-<Route path="*" element = {<ErrorPages/>}/>
 <Route path="/" element={<LogoWithMainPage/>}/>
 <Route path="/weather_code/Board" element={<Board/>}/>
+<Route path="*" element = {<h1>404 ERROR :&#41;</h1>}/>
 <Route path="/weather_coder/My_page" element={<Mypage/>}/>
 <Route path="/weather_code/Recommendation/weather" element={<InfoToWeather/>}/>
 <Route path="/weather_coder/Id_find" element={!!login?<LogoWithMainPage/>:<IdFind/>}/>
