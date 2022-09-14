@@ -1,6 +1,5 @@
-
-import axios from "axios";
-import React,{ useEffect, useState} from "react";
+import axios from "axios"
+import React,{ useEffect, useState} from "react"
 const NowWeather = ({latitude,longitude}) => {
     const [weatherTemp,setWeatherTemp]=useState({}) 
     const [realWeather,setRealWeather]=useState([])
