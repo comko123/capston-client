@@ -21,7 +21,7 @@ const find_id_email=useRef()
     <>
     <h1>ID 찾기</h1>
     <>
-    <input type="text" placeholder="EMAIL" ref={find_id_email}/>
+    <input type="text" placeholder="E-mail" ref={find_id_email}/>
     <br/> <br/>
     <input type="submit" value="다음"  onClick={()=>id_find(setIdFind_State,setId_value,find_id_email)}/>
     </>

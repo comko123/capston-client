@@ -42,7 +42,7 @@ const TodayWeather = ({latitude,longitude}) =>{
         try{
             startTransition(
              async() => {if(!!latitude&&!!longitude){
-            setWeatherObject(
+                setWeatherObject(
                 await(
                     await axios(`https://api.openweathermap.org/data/2.5/onecall?lat=${latitude}&lon=${longitude}&appid=87c2a0db9525243baf59b3218bb1b0de&units=metric`)
             ).data.hourly)  

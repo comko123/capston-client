@@ -21,16 +21,16 @@ export default function App  (){
 const login = loginState()
 return(
 <Routes>
+<Route path="/Board" element={<Board/>}/>
+<Route path="/My_page" element={<Mypage/>}/>
 <Route path="/" element={<LogoWithMainPage/>}/>
-<Route path="/weather_code/Board" element={<Board/>}/>
 <Route path="*" element = {<h1>404 ERROR :&#41;</h1>}/>
-<Route path="/weather_coder/My_page" element={<Mypage/>}/>
-<Route path="/weather_code/Recommendation/weather" element={<InfoToWeather/>}/>
-<Route path="/weather_coder/Id_find" element={!!login?<LogoWithMainPage/>:<IdFind/>}/>
-<Route path="/weather_coder/Sign_up" element={!!login?<LogoWithMainPage/>:<Sign_up/>}/>
-<Route path="/weather_coder/Login" element={!!login?<LogoWithMainPage/>:<Login_page/>}/>
-<Route path="/weather_coder/Input_clothing" element={!!login?<MyClothing/>:<Login_page/>}/>
-<Route path="/weather_coder/UserInformation/:id" element={!!login?<Information/>:<Login_page/>}/>
-<Route path="/weather_code/Recommendation/Information" element={!!login?<InfoToMyInfo/>:<Login_page/>}/>
-<Route path="/weather_code/Recommendation/Clothing" element={!!login?<InfoToMyClothing/>:<Login_page/>}/>
+<Route path="/Recommendation/weather" element={<InfoToWeather/>}/>
+<Route path="/Id_find" element={!!login?<LogoWithMainPage/>:<IdFind/>}/>
+<Route path="/Sign_up" element={!!login?<LogoWithMainPage/>:<Sign_up/>}/>
+<Route path="/Login" element={!!login?<LogoWithMainPage/>:<Login_page/>}/>
+<Route path="/Input_clothing" element={!!login?<MyClothing/>:<Login_page/>}/>
+<Route path="/UserInformation/:id" element={!!login?<Information/>:<Login_page/>}/>
+<Route path="/Recommendation/Information" element={!!login?<InfoToMyInfo/>:<Login_page/>}/>
+<Route path="/Recommendation/Clothing" element={!!login?<InfoToMyClothing/>:<Login_page/>}/>
 </Routes>)}

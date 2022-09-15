@@ -29,7 +29,7 @@ return (<>
               <input type="submit" className ="in" value="LOGIN" 
               onClick={()=>test(input_id.current.value,input_pw.current.value,trans)}/><br/><br/>
             </form>  
-            <Link to={'/weather_coder/Id_find'}>아이디</Link> 찾기
+            <Link to={'/Id_find'}>아이디</Link> 찾기
 </>);
 }
 export default Login_page;
