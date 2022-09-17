@@ -1,4 +1,4 @@
-import MenuBar from "../Bar/MenuBar";
+import MenuBar from "../Bar/MenuBar"
 const InfoToWeather = () => {
 
         return(
