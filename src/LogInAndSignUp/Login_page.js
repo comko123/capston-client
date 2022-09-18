@@ -1,5 +1,5 @@
-import React,{useRef} from "react";
-import { Link,useNavigate } from "react-router-dom";
+import React,{useRef} from "react"
+import { Link,useNavigate } from "react-router-dom"
 const test = async(...rest) => {
    const data = {userId:rest[0],password:rest[1]}
  try{

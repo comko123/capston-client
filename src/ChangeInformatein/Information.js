@@ -1,5 +1,5 @@
 import {userClothingModify,infoUser} from "../data"
-import MenuBar from "../Bar/MenuBar";
+import MenuBar from "../Bar/MenuBar"
  const userSeasonStyle = (...rest) =>{
     const sla = "/"
 return(<>
