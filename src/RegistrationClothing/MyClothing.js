@@ -2,7 +2,7 @@ import {infoUser,userClothingRegistration} from "../data"
 const slash = "/"
 const userSeasonStyle = (...rest) =>{
 return(<>
-<h3 style={{"margin":"0px"}}>{rest[0]}</h3>
+<h3 style={{margin:"0px"}}>{rest[0]}</h3>
 {rest[1].map((clothing,index)=>{
 return (<div key = {index}>{clothing}<input type ="checkbox" 
 value = {rest[0]+slash+`${clothing}`} onClick ={e=>
@@ -27,7 +27,7 @@ const MyClothing = () => {
   )
 }
 
-export default MyClothing;
+export default MyClothing
 
 
 

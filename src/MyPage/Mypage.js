@@ -30,4 +30,4 @@ return(
 )
 
 }
-export default Mypage;
+export default Mypage

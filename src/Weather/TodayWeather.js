@@ -72,4 +72,4 @@ const TodayWeather = ({latitude,longitude}) =>{
            <WeatherAlgorithm Htemp = {highTemp} Mtemp={lowTemp} outp = {outerClothing} rain={rainData}/>
         </>}  
         </>)}
-        export default React.memo(TodayWeather);
+        export default React.memo(TodayWeather)

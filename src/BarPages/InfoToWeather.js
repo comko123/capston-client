@@ -25,4 +25,4 @@ const InfoToWeather = () => {
         )
 
 }
-export default InfoToWeather;
+export default InfoToWeather

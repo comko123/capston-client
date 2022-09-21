@@ -12,4 +12,4 @@ const board = () =>{
         </>)
 
 }
-export default board;
+export default board

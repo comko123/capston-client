@@ -9,4 +9,4 @@ useEffect(()=>{
     sessionStorage.setItem("rain",rain)
     return <></>
 }
-export default WeatherAlgorithm;
+export default WeatherAlgorithm

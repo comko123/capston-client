@@ -22,4 +22,4 @@ return(
     </>
 )
 }
-export default React.memo(NowWeather);
+export default React.memo(NowWeather)

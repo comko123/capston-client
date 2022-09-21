@@ -11,4 +11,4 @@ const InfoToMyClothing = () =>{
     </>)
 
 }
-export default InfoToMyClothing;
+export default InfoToMyClothing

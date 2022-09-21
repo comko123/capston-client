@@ -13,4 +13,4 @@ return(<>
 </>)
 
 }
-export default InfoToMyInfo;
+export default InfoToMyInfo

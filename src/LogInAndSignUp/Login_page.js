@@ -9,8 +9,8 @@ const test = async(...rest) => {
      headers : {"Content-Type" : "application/json"}
      }))).json()
         if(result.status==="Y"){
-          sessionStorage.setItem("login_information",JSON.stringify(result));
-           alert("sucess for login");
+          sessionStorage.setItem("login_information",JSON.stringify(result))
+           alert("sucess for login")
            rest[2](-1)
           }
         }
@@ -30,6 +30,6 @@ return (<>
               onClick={()=>test(input_id.current.value,input_pw.current.value,trans)}/><br/><br/>
             </form>  
             <Link to={'/Id_find'}>아이디</Link> 찾기
-</>);
+</>)
 }
-export default Login_page;
+export default Login_page

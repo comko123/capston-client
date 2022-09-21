@@ -19,8 +19,7 @@ const loginState = () => {
 
 export default function App  (){
 const login = loginState()
-return(
-<Routes>
+return(<Routes>
 <Route path="/Board" element={<Board/>}/>
 <Route path="/My_page" element={<Mypage/>}/>
 <Route path="/" element={<LogoWithMainPage/>}/>
