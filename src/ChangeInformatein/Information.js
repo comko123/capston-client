@@ -1,5 +1,6 @@
 import {userClothingModify,infoUser} from "../data"
 import MenuBar from "../Bar/MenuBar"
+
  const userSeasonStyle = (...rest) =>{
     const sla = "/"
 return(<>
@@ -13,6 +14,7 @@ return (<div key = {index}>{clothing}<input type ="checkbox" value = {rest[0]+sl
   rest[2].filter((element,index)=>rest[2].indexOf(element)===index)}
     else{rest[2].splice(rest[2].indexOf(e.target.value),1)}
 }}/> <br/></div>)})}</form></>)}
+
 export default function  Information() {
     const userMof = Object.keys(userClothingModify) 
     const userInfo = Object.keys(infoUser)
