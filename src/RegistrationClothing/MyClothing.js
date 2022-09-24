@@ -18,7 +18,7 @@ const MyClothing = () => {
     <><h3>자신의옷 등록하기</h3>
 <h5>마이페이지&gt;자신의옷 등록하기</h5>
 <form onSubmit = {e=>e.preventDefault()}>
-    {userIn.map((item,index)=>{return <div style ={{margin:"20px"}} key={index}>{
+    {userIn.map((item,index)=>{return <div key={index}>{
     userSeasonStyle(userIn[index],infoUser[item],userClothingRegistration[userSave[index]])}
     </div>})}
 <input type="submit" value = "click" onClick={()=>console.log(userClothingRegistration)}/> 

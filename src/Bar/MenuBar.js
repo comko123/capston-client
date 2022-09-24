@@ -19,4 +19,4 @@ const navigate = useNavigate()
             <h3 onClick={()=>navigate(`/Board`)}> 게시판 </h3>
     </>)
 }
-export default React.memo(MenuBar);
+export default React.memo(MenuBar)
