@@ -2,8 +2,8 @@ import { Link,useNavigate } from "react-router-dom"
 import React,{useState,useEffect} from "react"
 const myPageLoginState = sessionStorage.getItem("login_information")
 const Mypage = () =>{
-        const [data,setData] = useState({})
-        const navi = useNavigate()
+const [data,setData] = useState({})
+const navi = useNavigate()
 useEffect(()=>{setData(JSON.parse(myPageLoginState))},[])
 return(
 <>
@@ -14,7 +14,6 @@ return(
     navi(0)}}>로그아웃</span> </>:
 <>
 <span><Link to ={`/Login`}>로그인</Link></span>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 <span><Link to = {`/Sign_up`}>회원가입</Link></span>
 </>}
 <h1>정보</h1>

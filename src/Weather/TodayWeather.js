@@ -15,8 +15,7 @@ const value = new Date(R.dt*1000);
   const colddata = Math.min.apply(null,data)
   rest[1](hotdata)
   rest[2](colddata)
-  rest[3](false);
-(colddata<=12||hotdata>=23)?rest[4](true):rest[4](false)}
+  rest[3](false)}
 
 const rain = (...rest) => {
     const dateValue = new Date()
@@ -35,7 +34,6 @@ const TodayWeather = ({latitude,longitude}) =>{
     const [lowTemp,setLowTemp] = useState(0) 
     const [highTemp,setHighTemp] = useState(0) 
     const [pageLoading,setPageLoading] = useState(true)
-    const [outerClothing,setOuterClothing] = useState(false)
     const [isPending,startTransition] = useTransition()
 
      useMemo(()=>{
@@ -52,7 +50,7 @@ const TodayWeather = ({latitude,longitude}) =>{
 
     useEffect(()=>{
         if(!!weatherObject.length){
-            temp(weatherObject,setHighTemp,setLowTemp,setPageLoading,setOuterClothing)
+            temp(weatherObject,setHighTemp,setLowTemp,setPageLoading)
             rain(weatherObject,setRainData)}},[weatherObject]) 
 
     return (<>{isPending?
@@ -69,7 +67,7 @@ const TodayWeather = ({latitude,longitude}) =>{
             
             {weatherObject.map((item)=>{
             return<WeatherDisplay key={item.dt} {...item} />})}
-           <WeatherAlgorithm Htemp = {highTemp} Mtemp={lowTemp} outp = {outerClothing} rain={rainData}/>
+           <WeatherAlgorithm htemp = {highTemp} ltemp={lowTemp} rain={rainData}/>
         </>}  
         </>)}
         export default React.memo(TodayWeather)

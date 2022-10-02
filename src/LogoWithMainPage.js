@@ -14,7 +14,6 @@ const LogoWithMainPage =()=>{
     <>
     {logo?<><h1>weather coder</h1></>:<>
     <span>weather coder logo</span>
-    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
     <span><Link to = {`/My_page`}>마이 페이지</Link></span>
     <br/>
     <WeatherComponents/> 
