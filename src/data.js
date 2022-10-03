@@ -62,3 +62,4 @@ export const userSelect = {성별:[],연령:[],신장:[],체중:[]}
 export const userClientInput = {id:[],email:[],password:[],password2:[],nickname:[]}
 export const wheather = JSON.parse(sessionStorage.getItem("wheatherInfo"))
 export const userLoginInfo = JSON.parse(sessionStorage.getItem("login_information"))
+export const imgListToSever = JSON.parse(sessionStorage.getItem("imgList"))

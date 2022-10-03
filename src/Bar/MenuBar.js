@@ -10,7 +10,7 @@ const parm = (para,navigate) =>(sessionStorage.getItem("login_information"))?
 const MenuBar = () => {
 const navigate = useNavigate()
     return(<>
-            <h3 onClick={()=>navigate(`/Recommendation/weather`)}> 날씨 정보로 추천받기 </h3>
+            <h3 onClick={()=>window.location.replace(`/Recommendation/weather`)}> 날씨 정보로 추천받기 </h3>
             
             <h3 onClick={() => parm("Information",navigate)}> 내 정보로 추천받기 </h3>
 
