@@ -55,7 +55,6 @@ export class infotomyinfo{
     this.gender=rest[2]
   }
 }
-
 export const userClothingRegistration = {spring:[],summer:[],fall:[],winter:[],style:[]}
 export const userClothingModify = {springObj:{spring:[]},summerObj:{summer:[]},fallObj:{fall:[]},winterObj:{winter:[]},styleObj:{style:[]}}
 export const userSelect = {성별:[],연령:[],신장:[],체중:[]}
@@ -63,3 +62,9 @@ export const userClientInput = {id:[],email:[],password:[],password2:[],nickname
 export const wheather = JSON.parse(sessionStorage.getItem("wheatherInfo"))
 export const userLoginInfo = JSON.parse(sessionStorage.getItem("login_information"))
 export const imgListToSever = JSON.parse(sessionStorage.getItem("imgList"))
+export const no1Data = {
+  login_information:userLoginInfo?.gender,
+  imgList:imgListToSever,
+  img_list:false,
+  gender:sessionStorage.getItem("gender")
+}
