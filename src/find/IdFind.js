@@ -23,7 +23,7 @@ const find_id_email=useRef()
     <>
     <input type="text" placeholder="E-mail" ref={find_id_email}/>
     <br/> <br/>
-    <input type="submit" value="다음"  onClick={()=>id_find(setIdFind_State,setId_value,find_id_email)}/>
+    <input type="submit" value="다음" onClick={()=>id_find(setIdFind_State,setId_value,find_id_email)}/>
     </>
     </>
     :

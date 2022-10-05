@@ -54,7 +54,7 @@ return(
                 <>
                 <h4>성별</h4>
                 <form onSubmit={e=>e.preventDefault()}>   
-                <input type = "radio" name = "gender" value = "여성" onClick={(e)=>setting(e.target.value,setGender)} />여성<br/>
+                <input type = "radio" name = "gender" value = "여성"  onClick={(e)=>setting(e.target.value,setGender)} />여성<br/>
                 <input type = "radio" name = "gender" value = "남성" onClick={(e)=>setting(e.target.value,setGender)}/>남성<br/>
                 <input type="submit" value="추천 받기" onClick = {async()=>{
                         const nMember = new infotomyinfo(wheather.ltemp,wheather.htemp,gender)
