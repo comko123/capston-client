@@ -9,7 +9,7 @@ const userImg = (...rest) => {
         return(
                 <div key={rest[2]}>
                 <h4>{message[1]==="errorCode"?null:rest[1]}</h4>
-        {!!rest[0]?.clothesList?!!rest[0]?.clothesList[rest[2]]?<img src={rest[0]?.clothesList[rest[2]]} 
+         {!!rest[0]?.clothesList?!!rest[0]?.clothesList[rest[2]]?<img src={rest[0]?.clothesList[rest[2]]} 
          alt="이미지를 불러 오는데 실패 했습니다."/>:<h4>이미지가 없습니다.</h4>:
          <h4>{rest[0]?.errorMessage}</h4>}</div>     
         )
