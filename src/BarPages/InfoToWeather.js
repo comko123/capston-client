@@ -46,10 +46,9 @@ const settingFuction = [setGender,setImg,setRegis,setGender]
 useEffect(()=>{
         Object.keys(no1Data).map((item,index) =>!!sessionStorage.getItem(item)?
         settingFuction[index](no1Data[item]):null)
-        return ()=> {
         sessionStorage.removeItem("imgList")
         sessionStorage.removeItem("gender")
-        }   
+          
 },[])
 return(<>
         <h1>날씨 정보로 추천받기</h1>

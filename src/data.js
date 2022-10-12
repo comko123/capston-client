@@ -10,7 +10,8 @@ export const selectUserData = {
     연령: ["10 ~ 19세","20 ~ 29세","30 ~ 39세","40 ~ 49세","50세 이상"],
     성별:["남자","여자"],
     신장: ["156 ~ 160cm","160 ~ 165cm","165 ~ 170cm","170 ~ 175cm","175이상"],
-    체중: ["45 ~ 55kg","56 ~ 65kg","66 ~ 75kg","76 ~ 85kg","85kg 이상"]
+    체중: ["45 ~ 55kg","56 ~ 65kg","66 ~ 75kg","76 ~ 85kg","85kg 이상"],
+    스타일:["빈티지","댄디","캐주얼","놈코어","스트릿"]
   }
 
   export const inputTypeAndPalcehorder = {
@@ -44,7 +45,8 @@ export const selectUserData = {
       this.category=120
       this.dropDate=0
       this.id=null
-      this.regDate=getDate 
+      this.regDate=getDate
+      this.style=rest[9]  
     }
 }
 
@@ -55,9 +57,16 @@ export class infotomyinfo{
     this.gender=rest[2]
   }
 }
+export class infotomyinfo2{
+  constructor(...rest){
+    this.lowTemp=rest[0]
+    this.highTemp=rest[1]
+    this.email=rest[2]
+  }
+}
 export const userClothingRegistration = {spring:[],summer:[],fall:[],winter:[],style:[]}
 export const userClothingModify = {springObj:{spring:[]},summerObj:{summer:[]},fallObj:{fall:[]},winterObj:{winter:[]},styleObj:{style:[]}}
-export const userSelect = {성별:[],연령:[],신장:[],체중:[]}
+export const userSelect = {성별:[],연령:[],신장:[],체중:[],스타일:[]}
 export const userClientInput = {id:[],email:[],password:[],password2:[],nickname:[]}
 export const wheather = JSON.parse(sessionStorage.getItem("wheatherInfo"))
 export const userLoginInfo = JSON.parse(sessionStorage.getItem("login_information"))
