@@ -4,7 +4,6 @@ import MenuBar from "../Bar/MenuBar"
 import {wheather} from "../data"
 import {userLoginInfo,infotomyinfo2}from"../data"
 const InfoToMyInfo = () => {
-//https://github.com/rkdmin/SimpleFashion/blob/main/README.md
 const [pending,setPending] = useState(true)
 const [regist,setRegist] = useState({})
 return(<>
@@ -14,7 +13,7 @@ return(<>
     <input type = "submit" value = "추천 받기" onClick ={async()=>{
         try{
             const clothMember = new infotomyinfo2(wheather.ltemp,wheather.htemp,userLoginInfo.email)
-          setRegist(await(await axios.post(`https://dfa5a02905e178.lhr.life/suggest2`,clothMember)).data)
+          setRegist(await(await axios.post(`/suggest2`,clothMember)).data)
            setPending(false)
         }catch(e){console.log(e)}
     }}/>
