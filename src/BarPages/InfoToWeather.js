@@ -19,11 +19,11 @@ const showingImg = (...rest) => {
 }
 const keepRecommend = (img,gate) => {
         return(<>
-        {["최고온도","최저온도"].map((item,index)=>showingImg(img,item,index))}
+        {["최저온도","최고온도"].map((item,index)=>showingImg(img,item,index))}
         <form onSubmit={e=>e.preventDefault()}>
         <input type = "submit" value = "다른 옷 추천" onClick = {async()=>{
         const nMember = new infotomyinfo(wheather.ltemp,wheather.htemp,gender)
-        try{setImg(await(await axios.post(`/suggest1`,nMember)).data)}
+        try{setImg(await(await axios.post(`/suggest1-non-member`,nMember)).data)}
         catch(e){console.log(e)}}}/>
         {!!userLoginInfo?null:<input type = "submit" value = "초기화" onClick={()=>{
         sessionStorage.removeItem("gender")
@@ -32,10 +32,9 @@ const keepRecommend = (img,gate) => {
 }
 const settingMember = async(...rest) => {
         const member = new infotomyinfo(wheather.ltemp,wheather.htemp,rest[3])
-        rest[0](await(await axios.post(`/suggest1`,member)).data)
+        rest[0](await(await axios.post(`/suggest1-non-member`,member)).data)
         rest[1](false)    
         sessionStorage.setItem("imgList",JSON.stringify(rest[2]))
-        // console.log(member)
 }
 
 const InfoToWeather = () => {
@@ -45,9 +44,13 @@ const [regis,setRegis] = useState(true)
 const gate = useNavigate()
 const settingFuction = [setGender,setImg,setRegis,setGender]
 useEffect(()=>{
-        Object.keys(no1Data).map((item,index) =>!!sessionStorage.getItem(item)?settingFuction[index](no1Data[item]):null)
-        return()=>{sessionStorage.removeItem("imgList")
-        sessionStorage.removeItem("gender")}},[])
+        Object.keys(no1Data).map((item,index) =>!!sessionStorage.getItem(item)?
+        settingFuction[index](no1Data[item]):null)
+        return ()=> {
+        sessionStorage.removeItem("imgList")
+        sessionStorage.removeItem("gender")
+        }   
+},[])
 return(<>
         <h1>날씨 정보로 추천받기</h1>
         {wheather.rain?<h4>외출시 우산을 챙기세요</h4>:null}

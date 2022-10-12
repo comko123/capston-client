@@ -6,7 +6,6 @@ const InfoToMyClothing = () =>{
     {
               wheather.rain?
                 <h4>외출시 우산을 챙기세요</h4>:null
-
         }
     <MenuBar/>
     </>)
