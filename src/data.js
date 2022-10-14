@@ -8,12 +8,13 @@ export const infoUser = {
 
 export const selectUserData = {
     연령: ["10 ~ 19세","20 ~ 29세","30 ~ 39세","40 ~ 49세","50세 이상"],
-    성별:["남자","여자"],
+    성별:["남성","여성"],
     신장: ["156 ~ 160cm","160 ~ 165cm","165 ~ 170cm","170 ~ 175cm","175이상"],
     체중: ["45 ~ 55kg","56 ~ 65kg","66 ~ 75kg","76 ~ 85kg","85kg 이상"],
-    스타일:["빈티지","댄디","캐주얼","놈코어","스트릿"]
   }
-
+export const selectUserCheck= {
+  스타일:["빈티지","댄디","캐주얼","놈코어","스트릿"]
+}
   export const inputTypeAndPalcehorder = {
      닉네임:["text","닉네임"],
      id:["text","ID"],
@@ -46,7 +47,7 @@ export const selectUserData = {
       this.dropDate=0
       this.id=null
       this.regDate=getDate
-      this.style=rest[9]  
+      this.styleList=rest[9]  
     }
 }
 
@@ -71,6 +72,7 @@ export const userClientInput = {id:[],email:[],password:[],password2:[],nickname
 export const wheather = JSON.parse(sessionStorage.getItem("wheatherInfo"))
 export const userLoginInfo = JSON.parse(sessionStorage.getItem("login_information"))
 export const imgListToSever = JSON.parse(sessionStorage.getItem("imgList"))
+export const no2ImData = JSON.parse(sessionStorage.getItem("No2Implements"))
 export const no1Data = {
   login_information:userLoginInfo?.gender,
   imgList:imgListToSever,

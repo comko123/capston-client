@@ -14,7 +14,7 @@ const userImg = (...rest) => {
         <h4>{rest[0]?.errorMessage}</h4>}</div>)
 }
 const showingImg = (...rest) => {
-  if(!!!sessionStorage.getItem("imgList")){return userImg(rest[0],rest[1],rest[2])}
+  if(!!!sessionStorage.getItem("No1Implements")){return userImg(rest[0],rest[1],rest[2])}
  else{return userImg(rest[0],rest[1],rest[2])}
 }
 const keepRecommend = (img,gate) => {
@@ -26,15 +26,17 @@ const keepRecommend = (img,gate) => {
         try{setImg(await(await axios.post(`/suggest1-non-member`,nMember)).data)}
         catch(e){console.log(e)}}}/>
         {!!userLoginInfo?null:<input type = "submit" value = "초기화" onClick={()=>{
-        sessionStorage.removeItem("gender")
-        sessionStorage.removeItem("imgList")
+        sessionStorage.removeItem("No1Gender")
+        sessionStorage.removeItem("No1Implements")
         gate(0)}}/>}</form></>) 
 }
 const settingMember = async(...rest) => {
+        try{
         const member = new infotomyinfo(wheather.ltemp,wheather.htemp,rest[3])
         rest[0](await(await axios.post(`/suggest1-non-member`,member)).data)
         rest[1](false)    
-        sessionStorage.setItem("imgList",JSON.stringify(rest[2]))
+        sessionStorage.setItem("No1Implements",JSON.stringify(rest[2]))
+}catch(e){console.log(e)}
 }
 
 const InfoToWeather = () => {
@@ -50,7 +52,7 @@ useEffect(()=>{
 return(<>
         <h1>날씨 정보로 추천받기</h1>
         {wheather.rain?<h4>외출시 우산을 챙기세요</h4>:null}
-        {!!sessionStorage.getItem("imgList")?<>{keepRecommend(img,gate)}</>:
+        {!!sessionStorage.getItem("No1Implements")?<>{keepRecommend(img,gate)}</>:
         regis?
         sessionStorage.getItem("login_information")?
         <><form onSubmit={e=>e.preventDefault()}>
@@ -63,7 +65,7 @@ return(<>
         <form onSubmit={e=>e.preventDefault()}>   
         {["여성","남성"].map((item,index)=>{return(<div key = {index}><input type = "radio" name = "gender" value ={item} onClick={e=>setGender(e.target.value)}/>{item}<br/></div>)})}
         <input type="submit" value="추천 받기" onClick = {async()=>{
-        sessionStorage.setItem("gender",gender)
+        sessionStorage.setItem("No1Gender",gender)
         try{if(!!gender){settingMember(setImg,setRegis,img,gender)}else{alert("성별을 선택 해주세요...")}}
         catch(e){console.log(e)}}}/>
         </form></>:<>{keepRecommend(img,gate)}</>}

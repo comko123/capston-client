@@ -14,7 +14,7 @@ export default function IdFind(){
 const [IdFind_state,setIdFind_State]=useState(true)
 const [id_value,setId_value] = useState("")
 const find_id_email=useRef()
-
+//beforeunload 이벤트 추가 필요
     return(
     <>{IdFind_state?<><h1>ID 찾기</h1><>
     <input type="text" placeholder="E-mail" ref={find_id_email}/>
