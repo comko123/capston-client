@@ -1,7 +1,7 @@
 import axios from "axios"
 import { useState } from "react"
 import {useNavigate } from "react-router-dom"
-import {selectUserData,userSelect,userClientInput,inputTypeAndPalcehorder,signUpData,selectUserCheck} from '../data'
+import {signInfo,selectUserData,userSelect,userClientInput,inputTypeAndPalcehorder,signUpData,selectUserCheck} from '../data'
 
 const basicSetting = Object.keys(selectUserData)
 const userSetting = Object.keys(inputTypeAndPalcehorder)
@@ -9,13 +9,15 @@ const styleObject = Object.keys(selectUserCheck)
 const signUpFunction = async(result,setResult,navigate) => {
   const {id,password,password2,email,nickname} = userClientInput
   const {성별,연령,신장,체중,스타일} = userSelect
-const userInfo = new signUpData(id[0],password[0],password2[0],email[0],nickname[0],성별[0],연령[0],신장[0],체중[0],스타일)
+  const signIn = new signInfo(email[0],password[0],성별[0],연령[0],신장[0],체중[0],스타일)
+// const userInfo = new signUpData(id[0],password[0],password2[0],email[0],nickname[0],성별[0],연령[0],신장[0],체중[0],스타일)
 try{  
-setResult(await(await axios.post('/join',userInfo)).data)
+  console.log(await(await axios.post('https://d217a3fb64a6ba.lhr.life/join',signIn)).data)
+setResult(await(await axios.post('https://d217a3fb64a6ba.lhr.life/join',signIn)).data)
 return result&&typeof(result)==="object"?alert(result.errorMessag):typeof(result)==="string"?(alert(result),navigate(-1)):null
 }
 catch(e){console.log(e)}
-// console.log(userInfo)
+console.log(signIn)
 }
 
 const userInFormationRadio = (...rest) => {
@@ -39,7 +41,7 @@ const userInFormationCheckBox = (...rest) =>{
   <h3>{rest[0]}</h3>
   {rest[1].map((clothing,index)=>{
   return (<div key = {index}>{clothing}<input type ="checkbox" 
-  value = {rest[0]+`/${clothing}`} onClick ={e=>
+  value = {clothing} onClick ={e=>
     {if(e.target.checked===true){
      rest[2].push(e.target.value)  
     rest[2].filter((element,index)=>rest[2].indexOf(element)===index)}

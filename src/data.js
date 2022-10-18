@@ -15,13 +15,18 @@ export const selectUserData = {
 export const selectUserCheck= {
   스타일:["빈티지","댄디","캐주얼","놈코어","스트릿"]
 }
+  // export const inputTypeAndPalcehorder = {
+  //    닉네임:["text","닉네임"],
+  //    id:["text","ID"],
+  //    email:["text","E-mail"],
+  //    password:["password","비밀번호"],
+  //    password2:["password","비밀번호 확인"]
+  // }
+
   export const inputTypeAndPalcehorder = {
-     닉네임:["text","닉네임"],
-     id:["text","ID"],
-     email:["text","E-mail"],
-     password:["password","비밀번호"],
-     password2:["password","비밀번호 확인"]
-  }
+    email:["text","E-mail"],
+    password:["password","비밀번호"]
+ }
 
   const current_date = new Date()
   const join_month = current_date.getMonth()+1
@@ -63,6 +68,17 @@ export class infotomyinfo2{
     this.lowTemp=rest[0]
     this.highTemp=rest[1]
     this.email=rest[2]
+  }
+}
+export class signInfo {
+  constructor(...rest){
+this.email = rest[0]
+this.password = rest[1]
+this.gender = rest[2]
+this.age = rest[3]
+this.height = rest[4]
+this.weight = rest[5]
+this.styleList = rest[6]
   }
 }
 export const userClothingRegistration = {spring:[],summer:[],fall:[],winter:[],style:[]}
