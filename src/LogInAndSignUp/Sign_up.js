@@ -1,19 +1,17 @@
 import axios from "axios"
 import { useState } from "react"
 import {useNavigate } from "react-router-dom"
-import {signInfo,selectUserData,userSelect,userClientInput,inputTypeAndPalcehorder,signUpData,selectUserCheck} from '../data'
+import {signInfo,selectUserData,userSelect,userClientInput,inputTypeAndPalcehorder,selectUserCheck} from '../data'
 
 const basicSetting = Object.keys(selectUserData)
 const userSetting = Object.keys(inputTypeAndPalcehorder)
 const styleObject = Object.keys(selectUserCheck)
 const signUpFunction = async(result,setResult,navigate) => {
-  const {id,password,password2,email,nickname} = userClientInput
+  const {password,email} = userClientInput
   const {성별,연령,신장,체중,스타일} = userSelect
   const signIn = new signInfo(email[0],password[0],성별[0],연령[0],신장[0],체중[0],스타일)
-// const userInfo = new signUpData(id[0],password[0],password2[0],email[0],nickname[0],성별[0],연령[0],신장[0],체중[0],스타일)
 try{  
-  console.log(await(await axios.post('https://d217a3fb64a6ba.lhr.life/join',signIn)).data)
-setResult(await(await axios.post('https://d217a3fb64a6ba.lhr.life/join',signIn)).data)
+setResult(await(await axios.post('/join',signIn)).data)
 return result&&typeof(result)==="object"?alert(result.errorMessag):typeof(result)==="string"?(alert(result),navigate(-1)):null
 }
 catch(e){console.log(e)}
