@@ -1,6 +1,4 @@
 import {userClothingModify,infoUser} from "../data"
-import MenuBar from "../Bar/MenuBar"
-
  const userSeasonStyle = (...rest) =>{
     const sla = "/"
 return(<>
@@ -34,9 +32,4 @@ export default function  Information() {
 <br/><br/>
 새로운 비밀번호 <input type="password"/><br/>
 확인
-<br/>
-<input type = "submit" value = "비밀번호 수정"/>
-<br/>
-</form>
-<MenuBar/>
-    </>)}
+<br/><input type = "submit" value = "비밀번호 수정"/><br/></form></>)}

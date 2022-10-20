@@ -2,7 +2,6 @@
 import axios from "axios"
 import { useEffect, useState } from "react"
 import { useNavigate } from "react-router-dom"
-import MenuBar from "../Bar/MenuBar"
 import {infotomyinfo,userLoginInfo,wheather,no1Data} from "../data"
 const userImg = (...rest) => {
         const message = Object.keys(rest[0])
@@ -68,6 +67,5 @@ return(<>
         sessionStorage.setItem("No1Gender",gender)
         try{if(!!gender){settingMember(setImg,setRegis,img,gender)}else{alert("성별을 선택 해주세요...")}}
         catch(e){console.log(e)}}}/>
-        </form></>:<>{keepRecommend(img,gate)}</>}
-        <MenuBar/></>)}
+        </form></>:<>{keepRecommend(img,gate)}</>}</>)}
 export default InfoToWeather

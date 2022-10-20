@@ -1,22 +1,23 @@
 /*eslint-disable*/
-import { Link } from "react-router-dom"
 import { useState,useEffect } from "react"
-import MenuBar from "./Bar/MenuBar"
+import { useCookies } from "react-cookie"
 import WeatherComponents from "./Weather/WeatherComponents"
+import moment from "moment/moment"
+const key = "Main Logo"
 const LogoWithMainPage =()=>{
+    const [cookie,setCookie] = useCookies([key])
     const [logo,setLogo] = useState(true)
-    useEffect(()=>{if(!!!sessionStorage.getItem("logo")){
+    const mon = moment()
+    useEffect(()=>{if(!!!cookie[key]){
     setTimeout(()=>{setLogo(false)},3000)
-    if(logo){sessionStorage.setItem("logo","checked")}
-    }
+    if(logo){
+    mon.add(2,'h')
+    setCookie(key,'true',{
+    path:'/',
+    expires:mon.toDate()})}}
     else{setLogo(false)}},[])
     return(
-    <>
-    {logo?<><h1>weather coder</h1></>:<>
-    <span>weather coder logo</span>
-    <span><Link to = {`/My_page`}>마이 페이지</Link></span>
-    <br/>
-    <WeatherComponents/> 
-    <br/><MenuBar/></>}</>)
-}
+    <>{logo?<><h1>weather coder</h1></>:<>
+    <br/><WeatherComponents/> 
+    <br/></>}</>)}
 export default LogoWithMainPage

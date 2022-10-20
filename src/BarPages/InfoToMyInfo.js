@@ -1,6 +1,5 @@
 import axios from"axios"
 import {useState}from"react"
-import MenuBar from "../Bar/MenuBar"
 import {wheather} from "../data"
 import {userLoginInfo,infotomyinfo2,no2ImData}from"../data"
 const no2ImplementsList = (img1,img2) => {
@@ -10,7 +9,6 @@ const no2ImplementsList = (img1,img2) => {
 <h3>최고 온도</h3>
 <img src={img2}alt="이미지가 없습니다..."/>
 </>}
-
 const InfoToMyInfo = () => {
 const [pending,setPending] = useState(true)
 const [regist,setRegist] = useState({})
@@ -30,7 +28,5 @@ pending?<form onSubmit={e=>e.preventDefault()}>
     }}/>
 </form>:
 Object.keys(regist).length===1?no2ImplementsList(regist?.clothesList[0],regist?.clothesList[1]):
-alert(regist.errorMessage)}
-
-<MenuBar/></>)}
+alert(regist.errorMessage)}</>)}
 export default InfoToMyInfo

@@ -11,6 +11,8 @@ import InfoToWeather from "./BarPages/InfoToWeather"
 import Information from "./ChangeInformatein/Information"
 import MyClothing from "./RegistrationClothing/MyClothing"
 import InfoToMyClothing from "./BarPages/InfoToMyClothing"
+import MenuBar from "./Bar/MenuBar"
+import Header from "./Header"
 
 const loginState = () => {
     const gett = sessionStorage.getItem("login_information")
@@ -19,7 +21,8 @@ const loginState = () => {
 
 export default function App  (){
 const login = loginState()
-return(<Routes>
+return(
+<><Header/><Routes>
 <Route path="/Board" element={<Board/>}/>
 <Route path="/My_page" element={<Mypage/>}/>
 <Route path="/" element={<LogoWithMainPage/>}/>
@@ -32,4 +35,4 @@ return(<Routes>
 <Route path="/UserInformation/:id" element={!!login?<Information/>:<Login_page/>}/>
 <Route path="/Recommendation/Information" element={!!login?<InfoToMyInfo/>:<Login_page/>}/>
 <Route path="/Recommendation/Clothing" element={!!login?<InfoToMyClothing/>:<Login_page/>}/>
-</Routes>)}
+</Routes><MenuBar/></>)}
