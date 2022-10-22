@@ -9,17 +9,12 @@ const NowWeather = ({latitude,longitude}) => {
     }catch(e){console.log(e);}
 })()},[latitude,longitude])
 return(
-    <>
-    <h1>현재</h1>
+    <><h1>현재</h1>
     <h1>습도 : {weatherTemp.humidity}</h1>
     <h1>온도 : {Math.round(weatherTemp.temp)}</h1>
     {realWeather.map(({id,main})=>{
-        return(
-        <div key={id}>
-        <h1>{main}</h1>
-        </div>)
-    })}
-    </>
-)
-}
+    return(
+    <div key={id}>
+    <h1>{main}</h1>
+    </div>)})}</>)}
 export default React.memo(NowWeather)

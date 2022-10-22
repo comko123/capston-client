@@ -1,5 +1,8 @@
 /*eslint-disable*/
+import Header from "./Header"
+import { useState } from "react"
 import IdFind from "./Find/IdFind"
+import MenuBar from "./Bar/MenuBar"
 import Mypage from "./MyPage/Mypage"
 import Board from "./BarPages/Board"
 import Sign_up from "./LogInAndSignUp/Sign_up"
@@ -11,23 +14,22 @@ import InfoToWeather from "./BarPages/InfoToWeather"
 import Information from "./ChangeInformatein/Information"
 import MyClothing from "./RegistrationClothing/MyClothing"
 import InfoToMyClothing from "./BarPages/InfoToMyClothing"
-import MenuBar from "./Bar/MenuBar"
-import Header from "./Header"
 
 const loginState = () => {
     const gett = sessionStorage.getItem("login_information")
     const user = JSON.parse(gett) 
     return user?.email}
 
-export default function App  (){
-const login = loginState()
+export default function App (){
+    const login = loginState()
+const [wait,setWait] = useState(false)
 return(
-<><Header/><Routes>
+<>{wait?null:<Header/>}<Routes>
 <Route path="/Board" element={<Board/>}/>
 <Route path="/My_page" element={<Mypage/>}/>
-<Route path="/" element={<LogoWithMainPage/>}/>
 <Route path="*" element = {<h1>404 ERROR :&#41;</h1>}/>
 <Route path="/Recommendation/weather" element={<InfoToWeather/>}/>
+<Route path="/" element={<LogoWithMainPage setwait = {setWait}/>}/>
 <Route path="/Id_find" element={!!login?<LogoWithMainPage/>:<IdFind/>}/>
 <Route path="/Sign_up" element={!!login?<LogoWithMainPage/>:<Sign_up/>}/>
 <Route path="/Login" element={!!login?<LogoWithMainPage/>:<Login_page/>}/>
@@ -35,4 +37,4 @@ return(
 <Route path="/UserInformation/:id" element={!!login?<Information/>:<Login_page/>}/>
 <Route path="/Recommendation/Information" element={!!login?<InfoToMyInfo/>:<Login_page/>}/>
 <Route path="/Recommendation/Clothing" element={!!login?<InfoToMyClothing/>:<Login_page/>}/>
-</Routes><MenuBar/></>)}
+</Routes>{wait?null:<MenuBar/>}</>)}

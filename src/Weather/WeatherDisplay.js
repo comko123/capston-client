@@ -8,8 +8,7 @@ export default function Display({humidity,temp,weather,dt}){
     ||value.getHours() ===16 
     ||value.getHours() ===20 
     ||value.getHours() ===23?
-     <>
-     <br/>
+     <><br/>
      <h1>{value.getHours()===10?
      "아침":value.getHours()===16?
      "점심":value.getHours()===20?
@@ -21,9 +20,4 @@ export default function Display({humidity,temp,weather,dt}){
      <h1 >{main}</h1>
      <h1 >{description}</h1>
      </div>)})}
-     <br/>
-     </>:null}
-   
-    </>
-    )
-}
+     <br/></>:null}</>)}

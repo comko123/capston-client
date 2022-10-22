@@ -40,11 +40,9 @@ const TodayWeather = ({latitude,longitude}) =>{
         try{
             startTransition(
              async() => {if(!!latitude&&!!longitude){
-                setWeatherObject(
-                await(
-                    await axios(`https://api.openweathermap.org/data/2.5/onecall?lat=${latitude}&lon=${longitude}&appid=87c2a0db9525243baf59b3218bb1b0de&units=metric`)
-            ).data.hourly)  
-          }}
+            setWeatherObject(
+            await(await axios(`https://api.openweathermap.org/data/2.5/onecall?lat=${latitude}&lon=${longitude}&appid=87c2a0db9525243baf59b3218bb1b0de&units=metric`)
+            ).data.hourly)}}
             )}catch(e){console.log(e)}
     },[latitude,longitude])
 
@@ -54,20 +52,11 @@ const TodayWeather = ({latitude,longitude}) =>{
             rain(weatherObject,setRainData)}},[weatherObject]) 
 
     return (<>{isPending?
-        <>
-        <h1>loading.....</h1>
-        </>
-        :pageLoading?
-        <>
-        <h1>오늘의 날씨</h1> 
-        </>:
-        <> 
+        <><h1>loading.....</h1></>:pageLoading?<>
+        <h1>오늘의 날씨</h1></>:<> 
         <h1>오늘의 날씨</h1>
         <NowWeather latitude={latitude} longitude = {longitude}/>
-            
-            {weatherObject.map((item)=>{
-            return<WeatherDisplay key={item.dt} {...item} />})}
-           <WeatherAlgorithm htemp = {highTemp} ltemp={lowTemp} rain={rainData}/>
-        </>}  
-        </>)}
+        {weatherObject.map((item)=>{
+        return<WeatherDisplay key={item.dt} {...item} />})}
+        <WeatherAlgorithm htemp = {highTemp} ltemp={lowTemp} rain={rainData}/></>}</>)}
         export default React.memo(TodayWeather)
