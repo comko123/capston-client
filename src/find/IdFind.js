@@ -17,9 +17,12 @@ const find_id_email=useRef()
 //beforeunload 이벤트 추가 필요
     return(
     <>{IdFind_state?<><h1>ID 찾기</h1><>
+    <form onSubmit={e=>{e.preventDefault()
+    id_find(setIdFind_State,setId_value,find_id_email)}}>
     <input type="text" placeholder="E-mail" ref={find_id_email}/>
     <br/> <br/>
-    <input type="submit" value="다음" onClick={()=>id_find(setIdFind_State,setId_value,find_id_email)}/>
+    <input type="submit" value="다음"/>
+    </form>
     </></>
     :
     <><h1>가입하신 아이디는 "{id_value}" 입니다.</h1>

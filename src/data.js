@@ -6,6 +6,7 @@ export const wheather = JSON.parse(sessionStorage.getItem("wheatherInfo"))
 export const userLoginInfo = JSON.parse(sessionStorage.getItem("login_information"))
 export const imgListToSever = JSON.parse(sessionStorage.getItem("imgList"))
 export const no2ImData = JSON.parse(sessionStorage.getItem("No2Implements"))
+export const no3ImData = JSON.parse(sessionStorage.getItem("No3Implements"))
 export const infoUser = {
     봄:["청바지","맨투맨","셔츠/블라우스","후드티","가디건"],
     여름:["반바지","반팔 티셔츠","셔츠/블라우스","민소매티셔츠","청바지"],

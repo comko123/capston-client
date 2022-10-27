@@ -5,9 +5,10 @@ https://github.com/rkdmin/SimpleFashion/blob/main/README.md
 
 Project-TDL  
 아이디찾기 beforeunload로직 추가필요     
-3번기능 구현필요  
+3번기능 구현필요(테스트 필요)    
 게시판 구현 필요  
 로그인 방식 수정  
+내정보로 추천받기 추가테스트 필요  
 - jwt로 변경시 매컴포넌트마다 검사하는 로직추가  
 
 해결 완료  
@@ -18,6 +19,14 @@ ui 구현 완료
 메인 페이지로 돌아가는 링크or버튼or헤더바 만들기(구현 완료)    
 main logo 세션스토리지 => 쿠키 저장(해결)    
 화원가입 에러메세지 추가(수정 완료 (테스트 필요))      
+
+컴포넌트 props   
+props.content:기능제목(ex:내 정보로 추천받기 type:string)  
+props.list:세션스토리지의 저장할 리스트 제목(ex:No2Implements type:string)  
+props.link:api주소(ex:/login type:string)  
+props.basicList:세션스토리지의 항목이있는지 검사하는 항목  
+(ex:no2ImData type:data.js파일에있는 변수(import필요))    
+
 
 
 

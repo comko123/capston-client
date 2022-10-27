@@ -19,11 +19,12 @@ const showingImg = (...rest) => {
 const keepRecommend = (img,gate) => {
         return(<>
         {["최저온도","최고온도"].map((item,index)=>showingImg(img,item,index))}
-        <form onSubmit={e=>e.preventDefault()}>
-        <input type = "submit" value = "다른 옷 추천" onClick = {async()=>{
-        const nMember = new infotomyinfo(wheather.ltemp,wheather.htemp,gender)
-        try{setImg(await(await axios.post(`/suggest1-non-member`,nMember)).data)}
-        catch(e){console.log(e)}}}/>
+        <form onSubmit={e=>{e.preventDefault()
+        async()=>{
+                const nMember = new infotomyinfo(wheather.ltemp,wheather.htemp,gender)
+                try{setImg(await(await axios.post(`/suggest1-non-member`,nMember)).data)}
+                catch(e){console.log(e)}}}}>
+        <input type = "submit" value = "다른 옷 추천"/>
         {!!userLoginInfo?null:<input type = "submit" value = "초기화" onClick={()=>{
         sessionStorage.removeItem("No1Gender")
         sessionStorage.removeItem("No1Implements")
@@ -54,18 +55,21 @@ return(<>
         {!!sessionStorage.getItem("No1Implements")?<>{keepRecommend(img,gate)}</>:
         regis?
         sessionStorage.getItem("login_information")?
-        <><form onSubmit={e=>e.preventDefault()}>
-        <input type = "submit" value="추천 받기" onClick = {async()=>{
-        try{settingMember(setImg,setRegis,img,gender)}
-        catch(e){console.log(e)}}}/>
+        <><form onSubmit={e=>{
+                (()=>{
+                       e.preventDefault()
+                        try{settingMember(setImg,setRegis,img,gender)}
+                        catch(e){console.log(e)}})()}}>
+        <input type = "submit" value="추천 받기"/>
         </form></>
         :
         <><h4>성별</h4>
-        <form onSubmit={e=>e.preventDefault()}>   
+        <form onSubmit={e=>{e.preventDefault()
+        async()=>{
+                sessionStorage.setItem("No1Gender",gender)
+                try{if(!!gender){settingMember(setImg,setRegis,img,gender)}else{alert("성별을 선택 해주세요...")}}
+                catch(e){console.log(e)}}}}>   
         {["여성","남성"].map((item,index)=>{return(<div key = {index}><input type = "radio" name = "gender" value ={item} onClick={e=>setGender(e.target.value)}/>{item}<br/></div>)})}
-        <input type="submit" value="추천 받기" onClick = {async()=>{
-        sessionStorage.setItem("No1Gender",gender)
-        try{if(!!gender){settingMember(setImg,setRegis,img,gender)}else{alert("성별을 선택 해주세요...")}}
-        catch(e){console.log(e)}}}/>
+        <input type="submit" value="추천 받기"/>
         </form></>:<>{keepRecommend(img,gate)}</>}</>)}
 export default InfoToWeather

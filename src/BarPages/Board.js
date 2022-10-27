@@ -5,8 +5,5 @@ const board = () =>{
         <span>
         <span>더 살펴보기</span>
         <span>글쓰기</span>
-        </span>
-        </>)
-
-}
+        </span></>)}
 export default board

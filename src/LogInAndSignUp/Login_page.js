@@ -20,10 +20,10 @@ const Login_page = () => {
   const input_pw=useRef()
 return (<>
     <h1> Log-in </h1>
-            <form onSubmit={e=>e.preventDefault()}>
+            <form onSubmit={e=>{e.preventDefault()
+            test(input_id.current.value,input_pw.current.value,trans)}}>
             <input className="ID" type="text" placeholder="아이디를 입력하세요." ref={input_id} /><br />
             <input className="PW"type="password" placeholder="비밀번호를 입력하세요." ref={input_pw}/>
-              <input type="submit" className ="in" value="LOGIN" 
-              onClick={()=>test(input_id.current.value,input_pw.current.value,trans)}/><br/><br/>
+              <input type="submit" className ="in" value="LOGIN"/><br/><br/>
             </form><Link to={'/Id_find'}>아이디</Link> 찾기</>)}
 export default Login_page

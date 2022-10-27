@@ -4,7 +4,7 @@ const NowWeather = ({latitude,longitude}) => {
     const [weatherTemp,setWeatherTemp]=useState({}) 
     const [realWeather,setRealWeather]=useState([])
         useEffect(()=>{(async() =>{try{
-    const nowWeatherData = await (await axios(`https://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&appid=87c2a0db9525243baf59b3218bb1b0de&units=metric`)).data
+    const nowWeatherData = await (await axios(`https://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&appid=${process.env.REACT_APP_WHEATHER_API_KEY}&units=metric`)).data
      setWeatherTemp(nowWeatherData.main);setRealWeather(nowWeatherData.weather);
     }catch(e){console.log(e);}
 })()},[latitude,longitude])

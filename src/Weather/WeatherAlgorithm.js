@@ -1,7 +1,6 @@
 /*eslint-disable*/
 import { useEffect } from "react"
 const WeatherAlgorithm = (props) =>{
-    console.log(props)
 useEffect(()=>{
     console.log("당일 최고 온도: "+Math.round(props.htemp)
     +" , "+"당일 최저 온도: "+Math.round(props.ltemp)

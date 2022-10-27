@@ -1,12 +1,11 @@
-import {wheather} from "../data"
-const InfoToMyClothing = () =>{
-    return(<>
-    <h1>내 옷들로 추천받기</h1>
-    {
-              wheather.rain?
-                <h4>외출시 우산을 챙기세요</h4>:null
-        }
-    </>)
+import { no3ImData } from "../data"
+import Recommend from "../RecycleComponents/recommend"
 
-}
+const InfoToMyClothing = () =>{
+    return(
+   <Recommend 
+   content={"내 옷들로 추천받기"}
+   list={"No3Implements"}
+   link={"/suggest3"}
+   basicList={no3ImData}/>)}
 export default InfoToMyClothing

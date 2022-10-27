@@ -29,7 +29,7 @@ return(
 <Route path="/My_page" element={<Mypage/>}/>
 <Route path="*" element = {<h1>404 ERROR :&#41;</h1>}/>
 <Route path="/Recommendation/weather" element={<InfoToWeather/>}/>
-<Route path="/" element={<LogoWithMainPage setwait = {setWait}/>}/>
+<Route path="/" element={<LogoWithMainPage setWait = {setWait}/>}/>
 <Route path="/Id_find" element={!!login?<LogoWithMainPage/>:<IdFind/>}/>
 <Route path="/Sign_up" element={!!login?<LogoWithMainPage/>:<Sign_up/>}/>
 <Route path="/Login" element={!!login?<LogoWithMainPage/>:<Login_page/>}/>

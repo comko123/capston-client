@@ -28,12 +28,11 @@ return (<div key = {index}>{childInformation}
   childInformation==="남성"||childInformation==="여성"?childInformation:index
 } onClick ={(e)=>
   {
-    if(!!!rest[2].length){rest[2].push(e.target.value)}
+    if(!rest[2].length){rest[2].push(e.target.value)}
       else{
       rest[2].splice(rest[2].indexOf(e.target.value),1)
       rest[2].push(e.target.value)
-    }
-}}/> <br/></div>)})}</div>)
+    }}}/> <br/></div>)})}</div>)
 }
 const userInFormationCheckBox = (...rest) =>{
   return(<div key = {rest[0]}>
@@ -59,9 +58,11 @@ export default function Sign_Up (){
   const [result,setResult] = useState(null)
 return(<>
   <h1>회원가입</h1>
-  <form onSubmit={e=>e.preventDefault()}>
+  <form onSubmit={e=>{e.preventDefault()
+  signUpFunction(result,setResult,trans)
+  }}>
   {userSetting.map((item,index)=>userInFormationInput(inputTypeAndPalcehorder[userSetting[index]][0],item,userClientInput[item],index))}
   {basicSetting.map((item,index)=>userInFormationRadio(selectUserData[item],item,userSelect[item],index))}
   {styleObject.map((item,index)=>userInFormationCheckBox(item,selectUserCheck[item],userSelect[styleObject[0]],index))}
-  <br/><input type="submit" value="가입"onClick={()=>{signUpFunction(result,setResult,trans)}}/>   
+  <br/><input type="submit" value="가입"/>   
   <br/><br/><input type="button" value="홈페이지"onClick={()=>trans('/')}/></form></>)}

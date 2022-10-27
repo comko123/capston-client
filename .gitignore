@@ -24,3 +24,6 @@ yarn-error.log*
 
 *.md
 package-lock.json
+
+# apiKey
+.env
