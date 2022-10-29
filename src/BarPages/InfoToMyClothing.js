@@ -1,6 +1,5 @@
 import { no3ImData } from "../data"
-import Recommend from "../RecycleComponents/recommend"
-
+import Recommend from "../RecycleComponents/Recommend"
 const InfoToMyClothing = () =>{
     return(
    <Recommend 

@@ -1,4 +1,3 @@
-export const userClothingRegistration = {spring:[],summer:[],fall:[],winter:[],style:[]}
 export const userClothingModify = {springObj:{spring:[]},summerObj:{summer:[]},fallObj:{fall:[]},winterObj:{winter:[]},styleObj:{style:[]}}
 export const userSelect = {성별:[],연령:[],신장:[],체중:[],스타일:[]}
 export const userClientInput = {id:[],email:[],password:[],password2:[],nickname:[]}
@@ -12,7 +11,6 @@ export const infoUser = {
     여름:["반바지","반팔 티셔츠","셔츠/블라우스","민소매티셔츠","청바지"],
     가을:["청바지","맨투맨","셔츠/블라우스","후드티","니트/스웨터"],
     겨울:["청바지","코트","패딩","후드티","니트/스웨터"],
-    스타일:["빈티지","댄디","캐주얼","놈코어","스트릿"]
 }
 export const selectUserData = {
     연령: ["10 ~ 19세","20 ~ 29세","30 ~ 39세","40 ~ 49세","50세 이상"],
@@ -26,6 +24,12 @@ export const selectUserCheck= {
 export const inputTypeAndPalcehorder = {
     email:["text","E-mail"],
     password:["password","비밀번호"]
+}
+export const no1Data = {
+  login_information:userLoginInfo?.gender,
+  imgList:imgListToSever,
+  img_list:false,
+  gender:sessionStorage.getItem("gender")
 }
 export class infotomyinfo{
   constructor(...rest){
@@ -52,9 +56,8 @@ this.weight = rest[5]
 this.styleList = rest[6]
   }
 }
-export const no1Data = {
-  login_information:userLoginInfo?.gender,
-  imgList:imgListToSever,
-  img_list:false,
-  gender:sessionStorage.getItem("gender")
-}
+export class userInfoRegistration {
+  constructor(email,seasonList){
+      this.email = email
+      this.seasonList = seasonList
+  }}

@@ -1,8 +1,6 @@
 import {no2ImData}from"../data"
-import Recommend from "../RecycleComponents/recommend"
-
+import Recommend from "../RecycleComponents/Recommend"
 const InfoToMyInfo = () => {
-
 return(
 <Recommend 
    content={"내 정보로 추천받기"}
