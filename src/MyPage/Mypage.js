@@ -1,10 +1,7 @@
 import { Link,useNavigate } from "react-router-dom"
-import React,{useState,useEffect} from "react"
 const myPageLoginState = sessionStorage.getItem("login_information")
 const Mypage = () =>{
-const [data,setData] = useState({})
 const navi = useNavigate()
-useEffect(()=>{setData(JSON.parse(myPageLoginState))},[])
 return(
 <>{myPageLoginState?
 <><span onClick={()=>{
@@ -19,6 +16,6 @@ navi(0)}}>로그아웃</span> </>:<>
 <h1 onClick={()=>(myPageLoginState)?
         navi(`/Input_clothing`):alert("로그인후 이용이 가능한 서비스 입니다.")}>자신의 옷 등록하기</h1>
 <h1 onClick={()=>(myPageLoginState)?
-        navi(`/UserInformation/${data.password}`):alert("로그인후 이용이 가능한 서비스 입니다.")}>내정보 수정하기</h1>
+        navi(`/My_page/Correction`):alert("로그인후 이용이 가능한 서비스 입니다.")}>내정보 수정하기</h1>
 <h1>Weather Coder</h1></>)}
 export default Mypage
