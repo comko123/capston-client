@@ -1,21 +1,20 @@
-import {configureStore,createSlice} from "@reduxjs/toolkit"
+import {configureStore,createSlice,current} from "@reduxjs/toolkit"
 
 const registration = createSlice({
     name:"registration",
-    initialState:{spring:[],summer:[],fall:[],winter:[]},
+    initialState:[{spring:[],summer:[],fall:[],winter:[]},{style:[]}],
     reducers:{
         addStyle(state,action){
-      state[action.payload.list].push(action.payload.value)
+              state[action.payload.index][action.payload.list].push(action.payload.value)
         },
         deduplicationStyle(state,action){
-            state[action.payload.list].filter((element,index)=>state[action.payload.list].indexOf(element)===index)
+            state[action.payload.index][action.payload.list].filter((element,index)=>state[action.payload.index][action.payload.list].indexOf(element)===index)
         },
         removeStyle(state,action){
-            state[action.payload.list].splice(state[action.payload.list].indexOf(action.payload.value),1)
+            state[action.payload.index][action.payload.list].splice(state[action.payload.index][action.payload.list].indexOf(action.payload.value),1)
         },
-        clearStyle(state){
-            Object.keys(state).map(item=>state[item].splice(0))
-        }
+        clearStyle(state,action){
+            Object.keys(state[action.payload]).map(item=>state[action.payload][item].splice(0))}
     }})
 
     export const{addStyle,removeStyle,deduplicationStyle,clearStyle} = registration.actions

@@ -15,6 +15,7 @@ import Information from "./ChangeInformatein/Information"
 import MyClothing from "./RegistrationClothing/MyClothing"
 import InfoToMyClothing from "./BarPages/InfoToMyClothing"
 import CorrectionPage from "./MyPage/CorrectionPage"
+import StyleChange from "./ChangeInformatein/StyleChange"
 
 const loginState = () => {
     const gett = sessionStorage.getItem("login_information")
@@ -39,4 +40,5 @@ return(
 <Route path="/UserInformation/:id" element={!!login?<Information/>:<Login_page/>}/>
 <Route path="/Recommendation/Information" element={!!login?<InfoToMyInfo/>:<Login_page/>}/>
 <Route path="/Recommendation/Clothing" element={!!login?<InfoToMyClothing/>:<Login_page/>}/>
+<Route path="/My_page/StyleChange" element={!!login?<StyleChange/>:<Login_page/>}/>
 </Routes>{wait?null:<MenuBar/>}</>)}
