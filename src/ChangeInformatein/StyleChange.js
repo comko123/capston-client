@@ -1,16 +1,9 @@
 import { selectUserCheck } from "../data"
-
-const StyleChange = () => {
-    return(<>
-    <h3>스타일 수정하기</h3>
-    <form onSubmit={e=>{
-            e.preventDefault() 
-        }}>
-        {selectUserCheck.스타일.map((item,index)=><div key={index}>
-       <input type = "checkbox" value = {item}/> {item}
-        </div>)}
-        <input type="submit" value = "수정하기"/>
-        </form>
-    </>)
-}
-export default StyleChange
+import Category from "../RecycleComponents/Category"
+    const StyleChange = () => {
+        return (<Category 
+            text={"스타일 변경하기"} 
+            link={`/my-style`}
+            type={selectUserCheck} 
+            index={1}/>)}
+      export default StyleChange
