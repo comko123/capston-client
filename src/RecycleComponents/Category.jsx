@@ -17,22 +17,22 @@ return(<><h3>{rest[0]}</h3>
     else{rest[3](removeStyle(action)) }
 }}/> <br/></div>)})}</>)}
 
-const Category = (props) => {
+const Category = ({text,type,link,index}) => {
   const selector = useSelector(item=>item)
   const {addStyleList} = selector
   const dispatch = useDispatch()
   const navigate = useNavigate()
-  const selectData = Object.keys(addStyleList[props.index])
-  const userIn = Object.keys(props.type)
-  let [message,setMessage] = useState(null)
-  useEffect(()=>{dispatch(clearStyle(props.index))},[dispatch,props.index])
-  return (<><h3>{props.text}</h3>
+  const selectData = Object.keys(addStyleList[index])
+  const userIn = Object.keys(type)
+  const [message,setMessage] = useState(null)
+  useEffect(()=>{dispatch(clearStyle(index))},[dispatch,index])
+  return (<><h3>{text}</h3>
 <form onSubmit = {e=>
 {(async()=>{
     e.preventDefault()
     try {
-      const userClothing = new userInfoRegistration(userLoginInfo.email,addStyleList[props.index])
-    setMessage(await(await axios.post(props.link,userClothing)).data)
+      const userClothing = new userInfoRegistration(userLoginInfo.email,addStyleList[index])
+    setMessage(await(await axios.post(link,userClothing)).data)
     if(Object.keys(message).length===2){
       alert(message.errorMessage)}
     else{
@@ -43,7 +43,7 @@ const Category = (props) => {
     console.log(error)}})()}}>
     {userIn.map((item,index)=>{
       return <div key={index}>{
-    userSeasonStyle(userIn[index],props.type[item],selectData[index],dispatch,props.index)}
+    userSeasonStyle(userIn[index],type[item],selectData[index],dispatch,index)}
     </div>})}
 <input type="submit" value = "click"/> 
   </form></>)}

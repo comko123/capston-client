@@ -4,7 +4,6 @@ import { useState } from "react"
 import IdFind from "./Find/IdFind"
 import MenuBar from "./Bar/MenuBar"
 import Mypage from "./MyPage/Mypage"
-import Board from "./BarPages/Board"
 import Sign_up from "./LogInAndSignUp/Sign_up"
 import { Routes, Route } from "react-router-dom"
 import LogoWithMainPage from "./LogoWithMainPage"
@@ -15,6 +14,10 @@ import MyClothing from "./RegistrationClothing/MyClothing"
 import InfoToMyClothing from "./BarPages/InfoToMyClothing"
 import CorrectionPage from "./MyPage/CorrectionPage"
 import StyleChange from "./ChangeInformatein/StyleChange"
+import Border from "./BarPages/Border/Border"
+import Comment from "./BarPages/Border/Comment"
+import Write from "./BarPages/Border/Write"
+import WritingLetter from "./BarPages/Border/WritingLetter"
 
 const loginState = () => {
     const gett = sessionStorage.getItem("login_information")
@@ -26,7 +29,16 @@ export default function App (){
 const [wait,setWait] = useState(false)
 return(
 <>{wait?null:<Header/>}<Routes>
-<Route path="/Board" element={<Board/>}/>
+
+<Route path="/Border" element={<Border/>}>
+        <Route path="route/:index" element={null}/>
+      </Route>
+      <Route path="/detail/:index" element={<WritingLetter/>}>
+      <Route path="Comment" element={<Comment/>}/>
+      </Route>
+      <Route path="/detail/write" element={<Write/>}/>
+
+    
 <Route path="/My_page" element={<Mypage/>}/>
 <Route path="*" element = {<h1>404 ERROR :&#41;</h1>}/>
 <Route path="/Recommendation/weather" element={<InfoToWeather/>}/>

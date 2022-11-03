@@ -16,7 +16,7 @@ const navigate = useNavigate()
 
             <h3 onClick={() => parm("Clothing",navigate)}> 내 옷들로 추천받기 </h3>
 
-            <h3 onClick={()=>navigate(`/Board`)}> 게시판 </h3>
+            <h3 onClick={()=>navigate(`/Border/route/0`)}> 게시판 </h3>
     </>)
 }
 export default React.memo(MenuBar)

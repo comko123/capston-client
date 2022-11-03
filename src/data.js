@@ -61,3 +61,15 @@ export class userInfoRegistration {
       this.email = email
       this.seasonList = seasonList
   }}
+
+export class content {
+  constructor(nickname,body){
+      this.nickname=nickname
+      this.body=body
+  }}  
+export class articles {
+  constructor(title,content){
+    this.title=title
+    this.content=content
+  }
+}  
