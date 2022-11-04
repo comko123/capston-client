@@ -26,19 +26,16 @@ const Category = ({text,type,link,index}) => {
   const userIn = Object.keys(type)
   const [message,setMessage] = useState(null)
   useEffect(()=>{dispatch(clearStyle(index))},[dispatch,index])
-  return (<><h3>{text}</h3>
+  return (<>
+  {typeof(message)==="object"?alert(message.errorMessage):typeof(message)==="string"?alert(message):null}
+  <h3>{text}</h3>
 <form onSubmit = {e=>
 {(async()=>{
     e.preventDefault()
     try {
       const userClothing = new userInfoRegistration(userLoginInfo.email,addStyleList[index])
     setMessage(await(await axios.post(link,userClothing)).data)
-    if(Object.keys(message).length===2){
-      alert(message.errorMessage)}
-    else{
-      alert(message)
       navigate(-1)
-    }
   } catch (error) {
     console.log(error)}})()}}>
     {userIn.map((item,index)=>{

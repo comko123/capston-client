@@ -9,13 +9,13 @@ const Border = () => {
     const location = useLocation()
     const pageIndex = Math.floor(+location.pathname.substring(14)/10)
 useEffect(()=>{
-(async()=>{setData(await(await axios("https://jsonplaceholder.typicode.com/posts")).data)})()
+(async()=>{setData(await(await axios("/articles")).data)})()
 },[])
     return<>
     <h1>게시판</h1>
     {data.map((item,index)=>{
         if(pageIndex === Math.floor(index/10)){
-            return <div key={index}>{index}. <Link to={`/detail/${index}/Comment`}>{item.title}</Link></div>
+            return <div key={index}>{index}. <Link to={`/detail/${index}/Comment/${data.id}`}>{item.title}</Link></div>
         }})}
     <form onSubmit={e=>e.preventDefault()}>
     <input type = "button" 

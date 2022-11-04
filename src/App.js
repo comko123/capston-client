@@ -28,19 +28,15 @@ export default function App (){
     const login = loginState()
 const [wait,setWait] = useState(false)
 return(
-<>{wait?null:<Header/>}<Routes>
-
-<Route path="/Border" element={<Border/>}>
-        <Route path="route/:index" element={null}/>
-      </Route>
-      <Route path="/detail/:index" element={<WritingLetter/>}>
-      <Route path="Comment" element={<Comment/>}/>
-      </Route>
-      <Route path="/detail/write" element={<Write/>}/>
-
-    
-<Route path="/My_page" element={<Mypage/>}/>
+<>
+{wait?null:<Header/>}<Routes>
 <Route path="*" element = {<h1>404 ERROR :&#41;</h1>}/>
+<Route path="/Border" element={<Border/>}>
+<Route path="route/:index" element={null}/></Route>
+<Route path="/detail/:index" element={<WritingLetter/>}>
+<Route path="Comment/:id" element={<Comment/>}/></Route>
+<Route path="/detail/write" element={<Write/>}/>
+<Route path="/My_page" element={<Mypage/>}/>
 <Route path="/Recommendation/weather" element={<InfoToWeather/>}/>
 <Route path="/" element={<LogoWithMainPage setWait = {setWait}/>}/>
 <Route path="/Id_find" element={!!login?<LogoWithMainPage/>:<IdFind/>}/>

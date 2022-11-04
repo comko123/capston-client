@@ -12,11 +12,8 @@ const signUpFunction = async(result,setResult,navigate) => {
   const signIn = new signInfo(email[0],password[0],성별[0],연령[0],신장[0],체중[0],스타일)
 try{  
 setResult(await(await axios.post('/join',signIn)).data)
-if(typeof(result)==="object"){
-  alert(result.errorMessag)}
-else{
-  alert(result)
-  navigate(-1)}}
+  navigate(-1)
+}
 catch(e){console.log(e)}
 console.log(signIn)
 }
@@ -57,6 +54,7 @@ export default function Sign_Up (){
   const trans = useNavigate()
   const [result,setResult] = useState(null)
 return(<>
+{typeof(result)==="object"?alert(result.errorMessage):typeof(result)==="string"?alert(result):null}
   <h1>회원가입</h1>
   <form onSubmit={e=>{e.preventDefault()
   signUpFunction(result,setResult,trans)
