@@ -48,6 +48,5 @@ typeof(chanArticle)==="string"?alert(chanArticle):null}
     <textarea rows="15" ref={modContent} cols="60" defaultValue={body}/>
     <br/>
     <input type = "submit"/>
-</form>
-</>}</>)}
+</form></>}</>)}
 export default WritingLetter
