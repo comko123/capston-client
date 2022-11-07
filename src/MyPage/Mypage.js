@@ -6,7 +6,7 @@ return(
 <>{myPageLoginState?
 <><span onClick={()=>{
 alert("로그아웃 되었습니다.")
-sessionStorage.clear()
+sessionStorage.removeItem("login_information")
 navi(0)}}>로그아웃</span> </>:<>
 <span><Link to ={`/Login`}>로그인</Link></span>
 <span><Link to = {`/Sign_up`}>회원가입</Link></span></>}

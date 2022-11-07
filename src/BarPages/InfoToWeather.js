@@ -64,11 +64,12 @@ return(<>
         </form></>
         :
         <><h4>성별</h4>
-        <form onSubmit={e=>{e.preventDefault()
-        async()=>{
+        <form onSubmit={e=>{
+        (async()=>{
+                e.preventDefault()
                 sessionStorage.setItem("No1Gender",gender)
                 try{if(!!gender){settingMember(setImg,setRegis,img,gender)}else{alert("성별을 선택 해주세요...")}}
-                catch(e){console.log(e)}}}}>   
+                catch(e){console.log(e)}})()}}>   
         {["여성","남성"].map((item,index)=>{return(<div key = {index}><input type = "radio" name = "gender" value ={item} onClick={e=>setGender(e.target.value)}/>{item}<br/></div>)})}
         <input type="submit" value="추천 받기"/>
         </form></>:<>{keepRecommend(img,gate)}</>}</>)}

@@ -6,7 +6,7 @@ import {signInfo,selectUserData,userSelect,userClientInput,inputTypeAndPalcehord
 const basicSetting = Object.keys(selectUserData)
 const userSetting = Object.keys(inputTypeAndPalcehorder)
 const styleObject = Object.keys(selectUserCheck)
-const signUpFunction = async(result,setResult,navigate) => {
+const signUpFunction = async(setResult,navigate) => {
   const {password,email} = userClientInput
   const {성별,연령,신장,체중,스타일} = userSelect
   const signIn = new signInfo(email[0],password[0],성별[0],연령[0],신장[0],체중[0],스타일)
@@ -52,9 +52,13 @@ const userInFormationInput = (...rest) => {
 } 
 export default function Sign_Up (){
   const trans = useNavigate()
-  const [result,setResult] = useState(null)
+  const [result,setResult] = useState({})
 return(<>
-{typeof(result)==="object"?alert(result.errorMessage):typeof(result)==="string"?alert(result):null}
+ {typeof result === "object"
+        ?Object.keys(result).length===2?alert(result.errorMessage):null
+        : typeof result === "string"
+        ? alert(result)
+        : null}
   <h1>회원가입</h1>
   <form onSubmit={e=>{e.preventDefault()
   signUpFunction(result,setResult,trans)
