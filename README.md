@@ -4,9 +4,7 @@ backend 기능 명세서 & 데이터 타입
 https://github.com/rkdmin/SimpleFashion/blob/main/README.md
 
 Project-TDL  
-아이디찾기 beforeunload로직 추가필요     
 로그인 방식 수정  
-3번기능 구현필요(테스트 필요)  
 에러페이지 방문시 메뉴바 헤더바 없애기     
 내정보로 추천받기 추가테스트 필요  
 - jwt로 변경시 매컴포넌트마다 검사하는 로직추가  

@@ -26,8 +26,9 @@ const Category = ({text,type,link,index}) => {
   const userIn = Object.keys(type)
   const [message,setMessage] = useState({})
   useEffect(()=>{dispatch(clearStyle(index))},[dispatch,index])
+  useEffect(()=>{if(Object.keys(message).lengyh===2){alert(message.errorMessage)}
+else return;},[message])
   return (<>
-  {Object.keys(message).lengyh===2 ?alert(message.errorMessage):null}
   <h3>{text}</h3>
 <form onSubmit = {e=>
 {(async()=>{
@@ -38,9 +39,9 @@ const Category = ({text,type,link,index}) => {
       navigate(-1)
   } catch (error) {
     console.log(error)}})()}}>
-    {userIn.map((item,index)=>{
-      return <div key={index}>{
-    userSeasonStyle(userIn[index],type[item],selectData[index],dispatch,index)}
+    {userIn.map((item,num)=>{
+      return <div key={num}>{
+    userSeasonStyle(userIn[num],type[item],selectData[num],dispatch,index)}
     </div>})}
 <input type="submit" value = "click"/> 
   </form></>)}
