@@ -14,7 +14,7 @@ const LogoWithMainPage =({setWait})=>{
     setLogo(false)
     setWait(false)
     },3000)
-    if(logo){mon.add(2,'h')
+    if(logo){mon.add(3,'h')
     setCookie(key,'true',{path:'/',expires:mon.toDate()})}}
     else{setLogo(false)}},[])
     return(
