@@ -1,6 +1,6 @@
 import axios from "axios"
-import { useEffect } from "react"
-import { useState } from "react"
+import { useState,useEffect } from "react"
+import { useDispatch, useSelector} from "react-redux"
 import {useNavigate } from "react-router-dom"
 import {signInfo,selectUserData,userSelect,userClientInput,inputTypeAndPalcehorder,selectUserCheck} from '../data'
 
@@ -62,7 +62,7 @@ return(<>
     const {성별,연령,신장,체중,스타일} = userSelect
     const signIn = new signInfo(email[0],password[0],성별[0],연령[0],신장[0],체중[0],스타일)
   try{  
-  setResult(await(await axios.post('/join',signIn)).data)
+  // setResult(await(await axios.post('/join',signIn)).data)
   }
   catch(e){console.log(e)}
   console.log(signIn)
