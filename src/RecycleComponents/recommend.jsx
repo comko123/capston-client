@@ -21,7 +21,8 @@ pending?<form onSubmit={e=>{
     (async()=>{
         e.preventDefault()
         try{
-              setRegist(await(await axios.post(link,{ "lowTemp":wheather.ltemp,"highTemp":wheather.htemp,"gender" :userLoginInfo.email})).data)
+              setRegist(await(await axios.post(link,{"lowTemp":wheather.ltemp,
+              "highTemp":wheather.htemp,"gender":userLoginInfo.email})).data)
            setPending(false)
         }catch(e){console.log(e)}})()}}>
     <input type = "submit" value = "추천 받기"/>
