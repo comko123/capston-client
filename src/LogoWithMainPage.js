@@ -17,8 +17,7 @@ const LogoWithMainPage =({setWait})=>{
     if(logo){mon.add(3,'h')
     setCookie(key,'true',{path:'/',expires:mon.toDate()})}}
     else{setLogo(false)}},[])
-    return(
-    <>{logo?<><h1>weather coder</h1></>:<>
+    return(<>{logo?<><h1>weather coder</h1></>:<>
     <br/><WeatherComponents/> 
     <br/></>}</>)}
 export default LogoWithMainPage
