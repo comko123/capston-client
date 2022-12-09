@@ -8,8 +8,7 @@ Gui - figma
 https://www.figma.com/file/JqQDlUrMssEMF8cWk2LWbf/WeatherStyle-2022-05?node-id=0%3A1
 
 Project-TDL  
-로그인 방식 수정  
-- jwt로 변경시 매컴포넌트마다 검사하는 로직추가  
+지속적인 리팩토링 및 코드 개선 
 
 해결 완료  
 ui 구현 완료  

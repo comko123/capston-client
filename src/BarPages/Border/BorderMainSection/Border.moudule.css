@@ -1,0 +1,157 @@
+.search_box {
+  margin-top: 25px;
+  margin-bottom: 35px;
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+.search {
+  font-family: "Inter";
+  box-shadow: none;
+  background-color: rgba(0, 0, 0, 0.08);
+  border: none;
+  padding: 4px 4px 4px 15px;
+  border-radius: 10px;
+  margin-left: 10px;
+  width: 65%;
+  height: 35px;
+  font-size: 12px;
+  display: flex;
+  align-items: center;
+}
+.list_area {
+  margin-top: 28px;
+}
+.border_nickname {
+  margin-left: 25px;
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  margin-bottom: 7px;
+}
+.list {
+  margin-left: 25px;
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 13px;
+  letter-spacing: -0.02em;
+  width: 400px;
+  padding: 0 5px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.list_link {
+  text-decoration: none;
+  color: black;
+}
+.noData{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width:100vw;
+  height:30vh;
+}
+.noContent{
+  color:#4254FF;
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 900;
+  font-size: 20px;
+  line-height: 20px;
+}
+.writingBtnPR {
+  display: flex;
+  justify-content: center;
+  margin-top: 2rem;
+}
+.writingBtn {
+  padding: 5px 14px;
+  gap: 10px;
+  padding: 8px;
+  width: 95px;
+  background: #4254ff;
+  border: 1px solid #4254ff;
+  border-radius: 20px;
+  text-decoration: none;
+  font-size: 15px;
+  font-family: "Inter";
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 2px 3px 0px 0px rgba(0, 0, 0, 0.1);
+}
+.writingBtnPR :hover {
+  opacity: 0.93;
+}
+.numFormBtn {
+  display: flex;
+  justify-content: center;
+  margin-top: 2rem;
+}
+
+.previousBtn {
+  margin-right: 3px;
+}
+.numberBtn {
+  margin-right: 3px;
+}
+.borderHR {
+  margin-bottom: 25px;
+  border-top: 1px solid rgba(0, 0, 0, 0.1);
+}
+.pen_square {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-right: -5px;
+  margin-top: -2px;
+}
+.previousBtn {
+  width: 20px;
+  height: 20px;
+  margin-right: 3px;
+  border: none;
+  border-radius: 25%;
+}
+.numberBtn {
+  width: 20px;
+  height: 20px;
+  margin-left: 3px;
+  margin-right: 3px;
+  border: none;
+  border-radius: 25%;
+}
+.nextBtn {
+  width: 20px;
+  height: 20px;
+  border: none;
+  border-radius: 25%;
+  margin-left: 3px;
+}
+
+.search_btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 12px;
+  margin-top: 3px;
+  font-family: "Inter";
+  border-radius: 20px;
+  width: 40px;
+  height: 30px;
+  margin-left: 8px;
+  background-color: rgba(0, 0, 0, 0.6);
+  border: none;
+  cursor: pointer;
+  color: white;
+}
+.search_btn:hover {
+  background-color: rgba(0, 0, 0, 0.3);
+  color: black;
+}

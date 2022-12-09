@@ -1,52 +1,26 @@
 import axios from "axios"
-import { useEffect, useRef, useState } from "react"
-import { Outlet, useNavigate, useParams } from "react-router-dom"
-import { articles } from "../../data"
-
+import { useMemo,useState } from "react"
+import { Outlet,useNavigate,useParams } from "react-router-dom"
+import anonymous_blue from "../../img/anonymous_blue.png"
+import pageback_btn from "../../img/pageback_btn.png"
+import "./WrittingLetter.moudule.css"
 const WritingLetter = () => {
     const parms = useParams()
-    const [content,setContet] = useState({})
-    const [chanArticle,setChanArticle] =useState({})
-    const [modi,setModi] = useState(true)
-    const [modText,modContent]  = [useRef(),useRef()] 
-    const navigate= useNavigate()
-    useEffect(()=>{
-        (async()=>{
-            try {
-    setContet(await(await axios(`/articles/${parms.id}`)).data)  
-            } catch(error){console.log(error)}})()},[parms])
-
-const {title,body} = content
-return(<>
-{typeof(chanArticle)==="object"?alert(chanArticle.errorMessage):
-typeof(chanArticle)==="string"?alert(chanArticle):null}
-{modi?<>
-    <h1>{title}</h1>
-<h3>{body}</h3>
-<span onClick = {async()=>{
-    setChanArticle(await(await axios.delete(`/articles/${parms.id}/delete`)).data)
-    }}>삭제 하기</span>
-<br/>
-<span onClick = {async()=>{setModi(false)}}>수정 하기</span>
-<hr/>
-<h4> 댓글 </h4>
-<Outlet></Outlet></>
-:
-<>
-<h1>수정하기</h1>
-<form onSubmit={e=>{
-    (async()=>{
-        try {
-            e.preventDefault()
-            const modContentList = new articles(modText.current.value,modContent.current.value)
-            setContet(await(await axios.patch(`/articles/${parms.id}/edit`,modContentList)).data)
-            setModi(true)
-            navigate(0)
-        } catch (error) {console.log(error)}})()}}>
-    <input type="text" ref={modText} defaultValue={title}/>
-    <br/>
-    <textarea rows="15" ref={modContent} cols="60" defaultValue={body}/>
-    <br/>
-    <input type = "submit"/>
-</form></>}</>)}
+    const navigate = useNavigate()
+    const [contentOb,setContetOb] = useState({})
+    useMemo(()=>{(async()=>{
+    try {setContetOb(await(await axios(`/articles/${parms.id}`)).data)} 
+    catch(error){console.log(error)}})()},[parms])
+    const {title,content} = contentOb
+return(<><div className="write_contanier">
+    <img src={pageback_btn} width="18" height="18" 
+    onClick={()=>navigate(-1)}/></div>
+    <div className="writing_person">
+    <img src={anonymous_blue} width="30" height="30" />
+    <h1 className="writing_nickname">익명</h1></div>
+    <div className="borderHR"/>
+    <h1 className="writingTitle2">{title}</h1>
+    <h3 className="writingFillOut2">{content}</h3>
+    <div className="delBtnPR"></div>
+    <Outlet></Outlet></>)}
 export default WritingLetter

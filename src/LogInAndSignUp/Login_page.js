@@ -1,41 +1,29 @@
 import axios from "axios"
-import React,{useRef} from "react"
-import { useState } from "react"
-import { useEffect } from "react"
-import { Link, useNavigate } from "react-router-dom"
-
-class login {
-  constructor(email,password){
-  this.email = email
-  this.password = password
-  }
-}
-
+import {useRef,useState} from "react"
+import {Link} from "react-router-dom"
+import MenuBar from "../Bar/MenuBar"
+import "./Login_page.moudule.css"
+import {login} from "../data"
+import { useAlert } from "../hooks/useAlert"
 const Login_page = () => {
-  const [result,setResult] = useState({})
-  const input_id=useRef()
-  const input_pw=useRef()
-  const navigate = useNavigate()
-  useEffect(()=>{if(Object.keys(result).length===2)
-    {alert(result.errorMessage)}
-    else if (Object.keys(result).length===7){
-    sessionStorage.setItem("login_information",JSON.stringify(result))
-    window.history.back()
-    navigate(0)
-    }
-    else return;
-  },[result,navigate])
-return (<>
-    <h1> Log-in </h1>
-            <form onSubmit={e=>{
-              (async()=>{
-                e.preventDefault()
-                try {
-                  const user = new login(input_id.current.value,input_pw.current.value)
-                  setResult(await(await axios.post(`/login`,user)).data)
-                } catch (error) {console.log(error)}})()}}>
-            <input className="ID" type="text" placeholder="아이디를 입력하세요." ref={input_id} /><br />
-            <input className="PW"type="password" placeholder="비밀번호를 입력하세요." ref={input_pw}/>
-              <input type="submit" className ="in" value="LOGIN"/><br/><br/>
-            </form><Link to={'/Id_find'}>아이디</Link> 찾기</>)}
+  const [result, setResult] = useState({})
+  const input_id = useRef()
+  const input_pw = useRef()
+useAlert(result,'/')
+return (<div className="container">
+        <h1 className="loginpage_title"> Log-in </h1>
+        <form className="form" onSubmit={e => {(async()=>{
+        e.preventDefault()
+        try{const user = new login(input_id.current.value,input_pw.current.value)
+        setResult(await(await axios.post(`/login`,user,{headers:{"token": ""}})).data)} 
+        catch(error) {console.log(error)}})()}}>
+        <div className="emailtext">E-mail</div>
+        <input className="ID" type="text" placeholder="이메일을 입력하세요." ref={input_id}/>
+        <div className="passwordtext">Password</div>
+        <input className="PW" type="password" placeholder="비밀번호를 입력하세요." ref={input_pw}/>
+        <div className={"normaltext"}>계정이 없으신가요?&nbsp;&nbsp;
+        <Link to={"/Sign_up"} className="boldtext">회원가입하기</Link></div>
+        <input type = "submit" value="submit" className="submit2"/></form>
+        <div className="normaltext">개인정보보호정책</div>
+        <div className="normaltext">WeatherStyle 이용약관</div><MenuBar/></div>)}
 export default Login_page
