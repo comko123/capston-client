@@ -8,12 +8,9 @@ const LogoWithMainPage =({setWait})=>{
     const [cookie,setCookie] = useCookies([key])
     const [logo,setLogo] = useState(true)
     const mon = moment()
-    useEffect(()=>{if(!cookie[key]){
-        setWait(true)
-    setTimeout(()=>{
-    setLogo(false)
-    setWait(false)
-    },3000)
+    useEffect(()=>{if(!cookie[key]){setWait(true)
+    setTimeout(()=>{setLogo(false)
+    setWait(false)},3000)
     if(logo){mon.add(3,'h')
     setCookie(key,'true',{path:'/',expires:mon.toDate()})}}
     else{setLogo(false)}},[])
