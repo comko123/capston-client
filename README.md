@@ -7,8 +7,13 @@ https://github.com/rkdmin/SimpleFashion/blob/main/README.md
 Gui - figma  
 https://www.figma.com/file/JqQDlUrMssEMF8cWk2LWbf/WeatherStyle-2022-05?node-id=0%3A1
 
+
 Project-TDL  
 지속적인 리팩토링 및 코드 개선 
+css 정리 작업  
+로그인 변동사항 추가 (저장하는 항목 개선)  
+react-query추가?  
+
 
 해결 완료  
 ui 구현 완료  
