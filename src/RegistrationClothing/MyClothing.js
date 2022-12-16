@@ -39,7 +39,7 @@ const MyClothing = () => {
     className={"Myadress_maincontainer_outer"}>
     <div className={"Myadress_maincontainer"}>
     {userIn.map((item,num)=>
-    <UserSeasonClothing season={userIn[num]} seasonList={infoUser[item]} key={num}
+    <UserSeasonClothing season={userIn[num]} seasonList={infoUser[item]} key={userIn[num]}
     storeText={selectData[num]} includeElement={addStyleList[0]}/>)}
     </div><input className={"Myadress_submit"} type="submit" value="submit"/>
     </form></div></div><MenuBar/></>)}

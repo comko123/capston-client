@@ -42,17 +42,18 @@ export default function Sign_Up() {
             <div className="sign_up_contanier">
             {userSetting.map((item,index)=>
             <UserInFormationInput type = {inputTypeAndPalcehorder[userSetting[index]][0]} 
-            title = {item} key = {index}/>)}
+            title = {item} key = {item}/>)}
             <input type = "button" value="Next" className="Sign_up_in" onClick={()=>{setIsFirst(false)}}/>
             </div></div>
             <div className={"Sign_up_form2"}style={{ display: !isFirst ? "flex" : "none" }}>
-            {basicSetting.map((item,index)=>
-            <UserInFormationRadio checkList={selectUserData[item]} title={item} key={index}
+            {basicSetting.map((item)=>
+            <UserInFormationRadio checkList={selectUserData[item]} title={item} key={item}
             length={addStyleList[3][item]}/>)}
-            {styleObject.map((item,index)=>
-            <UserInFormationCheckBox title = {item} checkList={selectUserCheck[item]} key={index}/>)}
+            {styleObject.map((item)=>
+            <UserInFormationCheckBox title = {item} checkList={selectUserCheck[item]} key={item}/>)}
             <br/><input type="submit" value="가입"className={"Sign_Up_button"}/>
             <input type="button" value="홈페이지" onClick={() => {trans("/")}} 
             className={"Sign_Up_button"}/></div></form>
             <br/><br/><br/><br/><br/>
             <MenuBar/></div>)}
+            //렌더링 이슈 있음

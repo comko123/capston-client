@@ -8,12 +8,13 @@ const UserInFormationRadio = ({checkList, title, length}) => {
     const [genderSelected, setGenderSelected] = useState(false)
     const [heightSelected, setHeightSelected] = useState(false)
     const [weightSelected, setWeightSelected] = useState(false)
-  
+  const selectB = "Sign_up_selectbox__active"
+  const selectC = "Sign_up_selectcontainer__active"
     const getClassName = () => {
-      if (title === "성별" && genderSelected)return "Sign_up_selectbox__active"
-      else if (title === "연령" && ageSelected)return "Sign_up_selectbox__active"
-      else if (title === "신장" && heightSelected)return "Sign_up_selectbox__active"
-      else if (title === "체중" && weightSelected)return "Sign_up_selectbox__active"
+      if (title === "성별" && genderSelected)return selectB
+      else if (title === "연령" && ageSelected)return selectB
+      else if (title === "신장" && heightSelected)return selectB
+      else if (title === "체중" && weightSelected)return selectB
     }
   
     const onSelectChoice = () => {
@@ -25,10 +26,10 @@ const UserInFormationRadio = ({checkList, title, length}) => {
         default:return}}
   
     const getClassName2 = () => {
-      if (title === "성별" && genderSelected)return "Sign_up_selectcontainer__active"
-      else if (title === "연령" && ageSelected)return "Sign_up_selectcontainer__active"
-      else if (title === "신장" && heightSelected)return "Sign_up_selectcontainer__active"
-      else if (title === "체중" && weightSelected)return "Sign_up_selectcontainer__active"
+      if (title === "성별" && genderSelected)return selectC
+      else if (title === "연령" && ageSelected)return selectC
+      else if (title === "신장" && heightSelected)return selectC
+      else if (title === "체중" && weightSelected)return selectC
       else return}
 
 return(<div><h3 className={`Sign_up_selectbox ${getClassName()}`} onClick={onSelectChoice}>
@@ -46,3 +47,5 @@ return(<div><h3 className={`Sign_up_selectbox ${getClassName()}`} onClick={onSel
       <div className={"Sign_up_radiolabel"}>{childInformation}
       </div></div>)})}</div></div>)}
   export default React.memo(UserInFormationRadio)
+
+  //중복제거 해보기

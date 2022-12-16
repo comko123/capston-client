@@ -25,7 +25,7 @@ export default function StyleChange() {
     <h5 className={"Myadress_description"} style={{marginRight:"80px"}}>마이페이지&gt;내정보 수정하기</h5>
     <div className={"Myadress_maincontainer_outer"}>
     <div className={"Myadress_maincontainer"} style={{ marginLeft:"146px"}}>
-    {userIn.map((item,num)=>
-    <UserSeasonStyle title={userIn[num]} styleList={selectUserCheck[item]} key={num}
-    storeText ={selectData[num]} storeStyleList={addStyleList} result ={setMessage}/>)}
+    {userIn.map((item,num)=>{
+    return <UserSeasonStyle title={userIn[num]} styleList={selectUserCheck[item]} key={userIn[num]}
+    storeText ={selectData[num]} storeStyleList={addStyleList} result ={setMessage}/>})}
     </div></div></div></div><MenuBar/></>)}
