@@ -24,6 +24,7 @@ ui 구현 완료
 메인 페이지로 돌아가는 링크or버튼or헤더바 만들기(구현 완료)    
 main logo 세션스토리지 => 쿠키 저장(해결)    
 화원가입 에러메세지 추가(수정 완료 (테스트 필요))      
+map 함수 key값 변경 
 
 컴포넌트 props   
 props.content:기능제목(ex:내 정보로 추천받기 type:string)  
