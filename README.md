@@ -1,4 +1,4 @@
-# capston-front
+# capston-Client
 
 # backend 기능 명세서 & 데이터 타입
 https://github.com/rkdmin/SimpleFashion/blob/main/README.md  
