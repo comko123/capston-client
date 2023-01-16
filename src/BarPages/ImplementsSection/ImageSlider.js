@@ -2,8 +2,7 @@ import { useState,useRef } from "react"
 import {wheather} from "../../data"
 import SliderButton from "./SliderButton"
 import ImageList from "./ImageList"
-const left = (num) => num-100
-const right = (num) => num+100
+const movementState = (num,val) => num+val
 
 const umbrella = () => <div className="Recommendation_notice1"
 style={wheather.rain?{backgroundColor:"#4254FF",color:"white"}:
@@ -22,8 +21,8 @@ style={{marginLeft:"1.2vw",marginRight:"3vw"}}>
 <div className={"Recommendation_card_container_inner"} style={{marginLeft:"2vw"}}>
 <ImageList regis={regis} number={1}/>
 <div className="Recommendation_notice">{umbrella()}</div></div></div>
-<SliderButton className="leftButton" optionConstant={!constant} direction={right}
-setConstant={setConstant} currentConstant={constant} text="&larr;"moveRef={moveRef}/>
-<SliderButton className="rightButton" optionConstant={!!constant} direction={left}
-setConstant={setConstant}currentConstant={constant} text="&rarr;" moveRef={moveRef}/></div>)}
+<SliderButton className="leftButton" optionConstant={!constant} direction={movementState}
+setConstant={setConstant} currentConstant={constant} text="&larr;"moveRef={moveRef} movement={+100}/>
+<SliderButton className="rightButton" optionConstant={!!constant} direction={movementState}
+setConstant={setConstant}currentConstant={constant} text="&rarr;" moveRef={moveRef} movement={-100}/></div>)}
 export default ImageSlider
