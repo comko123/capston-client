@@ -10,6 +10,6 @@ const BorderSearchButtonList = ({langth,searchParams,styleBorderObject,styleBoxO
     return (<React.Fragment key={item}>
     <input className="numberBtn" type="button" value={item/10}
     style={+number.get("number")===index?styleBorderObject:styleBoxObject}
-    onClick={async() => {navigate(`/Border/search/content?id=${searchParams}&number=${index}`)}}/>
+    onClick={() => {navigate(`/Border/search/content?id=${searchParams}&number=${index}`)}}/>
     </React.Fragment>)})}</>)}
     export default React.memo(BorderSearchButtonList)

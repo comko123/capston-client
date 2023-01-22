@@ -46,3 +46,5 @@ const BorderSearchPage = () => {
     <div className="pen_square"><img src={pen_square} width="20" height="20"/>
     </div>글쓰기</Link></div></div><MenuBar/></div>}</>)}
 export default BorderSearchPage
+
+// rtk query 적용시 버튼 클릭마다 쿼리 요청 보내기

@@ -1,4 +1,6 @@
 import {configureStore,createSlice} from "@reduxjs/toolkit"
+import { inCloser } from "./api/inClosing"
+// import { setupListeners } from "@reduxjs/toolkit/dist/query"
 
 const registration = createSlice({
     name:"registration",
@@ -15,4 +17,12 @@ const registration = createSlice({
         },clearStyle(state,action){
         Object.keys(state[action.payload]).map(item=>state[action.payload][item].splice(0))}}})
     export const{addStyle,removeStyle,deduplicationStyle,clearStyle,inputLengthStyle} = registration.actions
-    export default configureStore({reducer:{addStyleList:registration.reducer}})
+    export default configureStore({reducer:{
+        addStyleList:registration.reducer,
+        [inCloser.reducerPath]:inCloser.reducer
+    },
+        middleware: (getDefaultMiddleware) =>
+        getDefaultMiddleware().concat(inCloser.middleware),
+    
+    })
+    // setupListeners(registration.dispatch)
