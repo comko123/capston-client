@@ -1,0 +1,15 @@
+import { useCallback } from "react"
+import { useDispatch } from "react-redux"
+import { addStyle, deduplicationStyle, removeStyle } from "../store"
+export const useReduxClallBack = ({list,value,index}) => {
+    const dispatch = useDispatch()
+    const action = {list,value,index:index}
+    const addStyleDispatch = useCallback(()=>{dispatch(addStyle(action))},[action])
+    const deduplicationStyleDispatch = useCallback(()=>{dispatch(deduplicationStyle(action))},[action])
+    const removeStyleDispatch = useCallback(()=>{dispatch(removeStyle(action))},[action])
+    return {
+        add:addStyleDispatch,
+        dpc:deduplicationStyleDispatch,
+        rmv:removeStyleDispatch
+    }
+}

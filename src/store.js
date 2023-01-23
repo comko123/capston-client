@@ -25,4 +25,3 @@ const registration = createSlice({
         getDefaultMiddleware().concat(inCloser.middleware),
     
     })
-    // setupListeners(registration.dispatch)

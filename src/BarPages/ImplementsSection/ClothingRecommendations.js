@@ -16,8 +16,7 @@ const unLoginAxios = async(value,link,setRegis,setResult)=>{
 const ClothingRecommendations = ({link,title}) => {
     const [regis,setRegis] = useState({})
     const [result,setResult] = useState(true)
-    const location = useLocation()
-    const {pathname} = location 
+    const  {pathname} = useLocation()
     useEffect(()=>{
     if(!userLoginInfo){
     if(!sessionStorage.getItem("no1")){unLoginAxios("여성",link,setRegis,setResult)}

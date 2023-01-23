@@ -4,3 +4,4 @@ import { useEffect } from "react"
 export const useClear = () => {
 const dispatch = useDispatch()    
 useEffect(()=>{dispatch(clearStyle(0))},[dispatch])}
+

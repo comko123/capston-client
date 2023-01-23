@@ -6,8 +6,11 @@ export const useAlert = (result,link) => {
     useEffect(()=>{
     if(Object.keys(result).length===2){alert(result.errorMessage)}
     else if (Object.keys(result).length === 9){
-    sessionStorage.setItem("login_information", JSON.stringify(result))
-    window.location.replace('/')}
+        const {username,token,gender} = result
+    sessionStorage.setItem("login_information", JSON.stringify({username,token,gender}))
+    window.location.replace('/')
+}
     else if (typeof result === "string"){
     if(!alert(result)){navigate(link)}}
-},[result,navigate])}
+},[result,navigate,link])
+}

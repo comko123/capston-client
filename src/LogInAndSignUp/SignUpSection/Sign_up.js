@@ -56,4 +56,3 @@ export default function Sign_Up() {
             className={"Sign_Up_button"}/></div></form>
             <br/><br/><br/><br/><br/>
             <MenuBar/></div>)}
-            //렌더링 이슈 있음
