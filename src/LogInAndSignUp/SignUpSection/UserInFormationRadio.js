@@ -9,7 +9,6 @@ copy[title] = copyState;return copy})}
 
 const UserInFormationRadio = ({checkList, title, length}) => {
 const [userData,setUserData] = useState({연령:true,성별:false,신장:false,체중:false})
-console.log({checkList})
 return(<div><h3 className={`Sign_up_selectbox ${userData[title]?"Sign_up_selectbox__active":null}`} 
 onClick={()=>onSelectChoice({setUserData,title})}><div className={"Sign_up_selectlabel"}>{title}</div>
 <FaChevronDown className={"Sign_up_selectboxright"}></FaChevronDown></h3>
