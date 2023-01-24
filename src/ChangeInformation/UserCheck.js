@@ -6,8 +6,6 @@ const UserCheck = ({list,value,number,styleList}) => {
 return(
     <div className={"Myadress_main_component_items"}>
     <input className={"Myadress_main_component_item_check"} type="checkbox" value = {styleList[number]}
-    onClick ={e=>{if(e.target.checked){add();dpc}
-    else{rmv()}}}/>
-    <span className={"Myadress_main_component_item_text"}>{value}</span></div>
-)}
+    onClick ={e=>{if(e.target.checked){add();dpc}else{rmv()}}}/>
+    <span className={"Myadress_main_component_item_text"}>{value}</span></div>)}
 export default UserCheck
