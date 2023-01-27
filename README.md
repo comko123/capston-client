@@ -1,6 +1,5 @@
 ### capston-Client
 
-  
 ## Gui - figma  
 https://www.figma.com/file/JqQDlUrMssEMF8cWk2LWbf/WeatherStyle-2022-05?node-id=0%3A1
 
