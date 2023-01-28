@@ -1,22 +1,22 @@
-import axios from "axios"
 import {useRef,useState} from "react"
 import {Link} from "react-router-dom"
 import MenuBar from "../Bar/MenuBar"
 import "./Login_page.moudule.css"
 import {login} from "../data"
 import { useAlert } from "../hooks/useAlert"
+import { useSetLoginStateMutation } from "../api/inClosing"
 const Login_page = () => {
   const [result, setResult] = useState({})
-  const input_id = useRef()
-  const input_pw = useRef()
+  const [input_id,input_pw] = [useRef(),useRef()]
+  const loginState = useSetLoginStateMutation()
 useAlert(result,'/')
 return (<div className="container">
         <h1 className="loginpage_title"> Log-in </h1>
-        <form className="form" onSubmit={e => {(async()=>{
+        <form className="form" onSubmit={async(e) =>{ 
         e.preventDefault()
         try{const user = new login(input_id.current.value,input_pw.current.value)
-        setResult(await(await axios.post(`/login`,user,{headers:{"token": ""}})).data)} 
-        catch(error) {console.log(error)}})()}}>
+          setResult(JSON.parse(await(await loginState[0](user)).data))} 
+        catch(error) {console.log(error)}}}>
         <div className="emailtext">E-mail</div>
         <input className="ID" type="text" placeholder="이메일을 입력하세요." ref={input_id}/>
         <div className="passwordtext">Password</div>
