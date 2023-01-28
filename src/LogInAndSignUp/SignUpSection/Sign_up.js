@@ -9,6 +9,7 @@ import UserInFormationRadio from "./UserInFormationRadio"
 import UserInFormationCheckBox from "./UserInFormationCheckBox"
 import UserInFormationInput from "./UserInFormationInput"
 import { useAlert } from "../../hooks/useAlert"
+import { useSetSignUpStateMutation } from "../../api/inClosing"
 
 const basicSetting = Object.keys(selectUserData)
 const userSetting = Object.keys(inputTypeAndPalcehorder)
@@ -18,8 +19,8 @@ export default function Sign_Up() {
   const trans = useNavigate()
   const [isFirst, setIsFirst] = useState(true)
   const [result, setResult] = useState({})
-  const selector = useSelector(item=>item)
-  const {addStyleList} = selector
+  const {addStyleList} = useSelector(item=>item)
+  const signUpState = useSetSignUpStateMutation()
   useAlert(result,'/')
   
   return (
@@ -32,12 +33,14 @@ export default function Sign_Up() {
             <h1 className={"Sign_up_title1"}>Weather Style 회원정보 입력</h1>
             <h1 className={"Sign_up_title2"}>User Information</h1>
             <div className={"Sign_up_title3"}>* 회원 정보 기반 맞춤형 추천을 제공합니다.</div></div>
-            <form onSubmit={(e) => {(async () => {e.preventDefault()
+            <form onSubmit={async(e) => {e.preventDefault()
             const{email,password} = addStyleList[2]
             const {성별,연령,신장,체중,스타일} =  addStyleList[3]
             const signIn = new signInfo(email[0],password[0],성별[0],연령[0],신장[0],체중[0],스타일)
-            try {setResult(await(await axios.post("/join",signIn)).data)} 
-            catch (e) {console.log(e)}})()}}>
+            const resultS = await(await signUpState[0](signIn)).data
+            console.log(signIn)
+            try { const a = JSON.parse(resultS);setResult(a)} 
+            catch {setResult(resultS)}}}>
             <div className={"Sign_up_form"} style={{display:isFirst?"flex":"none"}}>
             <div className="sign_up_contanier">
             {userSetting.map((item,index)=>
@@ -56,3 +59,4 @@ export default function Sign_Up() {
             className={"Sign_Up_button"}/></div></form>
             <br/><br/><br/><br/><br/>
             <MenuBar/></div>)}
+            //라디오 타입 문제

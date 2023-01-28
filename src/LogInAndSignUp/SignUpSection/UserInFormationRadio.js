@@ -14,5 +14,5 @@ onClick={()=>onSelectChoice({setUserData,title})}><div className={"Sign_up_selec
 <FaChevronDown className={"Sign_up_selectboxright"}></FaChevronDown></h3>
 <div className={`Sign_up_selectcontainer ${userData[title]?"Sign_up_selectcontainer__active":null}`}>
 {checkList.map((childInformation, index) => <SignSelctCheck key={title + ":" + `${childInformation}`}
-index={index} list={title} value={childInformation} length={length}/>)}</div></div>)}
+index={index+1} list={title} value={childInformation} length={length}/>)}</div></div>)}
 export default React.memo(UserInFormationRadio)
