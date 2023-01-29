@@ -2,7 +2,7 @@
 import PasswordChange from "./Change/PasswordChange"
 import Mypage from "./MyPage/Mypage"
 import Sign_up from "./LogInAndSignUp/SignUpSection/Sign_up"
-import { Routes, Route} from "react-router-dom"
+import { Routes, Route, useNavigate} from "react-router-dom"
 import LogoWithMainPage from "./LogoWithMainPage"
 import InfoToMyInfo from "./BarPages/InfoToMyInfo"
 import Login_page from "./LogInAndSignUp/Login_page"
@@ -16,6 +16,7 @@ import Write from "./BarPages/Border/Write"
 import WritingLetter from "./BarPages/Border/WritingLetter"
 import ErrorPages from "./ErrorPages"
 import BorderSearchPage from "./BarPages/Border/BorderSearchSection/BorderSearchPage"
+import { useEffect } from "react"
 
 const loginState = () => {
   const gett = sessionStorage.getItem("login_information")
@@ -25,6 +26,8 @@ const loginState = () => {
 
 export default function App() {
   const login = loginState()
+  const navigate = useNavigate()
+  useEffect(()=>{sessionStorage.getItem("wheatherInfo")?null:navigate('/')},[])
   return (
         <><Routes>
         <Route path="*" element={<ErrorPages/>}/>
