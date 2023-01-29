@@ -8,9 +8,5 @@ export const useAlert = (result,link) => {
     else if (Object.keys(result).length === 9){
     const {username,token,gender} = result
     sessionStorage.setItem("login_information", JSON.stringify({username,token,gender}))
-    window.location.replace(link)
-}
-    else if (typeof result === "string"){
-    if(!alert(result)){navigate(link)}}
-},[result,navigate,link])
-}
+    window.location.replace(link)}else if (typeof result === "string"){
+    if(!alert(result)){navigate(link)}}},[result,navigate,link])}

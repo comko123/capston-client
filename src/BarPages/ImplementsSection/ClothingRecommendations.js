@@ -7,25 +7,28 @@ import { Link, useLocation } from "react-router-dom"
 import {infotomyinfo,wheather,userLoginInfo,ruby, certifiedToken} from "../../data"
 import UnLoginSelectButton from "./UnLoginSelectButton"
 import ImageSlider from "./ImageSlider"
+import { useSetLoginImpMutation, useSetUnLoginImpMutation } from "../../api/inClosing"
 
-const unLoginAxios = async(value,link,setRegis,setResult)=>{
-    const nMember = new infotomyinfo(wheather.Mtemp,wheather.Htemp,value)
-    setRegis(await(await axios.post(link,nMember)).data)
+const unLoginAxios = async(value,setRegis,setResult,unLoginUser)=>{
+    const nMember = new infotomyinfo(wheather?.Mtemp,wheather?.Htemp,value)
+    setRegis(await(await unLoginUser[0](nMember)).data)
     setResult(false)}
 
 const ClothingRecommendations = ({link,title}) => {
     const [regis,setRegis] = useState({})
     const [result,setResult] = useState(true)
     const  {pathname} = useLocation()
+    const unLoginUser = useSetUnLoginImpMutation() 
+    const loginUser = useSetLoginImpMutation()
+    //비로그인 성별유지
     useEffect(()=>{
     if(!userLoginInfo){
-    if(!sessionStorage.getItem("no1")){unLoginAxios("여성",link,setRegis,setResult)}
-    else{unLoginAxios("남성",link,setRegis,setResult)}}
+    if(!sessionStorage.getItem("no1")){unLoginAxios("여성",setRegis,setResult,unLoginUser)}
+    else{unLoginAxios(sessionStorage.getItem("no1"),setRegis,setResult,unLoginUser)}}
     else {if(pathname==="/Recommendation/weather"){
-    unLoginAxios(userLoginInfo.gender,link,setRegis,setResult)}
-    else{(async()=>{
-    const rubyLan = new ruby(wheather.Mtemp,wheather.Htemp)
-    setRegis(await(await axios.post(link,rubyLan,{headers:{Authorization:`Bearer ${certifiedToken}`}})).data)
+    unLoginAxios(userLoginInfo.gender,setRegis,setResult,unLoginUser)}
+    else{(async()=>{const rubyLan = new ruby(wheather?.Mtemp,wheather?.Htemp)
+    setRegis(await(await loginUser[0]({token:{Authorization:`Bearer ${certifiedToken}`},info:rubyLan,url:link})).data)
     setResult(false)})()}}},[link,pathname]) 
     return (<>{result?<div className="loadingContanier">
     <span className="loadingText">loading ...</span></div>
@@ -36,4 +39,5 @@ const ClothingRecommendations = ({link,title}) => {
     <img src={mypage_btn} width="25" height="25" alt="마이 페이지"/></Link></div></div>
     <UnLoginSelectButton setRegis={setRegis} setResult={setResult} link={link}/>
     <ImageSlider regis={regis}/><MenuBar/></div>}</>)}
+    //JSON.parse
 export default ClothingRecommendations

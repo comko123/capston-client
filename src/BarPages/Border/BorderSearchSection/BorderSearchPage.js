@@ -1,27 +1,23 @@
-import axios from "axios"
-import { useEffect, useRef, useState } from "react"
+import { useRef } from "react"
 import { Link, useNavigate, useSearchParams } from "react-router-dom"
 import MenuBar from "../../../Bar/MenuBar"
 import pen_square from "../../../img/pen_square.png"    
 import mypage_btn from "../../../img/mypage_btn.png"
 import BorderSearchContentList from "./BorderSearchContentList"
 import BorderSearchButtonList from "./BorderSearchButtonList"
+import { useGetBorderSearchArticlesQuery } from "../../../api/inClosing"
 const styleBorderObject = {border:"2px solid #4254ff",backgroundColor:"white",color:"#4254ff"}
 const styleBoxObject = {backgroundColor: "#4254ff",color:"white"}
 const BorderSearchPage = () => {
     const [searchParams,_] = useSearchParams()
-    const [data,setData] = useState({})
-    const [state,setState] = useState(true)
     const navigate = useNavigate() 
     const searchRef = useRef()
     const userText = searchParams.get("id")
     const pageNumber = +searchParams.get("number")
+    const {isLoading,data} =useGetBorderSearchArticlesQuery({info:userText,num:searchParams.get("number")})
     const nextContentEmpty = data?.content?.length === pageNumber
     const nextContentNotEmpty = data?.totalPages-1 === pageNumber
-    useEffect(()=>{(async()=>{
-    setData(await(await axios(`/articles/title/${userText}?size=10&page=${searchParams.get("number")}`)).data)
-    setState(false)})()},[searchParams.get("number")])
-    return(<>{state?<div className="loadingContanier">
+    return(<>{isLoading?<div className="loadingContanier">
     <span className="loadingText">loading ...</span></div>:<div className="topContanier"><div className={"top_title_area"}>
     <div className={"top_title"}>게시판</div><div className={"top_mypage"}><Link to={`/My_page`}>
     <img src={mypage_btn} width="25" height="25" alt="마이 페이지"/></Link></div></div>

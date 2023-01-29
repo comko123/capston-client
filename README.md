@@ -8,8 +8,7 @@ https://www.figma.com/file/JqQDlUrMssEMF8cWk2LWbf/WeatherStyle-2022-05?node-id=0
 김민석 - html / javascript / react   
 
 # Project-TDL     
-rtk-query 
-{Comment X 2, BorderSearchPage , Write,WritingLetter ,NowWeather , TodayWeather}  
+지속적인 리펙토링 ... 
 
 # 해결 완료  
 ui 구현 완료  
@@ -24,6 +23,7 @@ map 함수 key값 변경
 useCallback 추가 및 중복적 요소 발생시 커스텀 훅 지정  
 로그인 변동사항 추가 (저장하는 항목 개선)  
 회원가입 클래스네임 부여 로직 개선     
+ajax요청 Rtk Query로직으로 변경
  
 # 컴포넌트 props   
 props.content:기능제목(ex:내 정보로 추천받기 type:string)  
