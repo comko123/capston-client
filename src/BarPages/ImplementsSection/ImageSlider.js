@@ -9,8 +9,7 @@ style={wheather.rain?{backgroundColor:"#4254FF",color:"white"}:
 {color:"#4254FF",border:"2px solid #4254FF",backgroundColor:"white"}}>우산필요</div>
 
 const ImageSlider = ({regis}) => {
-const moveRef = useRef()    
-const [constant,setConstant] = useState(0)
+const [[constant,setConstant],moveRef] = [useState(0),useRef() ]
 return(<div className={"Recommendation_card_container " + 
 (sessionStorage.getItem("login_information")? "": "InfoToWeather_card_container")}>
 <div className="Recommendation_card_container_inner_Box" ref={moveRef}  >
