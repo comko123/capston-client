@@ -22,19 +22,14 @@ const rainData = rainning.filter(E=>E!==null);
 (rainData.length!==0)? rest[1](true): rest[1](false)}
 
 const TodayWeather = ({latitude,longitude,setDate}) =>{
-    const [rainData,setRainData] = useState(false)
-    const [lowTemp,setLowTemp] = useState(0)
-    const [highTemp,setHighTemp] = useState(0)
-    const {isLoading,data} = useGetWheatherQuery({latitude,longitude,state:"onecall"})
-    useEffect(() => {if(data?.hourly?.length){
-    temp(data?.hourly,setHighTemp,setLowTemp)
-    rain(data?.hourly,setRainData)}},[data?.hourly])
-    return (
-    <>{isLoading?null:
-    <div className={"TodayWeather_container"}>
-    <NowWeather latitude={latitude} longitude = {longitude} setDate={setDate}/>
-    {data?.hourly?.map(({dt,humidity,temp,weather})=><WeatherDisplay key={dt} 
-    dt={dt} humidity={humidity} temp={temp} weather={weather}/>)}
-    <WeatherAlgorithm Htemp = {Math.round(highTemp)} 
-    Mtemp={Math.round(lowTemp)} rain={rainData}/></div>}</>)}
-    export default React.memo(TodayWeather)
+const [[rainData,setRainData],[lowTemp,setLowTemp],[highTemp,setHighTemp]] = [useState(false),useState(0),useState(0)]
+const {isLoading,data} = useGetWheatherQuery({latitude,longitude,state:"onecall"})
+useEffect(() => {if(data?.hourly?.length){temp(data?.hourly,setHighTemp,setLowTemp)
+rain(data?.hourly,setRainData)}},[data?.hourly])
+return (<>{isLoading?null:<div className={"TodayWeather_container"}>
+<NowWeather latitude={latitude} longitude = {longitude} setDate={setDate}/>
+{data?.hourly?.map(({dt,humidity,temp,weather})=><WeatherDisplay key={dt} 
+dt={dt} humidity={humidity} temp={temp} weather={weather}/>)}
+<WeatherAlgorithm Htemp = {Math.round(highTemp)} 
+Mtemp={Math.round(lowTemp)} rain={rainData}/></div>}</>)}
+export default React.memo(TodayWeather)
