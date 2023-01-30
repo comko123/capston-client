@@ -9,12 +9,12 @@ import "./MyClothing.moudule.css"
 import { useAlert } from "../hooks/useAlert"
 import UserSeasonClothing from "./UserSeasonClothing"
 import { useClear } from "../hooks/useClear"
-import {useSetStyleInfoMutation}  from "../api/inClosing"
+import {inCloser}  from "../api/inClosing"
 const MyClothing = () => {
 const selector = useSelector(item=>item.addStyleList)
 const [selectData,userIn] = [Object.keys(selector[0]),Object.keys(infoUser)]
 const [[message,setMessage],[state,setState]] = [useState({}),useState([])]
-const [styleModify,navigate] =[useSetStyleInfoMutation(),useNavigate()]
+const [styleModify,navigate] =[inCloser.useSetStyleInfoMutation(),useNavigate()]
 useClear();useAlert(message,'/')
 useEffect(()=>{(async()=>{if(state.length){
 const resultData =  await(await styleModify[0]({token:{Authorization:`Bearer ${certifiedToken}`},info:state,settingUrl:`/my-clothes`})).data

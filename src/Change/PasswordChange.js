@@ -1,6 +1,6 @@
 import {useState,useRef} from "react"
 import {useNavigate} from "react-router-dom"
-import { useSetPasswordModifyMutation } from "../api/inClosing"
+import { inCloser } from "../api/inClosing"
 import {changePassword, parsingLogic} from "../data"
 import { useAlert } from "../hooks/useAlert"
 import "./PasswordChange.moudule.css"
@@ -8,7 +8,7 @@ import "./PasswordChange.moudule.css"
 export default function PasswordChange() {
 const [result, setResult] = useState({})
 const [emailRef,passwordRef,newPasswordRef] = [useRef(),useRef(),useRef()]
-const [navigate,passwordModify] = [useNavigate(),useSetPasswordModifyMutation()]
+const [navigate,passwordModify] = [useNavigate(),inCloser.useSetPasswordModifyMutation()]
 useAlert(result,'/')
 return (<><div className={"IdFind_title_container"}><h1 className={"IdFind_title"}>비밀번호 변경하기</h1>
 <form className="passwordChangeForm" onSubmit={async(e)=>{e.preventDefault()

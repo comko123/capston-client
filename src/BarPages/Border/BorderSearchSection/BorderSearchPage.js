@@ -1,4 +1,3 @@
-/*eslint-disable*/
 import { useRef } from "react"
 import { Link, useNavigate, useSearchParams } from "react-router-dom"
 import MenuBar from "../../../Bar/MenuBar"
@@ -6,13 +5,13 @@ import pen_square from "../../../img/pen_square.png"
 import mypage_btn from "../../../img/mypage_btn.png"
 import BorderSearchContentList from "./BorderSearchContentList"
 import BorderSearchButtonList from "./BorderSearchButtonList"
-import { useGetBorderSearchArticlesQuery } from "../../../api/inClosing"
+import { inCloser  } from "../../../api/inClosing"
 const styleBorderObject = {border:"2px solid #4254ff",backgroundColor:"white",color:"#4254ff"}
 const styleBoxObject = {backgroundColor: "#4254ff",color:"white"}
-const BorderSearchPage = () => {const [searchParams,_] = useSearchParams();const navigate = useNavigate() 
+const BorderSearchPage = () => {const [searchParams] = useSearchParams();const navigate = useNavigate() 
 const searchRef = useRef();const userText = searchParams.get("id")
 const pageNumber = +searchParams.get("number")
-const {isLoading,data} =useGetBorderSearchArticlesQuery({info:userText,num:searchParams.get("number")})
+const {isLoading,data} = inCloser.useGetBorderSearchArticlesQuery({info:userText,num:searchParams.get("number")})
 const nextContentEmpty = data?.content?.length === pageNumber
 const nextContentNotEmpty = data?.totalPages-1 === pageNumber
 return(<>{isLoading?<div className="loadingContanier">
@@ -35,6 +34,6 @@ style={!data.content.length? nextContentEmpty?styleBorderObject
 :styleBoxObject:nextContentNotEmpty?styleBorderObject:styleBoxObject}
 onClick={()=>{navigate(`/Border/search/content?id=${userText}&number=${pageNumber+1}`)}}/></form>
 <i className="fa-solid fa-pen-to-square"></i><div className="writingBtnPR"><Link className="writingBtn" to={"/detail/write"}>
-<div className="pen_square"><img src={pen_square} width="20" height="20"/>
+<div className="pen_square"><img src={pen_square} width="20" height="20" alt=""/>
 </div>글쓰기</Link></div></div><MenuBar/></div>}</>)}
 export default BorderSearchPage

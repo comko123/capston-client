@@ -1,8 +1,8 @@
-import {useSetMyInfoMutation}  from "../api/inClosing"
+import {inCloser}  from "../api/inClosing"
 import {certifiedToken, parsingLogic } from "../data"
 import UserCheck from "./UserCheck"
 const UserSeasonStyle = ({title,styleList,storeText,storeStyleList,result }) => {
-const infoModify = useSetMyInfoMutation()
+const infoModify = inCloser.useSetMyInfoMutation()
 return (<div className={"Myadress_main_component"}>
 <div className={"Information_main_component_title_container"}>
 <h3 className={"Myadress_main_component_title Information_main_component_title"}>{title}</h3>

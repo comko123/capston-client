@@ -1,15 +1,13 @@
 import { useRef,useState } from "react"
 import { useParams } from "react-router-dom"
-import { useGetCommentQuery, useSetCommentInputMutation } from "../../api/inClosing"
+import { inCloser } from "../../api/inClosing"
 import { articles, parsingLogic } from "../../data"
 import { useAlert } from "../../hooks/useAlert"
 import "./Comment.moudule.css"
 const Comment = () => {
-const [message,setMessage] = useState({})
+const [[message,setMessage],{id}] = [useState({}),useParams()]
 const [creRef,creNickName] = [useRef(),useRef()]
-const {id} = useParams()
-const {data} = useGetCommentQuery(id)
-const commentInfo = useSetCommentInputMutation()
+const [{data},commentInfo] = [inCloser.useGetCommentQuery(id),inCloser.useSetCommentInputMutation()]
 useAlert(message,0)
 return (<><ul>{data?.map((item, index) => {
 return (<div className="commentList" key={index}>

@@ -8,7 +8,7 @@ import UserInFormationRadio from "./UserInFormationRadio"
 import UserInFormationCheckBox from "./UserInFormationCheckBox"
 import UserInFormationInput from "./UserInFormationInput"
 import { useAlert } from "../../hooks/useAlert"
-import { useSetSignUpStateMutation } from "../../api/inClosing"
+import { inCloser } from "../../api/inClosing"
 
 const basicSetting = Object.keys(selectUserData)
 const userSetting = Object.keys(inputTypeAndPalcehorder)
@@ -16,7 +16,7 @@ const styleObject = Object.keys(selectUserCheck)
 
 export default function Sign_Up() {
 const [[isFirst, setIsFirst],[result, setResult] ] = [useState(true),useState({})]
-const [signUpState,trans] = [useSetSignUpStateMutation(),useNavigate()]
+const [signUpState,trans] = [inCloser.useSetSignUpStateMutation(),useNavigate()]
 const {addStyleList} = useSelector(item=>item)
 useAlert(result,'/')
   

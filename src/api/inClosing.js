@@ -20,8 +20,3 @@ SetCommentInput:mutation({query:({info,num})=>{return{url:`/articles/${num}/comm
 SetArticleInput:mutation({query:inputArticleInfo=>{return{url:`/articles/new`,method:'post',body:{...inputArticleInfo},...parse}},...inval}),
 SetUnLoginImp:mutation({query:user=>{return {url:`/suggest1-non-member`,method:'post',body:{...user}}},...inval}),
 SetLoginImp:mutation({query:({token,info,url})=>{return {url,method:'post',headers:token,body:{...info}}},...inval})})})
-
-export const {useGetBorderQuery,useSetMyInfoMutation,useSetSignUpStateMutation,useSetStyleInfoMutation,
-useSetLoginStateMutation,useSetPasswordModifyMutation,useGetCommentQuery,useSetCommentInputMutation,
-useGetArticleInfoQuery,useSetArticleInputMutation,useGetWheatherQuery,useGetBorderSearchArticlesQuery,
-useSetUnLoginImpMutation,useSetLoginImpMutation} = inCloser 

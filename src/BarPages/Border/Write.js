@@ -4,12 +4,11 @@ import { listText, parsingLogic } from "../../data"
 import "./Write.moudule.css"
 import pageback_btn from "../../img/pageback_btn.png"
 import { useAlert } from "../../hooks/useAlert"
-import { useSetArticleInputMutation } from "../../api/inClosing"
+import { inCloser } from "../../api/inClosing"
 const Write = () => {
 const [titArticle,conArticle] = [useRef(),useRef()]
-const [artMsg,setArtMsg] = useState({})
-const navigate = useNavigate()
-const articleSubmit = useSetArticleInputMutation()
+const [[artMsg,setArtMsg],navigate] = [useState({}),useNavigate()]
+const articleSubmit = inCloser.useSetArticleInputMutation()
 useAlert(artMsg,-1)
     
 return (<><div className={"top_innercontainer"}>

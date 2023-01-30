@@ -3,10 +3,10 @@ import "./NowWeather.moudule.css"
 import weather_cloudy from "../img/weather_cloudy.png"
 import weather_rain_small from "../img/weather_rain_small.png"
 import weather_humidity_small from "../img/weather_humidity_small.png"
-import { useGetWheatherQuery } from "../api/inClosing"
+import { inCloser } from "../api/inClosing"
 
 const NowWeather = ({latitude,longitude,setDate}) => {
-const {isLoading,data} = useGetWheatherQuery({latitude,longitude,state:"weather"})
+const {isLoading,data} = inCloser.useGetWheatherQuery({latitude,longitude,state:"weather"})
 useEffect(()=>{setDate(data)},[data,setDate])
 return(<>{isLoading?null:<div className={"NowWeather_card"}>
 <h1 className={"NowWeather_card_top"}>현재</h1>

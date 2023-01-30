@@ -7,7 +7,7 @@ import { Link, useLocation } from "react-router-dom"
 import {infotomyinfo,wheather,userLoginInfo,ruby, certifiedToken} from "../../data"
 import UnLoginSelectButton from "./UnLoginSelectButton"
 import ImageSlider from "./ImageSlider"
-import { useSetLoginImpMutation, useSetUnLoginImpMutation } from "../../api/inClosing"
+import { inCloser } from "../../api/inClosing"
 
 const userUnLogined = async(value,setRegis,setResult,unLoginUser)=>{
 const nMember = new infotomyinfo(wheather?.Mtemp,wheather?.Htemp,value)
@@ -17,7 +17,7 @@ const ClothingRecommendations = ({link,title}) => {
 const [regis,setRegis] = useState({})
 const [result,setResult] = useState(true)
 const {pathname} = useLocation()
-const [unLoginUser,loginUser] = [useSetUnLoginImpMutation(),useSetLoginImpMutation()] 
+const [unLoginUser,loginUser] = [inCloser.useSetUnLoginImpMutation(),inCloser.useSetLoginImpMutation()] 
 useEffect(()=>{if(!userLoginInfo){
 if(!sessionStorage.getItem("no1")){userUnLogined("여성",setRegis,setResult,unLoginUser)}
 else{userUnLogined(sessionStorage.getItem("no1"),setRegis,setResult,unLoginUser)}}

@@ -19,10 +19,9 @@ import BorderSearchPage from "./BarPages/Border/BorderSearchSection/BorderSearch
 import { useEffect } from "react"
 
 const loginState = () => {
-  const gett = sessionStorage.getItem("login_information")
-  const user = JSON.parse(gett)
-  return user?.username
-}
+const gett = sessionStorage.getItem("login_information")
+const user = JSON.parse(gett)
+return user?.username}
 
 export default function App() {
 const login = loginState()

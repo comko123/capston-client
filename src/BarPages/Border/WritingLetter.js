@@ -1,12 +1,11 @@
 import { Outlet,useNavigate,useParams } from "react-router-dom"
-import { useGetArticleInfoQuery } from "../../api/inClosing"
+import { inCloser } from "../../api/inClosing"
 import anonymous_blue from "../../img/anonymous_blue.png"
 import pageback_btn from "../../img/pageback_btn.png"
 import "./WrittingLetter.moudule.css"
 const WritingLetter = () => {
-const {id} = useParams()
-const navigate = useNavigate()
-const {isLoading,data} = useGetArticleInfoQuery(id)
+const [{id},navigate] = [useParams(),useNavigate()]
+const {isLoading,data} = inCloser.useGetArticleInfoQuery(id)
 return(<>{isLoading?<div className="loadingContanier">
 <span className="loadingText">loading ...</span></div>:
 <><div className="write_contanier"><img src={pageback_btn} width="18" height="18" alt=""onClick={()=>navigate(-1)}/></div>

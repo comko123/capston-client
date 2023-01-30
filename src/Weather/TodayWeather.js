@@ -1,9 +1,10 @@
+/*eslint-disable */
 import NowWeather from "./NowWeather"
 import WeatherDisplay from "./WeatherDisplay"
 import WeatherAlgorithm from "./WeatherAlgorithm"
 import React,{useEffect,useState } from "react"
 import "./TodayWeather.moudule.css"
-import { useGetWheatherQuery } from "../api/inClosing"
+import { inCloser } from "../api/inClosing"
 
 const temp = (...rest) => {
 const dateValue = new Date()
@@ -23,7 +24,7 @@ const rainData = rainning.filter(E=>E!==null);
 
 const TodayWeather = ({latitude,longitude,setDate}) =>{
 const [[rainData,setRainData],[lowTemp,setLowTemp],[highTemp,setHighTemp]] = [useState(false),useState(0),useState(0)]
-const {isLoading,data} = useGetWheatherQuery({latitude,longitude,state:"onecall"})
+const {isLoading,data} = inCloser.useGetWheatherQuery({latitude,longitude,state:"onecall"})
 useEffect(() => {if(data?.hourly?.length){temp(data?.hourly,setHighTemp,setLowTemp)
 rain(data?.hourly,setRainData)}},[data?.hourly])
 return (<>{isLoading?null:<div className={"TodayWeather_container"}>

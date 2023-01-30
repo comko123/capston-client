@@ -4,9 +4,9 @@ import MenuBar from "../Bar/MenuBar"
 import "./Login_page.moudule.css"
 import {login} from "../data"
 import { useAlert } from "../hooks/useAlert"
-import { useSetLoginStateMutation } from "../api/inClosing"
+import { inCloser } from "../api/inClosing"
 const Login_page = () => {
-const [[result, setResult],loginState] = [useState({}),useSetLoginStateMutation()]
+const [[result, setResult],loginState] = [useState({}),inCloser.useSetLoginStateMutation()]
 const [input_id,input_pw] = [useRef(),useRef()];useAlert(result,'/')
 return (<div className="container"><h1 className="loginpage_title"> Log-in </h1>
 <form className="form" onSubmit={async(e) =>{e.preventDefault()

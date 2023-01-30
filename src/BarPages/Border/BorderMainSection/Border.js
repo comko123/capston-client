@@ -7,11 +7,11 @@ import pen_square from "../../../img/pen_square.png"
 import MenuBar from "../../../Bar/MenuBar"
 import BorderContentList from "./BorderContentList"
 import BorderButtonList from "./BorderButtonList"
-import { useGetBorderQuery } from "../../../api/inClosing"
+import { inCloser } from "../../../api/inClosing"
 const borderStyleObject = {border:"2px solid #4254ff",backgroundColor:"white",color:"#4254ff"}
 const borderClickStyleObject = {backgroundColor: "#4254ff",color:"white"}
 const Border = () => {const navigate = useNavigate();const {pathname} = useLocation();const searchRef = useRef()
-const {currentData,isLoading} = useGetBorderQuery({url:"/articles"})
+const {currentData,isLoading} = inCloser.useGetBorderQuery({url:"/articles"})
 const pageIndex = Math.floor(+pathname.substring(14)/10)
 const finalBtnCheck = Math.floor((currentData?.length-1)/10)
 return(<>{isLoading?<div className="loadingContanier"><span className="loadingText">loading ...</span></div>:
