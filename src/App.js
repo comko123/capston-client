@@ -44,4 +44,5 @@ return (<><Routes>
 <Route path="/Input_clothing" element={!!login ? <MyClothing/>:<Login_page/>}/>
 <Route path="/Recommendation/Information" element={!!login ? <InfoToMyInfo/>:<Login_page/>}/>
 <Route path="/Recommendation/Clothing" element={!!login ? <InfoToMyClothing/>:<Login_page/>}/>
-<Route path="/My_page/StyleChange" element={!!login ? <StyleChange />:<Login_page />}/></Routes></>)}
+<Route path="/My_page/StyleChange" element={!!login ? <StyleChange />:<Login_page />}/>
+</Routes></>)}
