@@ -27,10 +27,10 @@ const [[rainData,setRainData],[lowTemp,setLowTemp],[highTemp,setHighTemp]] = [us
 const {isLoading,data} = inCloser.useGetWheatherQuery({latitude,longitude,state:"onecall"})
 useEffect(() => {if(data?.hourly?.length){temp(data?.hourly,setHighTemp,setLowTemp)
 rain(data?.hourly,setRainData)}},[data?.hourly])
-return (<>{isLoading?null:<div className={"TodayWeather_container"}>
+return (<>{isLoading?null:
+<div className={"TodayWeather_container"}>
 <NowWeather latitude={latitude} longitude = {longitude} setDate={setDate}/>
-{data?.hourly?.map(({dt,humidity,temp,weather})=><WeatherDisplay key={dt} 
-dt={dt} humidity={humidity} temp={temp} weather={weather}/>)}
-<WeatherAlgorithm Htemp = {Math.round(highTemp)} 
-Mtemp={Math.round(lowTemp)} rain={rainData}/></div>}</>)}
+{data?.hourly?.map(({dt,humidity,temp,weather})=>
+<WeatherDisplay key={dt} dt={dt} humidity={humidity} temp={temp} weather={weather}/>)}
+<WeatherAlgorithm Htemp = {Math.round(highTemp)} Mtemp={Math.round(lowTemp)} rain={rainData}/></div>}</>)}
 export default React.memo(TodayWeather)
