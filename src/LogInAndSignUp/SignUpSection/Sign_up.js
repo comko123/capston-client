@@ -1,14 +1,14 @@
-import { useState} from "react"
-import { Link,useNavigate } from "react-router-dom"
 import "./Sign_up.moudule.css"
-import {signInfo,selectUserData,inputTypeAndPalcehorder,selectUserCheck, parsingLogic,} from "../../data"
+import { useState} from "react"
 import MenuBar from "../../Bar/MenuBar"
 import {useSelector} from "react-redux"
+import { inCloser } from "../../api/inClosing"
+import { useAlert } from "../../hooks/useAlert"
+import { Link,useNavigate } from "react-router-dom"
+import UserInFormationInput from "./UserInFormationInput"
 import UserInFormationRadio from "./UserInFormationRadio"
 import UserInFormationCheckBox from "./UserInFormationCheckBox"
-import UserInFormationInput from "./UserInFormationInput"
-import { useAlert } from "../../hooks/useAlert"
-import { inCloser } from "../../api/inClosing"
+import {signInfo,selectUserData,inputTypeAndPalcehorder,selectUserCheck, parsingLogic,} from "../../data"
 
 const basicSetting = Object.keys(selectUserData)
 const userSetting = Object.keys(inputTypeAndPalcehorder)
@@ -41,7 +41,7 @@ try {parsingLogic(setResult,resultS)} catch (error) {console.log(error)}}}>
 <div className={"Sign_up_form2"}style={{ display: !isFirst ? "flex" : "none" }}>
 {basicSetting.map((item)=><UserInFormationRadio checkList={selectUserData[item]} title={item} key={item}
 length={addStyleList[3][item]}/>)}
-{styleObject.map((item)=><UserInFormationCheckBox title = {item} checkList={selectUserCheck[item]} key={item}/>)}
-<br/><input type="submit" value="가입"className={"Sign_Up_button"}/>
+{styleObject.map((item)=><UserInFormationCheckBox title = {item} checkList={selectUserCheck[item]} key={item}/>)}<br/>
+<input type="submit" value="가입"className={"Sign_Up_button"}/>
 <input type="button" value="홈페이지" onClick={() => {trans("/")}} className={"Sign_Up_button"}/></div></form>
 <br/><br/><br/><br/><br/><MenuBar/></div>)}
