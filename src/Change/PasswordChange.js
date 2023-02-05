@@ -10,7 +10,9 @@ const [result, setResult] = useState({})
 const [emailRef,passwordRef,newPasswordRef] = [useRef(),useRef(),useRef()]
 const [navigate,passwordModify] = [useNavigate(),inCloser.useSetPasswordModifyMutation()]
 useAlert(result,'/')
-return (<><div className={"IdFind_title_container"}><h1 className={"IdFind_title"}>비밀번호 변경하기</h1>
+return (<>
+<div className={"IdFind_title_container"}>
+    <h1 className={"IdFind_title"}>비밀번호 변경하기</h1>
 <form className="passwordChangeForm" onSubmit={async(e)=>{e.preventDefault()
 const changeInfo = new changePassword(emailRef.current.value,passwordRef.current.value,newPasswordRef.current.value)
 const result = await(await passwordModify[0](changeInfo)).data
@@ -18,5 +20,7 @@ try{parsingLogic(setResult,result)} catch(e){console.log(e)}}}>
 <input className="PW" type = "text" placeholder="e-mail" ref={emailRef}/>
 <input className="PW" type = "password" placeholder="password" ref={passwordRef}/>
 <input className="PW" type = "password" placeholder="new password" ref={newPasswordRef}/>
-<div className="passwordChangeButtonList"><input type = "button" value="뒤로가기" className="passWordSubmit" onClick={()=>navigate(-1)}/>
-<input type = "submit" value = "submit" className="passWordSubmit"/></div></form></div></>)}
+<div className="passwordChangeButtonList">
+    <input type = "button" value="뒤로가기" className="passWordSubmit" onClick={()=>navigate(-1)}/>
+<input type = "submit" value = "submit" className="passWordSubmit"/>
+</div></form></div></>)}
