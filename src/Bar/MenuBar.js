@@ -38,5 +38,6 @@ width="24" height="22" alt="내 옷들로 추천받기"/></h3>
 <h3 className={"bn-tab"} onClick={() => window.location.replace(`/Border/route/0`)}>
 <img src={isNaN(+pathname.split("")[14])?!search?menu_board:menu_board_on:menu_board_on} 
 width="22" height="22" alt="게시판"/></h3>
+
 </div>)}
-export default React.memo(MenuBar)
+export default MenuBar

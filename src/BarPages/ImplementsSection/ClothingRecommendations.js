@@ -19,17 +19,31 @@ const [result,setResult] = useState(true)
 const {pathname} = useLocation()
 const [unLoginUser,loginUser] = [inCloser.useSetUnLoginImpMutation(),inCloser.useSetLoginImpMutation()] 
 useEffect(()=>{if(!userLoginInfo){
-if(!sessionStorage.getItem("no1")){userUnLogined("여성",setRegis,setResult,unLoginUser)}
-else{userUnLogined(sessionStorage.getItem("no1"),setRegis,setResult,unLoginUser)}}
-else {if(pathname==="/Recommendation/weather"){userUnLogined(userLoginInfo.gender,setRegis,setResult,unLoginUser)}
-else{(async()=>{const rubyLan = new ruby(wheather?.Mtemp,wheather?.Htemp)
-setRegis(await(await loginUser[0]({token:{Authorization:`Bearer ${certifiedToken}`},info:rubyLan,url:link})).data)
-setResult(false)})()}}},[link,pathname]) 
-return (<>{result?<div className="loadingContanier"><span className="loadingText">loading ...</span></div>
-:<div className={"LogoWithMainPage_container Recommendation_container"}>
-<div className={"top_title_area"}><div className={"top_title"}>{title}</div>
-<div className={"top_mypage"}><Link to={`/My_page`}>
-<img src={mypage_btn} width="25" height="25" alt="마이 페이지"/></Link></div></div>
+if(!sessionStorage.getItem("no1")){
+    userUnLogined("여성",setRegis,setResult,unLoginUser)}
+else{
+    userUnLogined(sessionStorage.getItem("no1"),setRegis,setResult,unLoginUser)}}
+else {
+    if(pathname==="/Recommendation/weather"){
+        userUnLogined(userLoginInfo.gender,setRegis,setResult,unLoginUser)}
+else{(async()=>{
+    const rubyLan = new ruby(wheather?.Mtemp,wheather?.Htemp)
+setRegis(await(await loginUser[0]({
+    token:{Authorization:`Bearer ${certifiedToken}`},info:rubyLan,url:link})).data)
+setResult(false)})()}}},[link,pathname])
+
+return (
+<>{result?
+    <div className="loadingContanier">
+        <span className="loadingText">loading ...</span></div>:
+        <div className={"LogoWithMainPage_container Recommendation_container"}>
+<div className={"top_title_area"}>
+    <div className={"top_title"}>{title}</div>
+        <div className={"top_mypage"}>
+            <Link to={`/My_page`}>
+                <img src={mypage_btn} width="25" height="25" alt="마이 페이지"/>
+            </Link></div></div>
 <UnLoginSelectButton setRegis={setRegis} setResult={setResult} unLoginUser={unLoginUser}/>
-<ImageSlider regis={regis}/><MenuBar/></div>}</>)}
+<ImageSlider regis={regis}/><MenuBar/>
+</div>}</>)}
 export default ClothingRecommendations
