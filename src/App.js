@@ -27,6 +27,7 @@ export default function App() {
 const login = loginState()
 const navigate = useNavigate()
 useEffect(()=>{sessionStorage.getItem("wheatherInfo")?null:navigate('/')},[])
+
 return (
 <><Routes>
 <Route path="*" element={<ErrorPages/>}/>

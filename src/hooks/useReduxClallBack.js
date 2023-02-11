@@ -8,4 +8,8 @@ const action = {list,value,index:index}
 const addStyleDispatch = useCallback(()=>{dispatch(addStyle(action))},[action,dispatch])
 const deduplicationStyleDispatch = useCallback(()=>{dispatch(deduplicationStyle(action))},[action,dispatch])
 const removeStyleDispatch = useCallback(()=>{dispatch(removeStyle(action))},[action,dispatch])
-return {add:addStyleDispatch,dpc:deduplicationStyleDispatch,rmv:removeStyleDispatch}}
+return {
+    add:addStyleDispatch,
+    dpc:deduplicationStyleDispatch,
+    rmv:removeStyleDispatch
+}}
