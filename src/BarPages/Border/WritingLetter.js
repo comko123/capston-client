@@ -8,7 +8,7 @@ const [{id},navigate] = [useParams(),useNavigate()]
 const {isLoading,data} = inCloser.useGetArticleInfoQuery(id)
 return(<>{isLoading?
 <div className="loadingContanier">
-<span className="loadingText">loading ...</span></div>:
+<div className="loadingText">loading ...</div></div>:
 <>
 <div className="write_contanier"><img src={pageback_btn} width="18" height="18" alt=""
 onClick={()=>navigate(-1)}/></div>

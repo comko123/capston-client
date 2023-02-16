@@ -1,22 +1,23 @@
 /*eslint-disable*/
-import { useEffect } from "react"
-import Mypage from "./MyPage/Mypage"
-import ErrorPages from "./ErrorPages"
-import Write from "./BarPages/Border/Write"
-import Comment from "./BarPages/Border/Comment"
-import LogoWithMainPage from "./LogoWithMainPage"
-import InfoToMyInfo from "./BarPages/InfoToMyInfo"
-import Login_page from "./LogInAndSignUp/Login_page"
-import InfoToWeather from "./BarPages/InfoToWeather"
-import PasswordChange from "./Change/PasswordChange"
-import StyleChange from "./ChangeInformation/StyleChange"
-import MyClothing from "./RegistrationClothing/MyClothing"
-import InfoToMyClothing from "./BarPages/InfoToMyClothing"
-import WritingLetter from "./BarPages/Border/WritingLetter"
-import Sign_up from "./LogInAndSignUp/SignUpSection/Sign_up"
 import { Routes, Route, useNavigate} from "react-router-dom"
-import Border from "./BarPages/Border/BorderMainSection/Border"
-import BorderSearchPage from "./BarPages/Border/BorderSearchSection/BorderSearchPage"
+import { useEffect , lazy ,Suspense} from "react"
+import LogoWithMainPage from "./LogoWithMainPage"
+import FallBackWating from "./FallBackWating"
+const Mypage= lazy(()=>import("./MyPage/Mypage")) 
+const ErrorPages= lazy(()=>import("./ErrorPages")) 
+const Write= lazy(()=>import("./BarPages/Border/Write")) 
+const Comment= lazy(()=>import("./BarPages/Border/Comment")) 
+const InfoToMyInfo= lazy(()=>import("./BarPages/InfoToMyInfo")) 
+const Login_page= lazy(()=>import("./LogInAndSignUp/Login_page")) 
+const InfoToWeather= lazy(()=>import("./BarPages/InfoToWeather")) 
+const PasswordChange= lazy(()=>import("./Change/PasswordChange")) 
+const StyleChange= lazy(()=>import("./ChangeInformation/StyleChange")) 
+const MyClothing= lazy(()=>import("./RegistrationClothing/MyClothing")) 
+const InfoToMyClothing= lazy(()=>import("./BarPages/InfoToMyClothing")) 
+const WritingLetter= lazy(()=>import("./BarPages/Border/WritingLetter")) 
+const Sign_up= lazy(()=>import("./LogInAndSignUp/SignUpSection/Sign_up")) 
+const Border= lazy(()=>import("./BarPages/Border/BorderMainSection/Border")) 
+const BorderSearchPage= lazy(()=>import("./BarPages/Border/BorderSearchSection/BorderSearchPage")) 
 
 const loginState = () => {
 const gett = sessionStorage.getItem("login_information")
@@ -29,7 +30,7 @@ const navigate = useNavigate()
 useEffect(()=>{sessionStorage.getItem("wheatherInfo")?null:navigate('/')},[])
 
 return (
-<><Routes>
+<Suspense fallback={<FallBackWating/>}><Routes>
 <Route path="*" element={<ErrorPages/>}/>
 <Route path="/Border" element={<Border/>}>
 <Route path="route/:index" element={null}/></Route>
@@ -47,4 +48,4 @@ return (
 <Route path="/Recommendation/Information" element={!!login ? <InfoToMyInfo/>:<Login_page/>}/>
 <Route path="/Recommendation/Clothing" element={!!login ? <InfoToMyClothing/>:<Login_page/>}/>
 <Route path="/My_page/StyleChange" element={!!login ? <StyleChange />:<Login_page />}/>
-</Routes></>)}
+</Routes></Suspense>)}

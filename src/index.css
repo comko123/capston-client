@@ -49,3 +49,28 @@
     height: 25px;
     margin-right: 31px;
 }
+.loadingContanier{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width:100vw;
+    height:100vh;
+}
+.loadingText{
+    color:#4254FF;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 900;
+    font-size: 40px;
+    line-height: 20px;
+}
+.fallback{
+    width:100%;
+    aspect-ratio: 1/1;
+    color:#4254FF;
+    font-weight: 700;
+    font-size: x-large;
+    display: flex;
+    align-items: center;
+    justify-content: center;    
+}
