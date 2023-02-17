@@ -22,7 +22,8 @@ const BorderSearchPage= lazy(()=>import("./BarPages/Border/BorderSearchSection/B
 const loginState = () => {
 const gett = sessionStorage.getItem("login_information")
 const user = JSON.parse(gett)
-return user?.username}
+return user?.username
+}
 
 export default function App() {
 const login = loginState()
