@@ -61,6 +61,8 @@ this.newPassword = newPassword}}
 export class login {
 constructor(email, password) {
 this.username = email
-this.password = password}}
+this.password = password
+    }
+        }
 
 export const parsingLogic = (setState,result) => {try {setState(JSON.parse(result))} catch {setState(result)}}
