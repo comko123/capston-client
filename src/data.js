@@ -56,7 +56,9 @@ export class changePassword {
 constructor(email,password,newPassword){
 this.username = email
 this.password = password
-this.newPassword = newPassword}}  
+this.newPassword = newPassword
+    }
+        }  
 
 export class login {
 constructor(email, password) {
