@@ -50,7 +50,9 @@ this.content = content}}
 export class articles {
 constructor(nickname,body){
 this.nickname=nickname
-this.body=body}}  
+this.body=bod
+    }
+        }  
 
 export class changePassword {
 constructor(email,password,newPassword){
