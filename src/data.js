@@ -45,12 +45,14 @@ this.styleList = rest[6]}}
 export class listText {
 constructor(title,content){
 this.title = title
-this.content = content}}
+this.content = content
+    }
+        }
 
 export class articles {
 constructor(nickname,body){
 this.nickname=nickname
-this.body=bod
+this.body=body
     }
         }  
 
