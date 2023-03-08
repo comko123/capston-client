@@ -23,8 +23,10 @@ map 함수 key값 변경
 useCallback 추가 및 중복적 요소 발생시 커스텀 훅 지정  
 로그인 변동사항 추가 (저장하는 항목 개선)  
 회원가입 클래스네임 부여 로직 개선     
-ajax요청 Rtk Query로직으로 변경
- 
+ajax요청 Rtk Query로직으로 변경  
+될수있으면 rest parameter문법은 사용을 하지말기....
+
+
 # 컴포넌트 props   
 props.content:기능제목(ex:내 정보로 추천받기 type:string)  
 props.list:세션스토리지의 저장할 리스트 제목(ex:No2Implements type:string)  
