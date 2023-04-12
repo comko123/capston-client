@@ -5,6 +5,7 @@ https://www.figma.com/file/JqQDlUrMssEMF8cWk2LWbf/WeatherStyle-2022-05?node-id=0
 
 ## 역활 분담    
 한다은 - html / css / figma  
+
 김민석 - html / javascript / react   
 
 # Project-TDL     
