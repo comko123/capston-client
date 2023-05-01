@@ -41,9 +41,9 @@ const MyClothing = () => {
                 (async () => {
                     e.preventDefault()
                     try {
-                        for (const key in selector[0]) {
-                            if (selector[0][key].length) {
-                                const data = new selectDataParse(key, selector[0][key])
+                        for (const key in selector.no1) {
+                            if (selector.no1[key].length) {
+                                const data = new selectDataParse(key, selector.no1[key])
                                 setState(state => [...state, data])
                             }
                         }
@@ -55,7 +55,7 @@ const MyClothing = () => {
                     {userIn.map((item, num) => {
                         return <UserSeasonClothing
                             season={userIn[num]} seasonList={infoUser[item]} key={userIn[num]}
-                            storeText={selectData[num]} includeElement={selector[0]} />
+                            storeText={selectData[num]} includeElement={selector.no1} />
                     })}</div>
                 <input className={"Myadress_submit"} type="submit" value="submit" />
             </form></div></div><MenuBar /></>)

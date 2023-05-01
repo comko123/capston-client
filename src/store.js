@@ -1,12 +1,12 @@
 import { configureStore, createSlice } from "@reduxjs/toolkit"
 import { inCloser } from "./api/inClosing"
 const registration = createSlice({
-    name: "registration", 
+    name: "registration",
     initialState: {
-        no1:{봄:[],여름:[],가을:[],겨울:[]}, 
-        no2:{style:[]},
-        no3:{email:[],password:[]}, 
-        no4:{성별:[], 연령:[],신장:[],체중:[],스타일:[]}
+        no1: { 봄: [], 여름: [], 가을: [], 겨울: [] },
+        no2: { style: [] },
+        no3: { email: [], password: [] },
+        no4: { 성별: [], 연령: [], 신장: [], 체중: [], 스타일: [] }
     },
     reducers: {
         addStyle(state, action) { state[action.payload.index][action.payload.list].push(action.payload.value) },
@@ -21,6 +21,3 @@ export default configureStore({
     reducer: { addStyleList: registration.reducer, [inCloser.reducerPath]: inCloser.reducer },
     middleware: (getDefaultMiddleware) => getDefaultMiddleware().concat(inCloser.middleware)
 })
-
-/* original : [{봄:[],여름:[],가을:[],겨울:[]},{style:[]},
-{email:[],password:[]},{성별:[],연령:[],신장:[],체중:[],스타일:[]}]*/

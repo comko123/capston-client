@@ -42,6 +42,8 @@ const TodayWeather = ({ latitude, longitude, setDate }) => {
             <NowWeather latitude={latitude} longitude={longitude} setDate={setDate} />
             {data?.hourly?.map(({ dt, humidity, temp, weather }) =>
                 <WeatherDisplay key={dt} dt={dt} humidity={humidity} temp={temp} weather={weather} />)}
-            <WeatherAlgorithm Htemp={Math.round(highTemp)} Mtemp={Math.round(lowTemp)} rain={rainData} /></div>}</>)
+            <WeatherAlgorithm Htemp={Math.round(highTemp)} Mtemp={Math.round(lowTemp)} rain={rainData} />
+            </div>}</>)
+
 }
 export default React.memo(TodayWeather)
