@@ -6,7 +6,8 @@ const onSelectChoice = ({ setUserData, title }) => {
     setUserData(state => {
         const copy = { ...state }
         const copyState = !state[title]
-        copy[title] = copyState; return copy
+        copy[title] = copyState; 
+        return copy
     })
 }
 
