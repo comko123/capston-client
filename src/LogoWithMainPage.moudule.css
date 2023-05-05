@@ -1,4 +1,4 @@
-.Logo_container1{
+.Logo_container1 {
     display: flex;
     flex-direction: column;
     width: 100%;
@@ -6,14 +6,16 @@
     align-items: center;
     justify-content: center;
 }
-.Logo_logo{
+
+.Logo_logo {
     width: 171px;
     height: 103px;
     background: url("./img/logo.png");
     transform: translateY(-50px);
     background-size: cover;
 }
-.LogoWithMainPage_container{
+
+.LogoWithMainPage_container {
     height: 100vh;
     overflow: hidden;
 }
