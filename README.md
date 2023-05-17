@@ -10,6 +10,8 @@ https://www.figma.com/file/JqQDlUrMssEMF8cWk2LWbf/WeatherStyle-2022-05?node-id=0
 
 # Project-TDL     
 지속적인 리펙토링 및 유지보수...
+최대 , 최저온도 구하는 로직 개선
+구매링크 제거
 
 # 해결 완료  
 ui 구현 완료  
