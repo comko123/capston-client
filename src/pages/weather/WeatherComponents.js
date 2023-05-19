@@ -1,6 +1,7 @@
-import "./WeatherComponents.moudule.css"
+import "../../components/weather/TodayWeather"
 import { useState } from "react"
-import TodayWeather from "./TodayWeather"
+import TodayWeather from "../../components/weather/TodayWeather"
+import "./WeatherComponents.moudule.css"
 const dateAraea = new Date()
 export default function WeatherComponents() {
     const [location, setLocation] = useState({ latitude: 0, longitude: 0 })

@@ -1,10 +1,10 @@
 /*eslint-disable*/
 import { Link } from "react-router-dom"
 import { useState, useEffect } from "react"
-import MenuBar from "./Bar/MenuBar"
-import WeatherComponents from "./Weather/WeatherComponents"
+import MenuBar from "../../Bar/MenuBar"
+import WeatherComponents from "../weather/WeatherComponents"
 import "./LogoWithMainPage.moudule.css"
-import mypage_btn from "./img/mypage_btn.png"
+import mypage_btn from "../../img/mypage_btn.png"
 import { useCookies } from "react-cookie"
 import moment from "moment/moment"
 const key = "Main Logo"

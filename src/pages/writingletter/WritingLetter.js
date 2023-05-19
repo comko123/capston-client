@@ -16,6 +16,6 @@ const WritingLetter = () => {
                 <h1 className="writing_nickname">익명</h1></div><div className="borderHR" />
             <h1 className="writingTitle2">{data.title}</h1>
             <h3 className="writingFillOut2">{data.content}</h3>
-            <div className="delBtnPR"></div><Outlet></Outlet></>}</>)
+            <div className="delBtnPR"></div><Outlet/></>}</>)
 }
 export default WritingLetter

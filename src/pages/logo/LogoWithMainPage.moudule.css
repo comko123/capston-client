@@ -10,7 +10,7 @@
 .Logo_logo {
     width: 171px;
     height: 103px;
-    background: url("./img/logo.png");
+    background: url("../../img/logo.png");
     transform: translateY(-50px);
     background-size: cover;
 }

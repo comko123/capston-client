@@ -1,10 +1,10 @@
 /*eslint-disable*/
 import { Routes, Route, useNavigate } from "react-router-dom"
 import { useEffect, lazy, Suspense } from "react"
-import LogoWithMainPage from "./LogoWithMainPage"
-import FallBackWating from "./FallBackWating"
-const Mypage = lazy(() => import("./MyPage/Mypage"))
-const ErrorPages = lazy(() => import("./ErrorPages"))
+import LogoWithMainPage from "./pages/logo/LogoWithMainPage"
+import FallBackWating from "./pages/fallback/FallBackWating"
+const Mypage = lazy(() => import("./pages/my_page/Mypage"))
+const ErrorPages = lazy(() => import("./pages/error/ErrorPages"))
 const Write = lazy(() => import("./BarPages/Border/Write"))
 const Comment = lazy(() => import("./BarPages/Border/Comment"))
 const InfoToMyInfo = lazy(() => import("./BarPages/InfoToMyInfo"))

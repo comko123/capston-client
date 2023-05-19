@@ -4,7 +4,7 @@ import WeatherDisplay from "./WeatherDisplay"
 import WeatherAlgorithm from "./WeatherAlgorithm"
 import React, { useEffect, useState } from "react"
 import "./TodayWeather.moudule.css"
-import { inCloser } from "../api/inClosing"
+import { inCloser } from "../../api/inClosing"
 
 const temp = (...rest) => {
     const dateValue = new Date()

@@ -7,7 +7,8 @@ import "./Comment.moudule.css"
 const Comment = () => {
     const [[message, setMessage], { id }] = [useState({}), useParams()]
     const [creRef, creNickName] = [useRef(), useRef()]
-    const [{ data }, commentInfo] = [inCloser.useGetCommentQuery(id), inCloser.useSetCommentInputMutation()]
+    const [{ data }, commentInfo] = [inCloser.useGetCommentQuery(id), 
+        inCloser.useSetCommentInputMutation()]
     useAlert(message, 0)
     return (
         <><ul>{

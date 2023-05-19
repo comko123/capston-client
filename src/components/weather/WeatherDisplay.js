@@ -1,8 +1,8 @@
 import React from "react"
 import "./WeatherDisplay.moudule.css"
-import weather_rain_small from "../img/weather_rain_small.png"
-import weather_humidity_small from "../img/weather_humidity_small.png"
-import weather_cloudy from "../img/weather_cloudy.png"
+import weather_rain_small from "../../img/weather_rain_small.png"
+import weather_humidity_small from "../../img/weather_humidity_small.png"
+import weather_cloudy from "../../img/weather_cloudy.png"
 
 export default function Display({ humidity, temp, weather, dt }) {
     const dateValue = new Date()
