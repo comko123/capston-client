@@ -2,12 +2,12 @@
 import { useRef } from "react"
 import { useNavigate, useLocation, Link } from "react-router-dom"
 import "./Border.moudule.css"
-import mypage_btn from "../../../img/mypage_btn.png"
-import pen_square from "../../../img/pen_square.png"
-import MenuBar from "../../../Bar/MenuBar"
-import BorderContentList from "./BorderContentList"
-import BorderButtonList from "./BorderButtonList"
-import { inCloser } from "../../../api/inClosing"
+import mypage_btn from "img/mypage_btn.png"
+import pen_square from "img/pen_square.png"
+import MenuBar from "components/bar/MenuBar"
+import BorderContentList from "components/border/BorderContentList"
+import BorderButtonList from "components/bordersearch/BorderButtonList"
+import { inCloser } from "api/inClosing"
 const borderStyleObject = { border: "2px solid #4254ff", backgroundColor: "white", color: "#4254ff" }
 const borderClickStyleObject = { backgroundColor: "#4254ff", color: "white" }
 const Border = () => {

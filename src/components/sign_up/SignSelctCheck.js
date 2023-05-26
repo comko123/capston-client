@@ -1,5 +1,5 @@
 import React from "react"
-import { useReduxClallBack } from "../../hooks/useReduxClallBack"
+import { useReduxClallBack } from "hooks/useReduxClallBack"
 
 const SignSelctCheck = ({ list, value, index, length }) => {
     const { add, rmv } = useReduxClallBack({ list, value, index: "no4" })

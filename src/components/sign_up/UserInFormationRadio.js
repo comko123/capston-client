@@ -6,7 +6,7 @@ const onSelectChoice = ({ setUserData, title }) => {
     setUserData(state => {
         const copy = { ...state }
         const copyState = !state[title]
-        copy[title] = copyState; 
+        copy[title] = copyState
         return copy
     })
 }
@@ -19,7 +19,7 @@ const UserInFormationRadio = ({ checkList, title, length }) => {
                 onClick={() => onSelectChoice({ setUserData, title })}><div className={"Sign_up_selectlabel"}>{title}</div>
                 <FaChevronDown className={"Sign_up_selectboxright"} /></h3>
             <div className={`Sign_up_selectcontainer ${userData[title] ? "Sign_up_selectcontainer__active" : null}`}>
-                {checkList.map((childInformation, index) => <SignSelctCheck key={title + ":" + `${childInformation}`}
+                {checkList.map((childInformation, index) => <SignSelctCheck key={title + `: ${childInformation}`}
                     index={index + 1} list={title} value={childInformation} length={length} />)}</div></div>)
 }
 export default React.memo(UserInFormationRadio)

@@ -1,5 +1,5 @@
 import { useState } from "react"
-import { infotomyinfo, wheather } from "../../data"
+import { infotomyinfo, wheather } from "data"
 
 const UnLoginSelectButton = ({ setRegis, setResult, unLoginUser }) => {
     const [value, setValue] = useState(sessionStorage.getItem("no1") ? "남성" : "여성")

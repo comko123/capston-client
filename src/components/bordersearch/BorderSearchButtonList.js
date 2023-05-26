@@ -2,7 +2,8 @@ import React, { useEffect, useState } from "react"
 import { useNavigate, useSearchParams } from "react-router-dom"
 const BorderSearchButtonList = ({ langth, searchParams, styleBorderObject, styleBoxObject }) => {
     const navigate = useNavigate()
-    const [[buttonState, setButtonState], [number]] = [useState([]), useSearchParams()]
+    const [buttonState, setButtonState] = useState([])
+    const [number] = useSearchParams()
     useEffect(() => {
         for (let i = 0; i <= langth - 1; i++) {
             if (!(i % 10)) setButtonState(state => [...state, i])

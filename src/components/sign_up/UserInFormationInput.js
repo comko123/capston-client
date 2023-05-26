@@ -1,5 +1,5 @@
 import { useDispatch } from "react-redux"
-import { addStyle,inputLengthStyle} from "../../store"
+import { addStyle,inputLengthStyle} from "store"
 import React from "react"
 const UserInFormationInput = ({title,type}) => {
 const dispatch = useDispatch()

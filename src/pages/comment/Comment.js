@@ -1,8 +1,8 @@
 import { useRef, useState } from "react"
 import { useParams } from "react-router-dom"
-import { inCloser } from "../../api/inClosing"
-import { articles, parsingLogic } from "../../data"
-import { useAlert } from "../../hooks/useAlert"
+import { inCloser } from "api/inClosing"
+import { articles, parsingLogic } from "data"
+import { useAlert } from "hooks/useAlert"
 import "./Comment.moudule.css"
 const Comment = () => {
     const [[message, setMessage], { id }] = [useState({}), useParams()]

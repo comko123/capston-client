@@ -1,7 +1,7 @@
 import { Outlet, useNavigate, useParams } from "react-router-dom"
-import { inCloser } from "../../api/inClosing"
-import anonymous_blue from "../../img/anonymous_blue.png"
-import pageback_btn from "../../img/pageback_btn.png"
+import { inCloser } from "api/inClosing"
+import anonymous_blue from "img/anonymous_blue.png"
+import pageback_btn from "img/pageback_btn.png"
 import "./WrittingLetter.moudule.css"
 const WritingLetter = () => {
     const [{ id }, navigate] = [useParams(), useNavigate()]

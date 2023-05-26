@@ -1,5 +1,5 @@
 import { useState, useRef } from "react"
-import { wheather } from "../../data"
+import { wheather } from "data"
 import SliderButton from "./SliderButton"
 import ImageList from "./ImageList"
 const movementState = (num, val) => num + val

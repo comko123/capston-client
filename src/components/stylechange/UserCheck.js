@@ -1,5 +1,5 @@
 /*eslint-disable*/
-import { useReduxClallBack } from "../hooks/useReduxClallBack"
+import { useReduxClallBack } from "hooks/useReduxClallBack"
 
 const UserCheck = ({ list, value, number, styleList }) => {
     const { add, dpc, rmv } = useReduxClallBack({ list, value, index: "no2"})

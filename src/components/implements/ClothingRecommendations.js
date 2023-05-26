@@ -1,13 +1,13 @@
 /*eslint-disable*/
 import "./InfoToWeather.moudule.css"
-import MenuBar from "../../Bar/MenuBar"
-import mypage_btn from "../../img/mypage_btn.png"
+import MenuBar from "../bar/MenuBar"
+import mypage_btn from "img/mypage_btn.png"
 import { useEffect, useState } from "react"
 import { Link, useLocation } from "react-router-dom"
-import { infotomyinfo, wheather, userLoginInfo, ruby, certifiedToken } from "../../data"
+import { infotomyinfo, wheather, userLoginInfo, ruby, certifiedToken } from "data"
 import UnLoginSelectButton from "./UnLoginSelectButton"
 import ImageSlider from "./ImageSlider"
-import { inCloser } from "../../api/inClosing"
+import { inCloser } from "api/inClosing"
 
 const userUnLogined = async (value, setRegis, setResult, unLoginUser) => {
     const nMember = new infotomyinfo(wheather?.Mtemp, wheather?.Htemp, value)
@@ -18,7 +18,8 @@ const ClothingRecommendations = ({ link, title }) => {
     const [regis, setRegis] = useState({})
     const [result, setResult] = useState(true)
     const { pathname } = useLocation()
-    const [unLoginUser, loginUser] = [inCloser.useSetUnLoginImpMutation(), inCloser.useSetLoginImpMutation()]
+    const unLoginUser = inCloser.useSetUnLoginImpMutation()
+    const loginUser = inCloser.useSetLoginImpMutation()
     useEffect(() => {
         if (!userLoginInfo) {
             if (!sessionStorage.getItem("no1")) {

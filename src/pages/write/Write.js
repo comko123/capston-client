@@ -1,10 +1,10 @@
 import { useRef, useState } from "react"
 import { useNavigate } from "react-router-dom"
-import { listText, parsingLogic } from "../../data"
+import { listText, parsingLogic } from "data"
 import "./Write.moudule.css"
-import pageback_btn from "../../img/pageback_btn.png"
-import { useAlert } from "../../hooks/useAlert"
-import { inCloser } from "../../api/inClosing"
+import pageback_btn from "img/pageback_btn.png"
+import { useAlert } from "hooks/useAlert"
+import { inCloser } from "api/inClosing"
 const Write = () => {
     const [titArticle, conArticle] = [useRef(), useRef()]
     const [[artMsg, setArtMsg], navigate] = [useState({}), useNavigate()]

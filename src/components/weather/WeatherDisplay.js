@@ -1,8 +1,8 @@
 import React from "react"
 import "./WeatherDisplay.moudule.css"
-import weather_rain_small from "../../img/weather_rain_small.png"
-import weather_humidity_small from "../../img/weather_humidity_small.png"
-import weather_cloudy from "../../img/weather_cloudy.png"
+import weather_rain_small from "img/weather_rain_small.png"
+import weather_humidity_small from "img/weather_humidity_small.png"
+import weather_cloudy from "img/weather_cloudy.png"
 
 export default function Display({ humidity, temp, weather, dt }) {
     const dateValue = new Date()
@@ -31,11 +31,11 @@ export default function Display({ humidity, temp, weather, dt }) {
                                         <img src={weather_cloudy} width={'51px'} height={'44px'} alt={R.description} /></div>)
                             })}</div>
                         <div className={"NowWeather_card_bottom"}>
-                            <img className={"NowWeather_card_thumnail"} src={weather_rain_small} width={'16px'} height={'15.02px'} />
+                            <img className={"NowWeather_card_thumnail"} src={weather_rain_small} alt="" width={'16px'} height={'15.02px'} />
                             <div className={"NowWeather_card_title"}>강수</div>
                             <div className={"NowWeather_card_title_value"}>{"10%"}</div></div>
                         <div className={"NowWeather_card_bottom"}>
-                            <img className={"NowWeather_card_thumnail"} src={weather_humidity_small} width={'12px'} height={'15.81px'} />
+                            <img className={"NowWeather_card_thumnail"} src={weather_humidity_small} alt=""  width={'12px'} height={'15.81px'} />
                             <div className={"NowWeather_card_title"}>습도</div><div className={"NowWeather_card_title_value"}>{humidity + "%"}</div>
                         </div></div> : null}</div>)
 }

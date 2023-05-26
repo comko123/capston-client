@@ -1,9 +1,9 @@
 import React, { useEffect } from "react"
 import "./NowWeather.moudule.css"
-import weather_cloudy from "../../img/weather_cloudy.png"
-import weather_rain_small from "../../img/weather_rain_small.png"
-import weather_humidity_small from "../../img/weather_humidity_small.png"
-import { inCloser } from "../../api/inClosing"
+import weather_cloudy from "img/weather_cloudy.png"
+import weather_rain_small from "img/weather_rain_small.png"
+import weather_humidity_small from "img/weather_humidity_small.png"
+import { inCloser } from "api/inClosing"
 
 const NowWeather = ({ latitude, longitude, setDate }) => {
     const { isLoading, data } = inCloser.useGetWheatherQuery({ latitude, longitude, state: "weather" })

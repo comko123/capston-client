@@ -1,5 +1,5 @@
-import { inCloser } from "../api/inClosing"
-import { certifiedToken, parsingLogic } from "../data"
+import { inCloser } from "api/inClosing"
+import { certifiedToken, parsingLogic } from "data"
 import UserCheck from "./UserCheck"
 const UserSeasonStyle = ({ title, styleList, storeText, storeStyleList, result }) => {
     const infoModify = inCloser.useSetMyInfoMutation()

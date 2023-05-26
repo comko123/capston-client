@@ -1,10 +1,10 @@
-import { login } from "../data"
+import { login } from "data"
 import "./Login_page.moudule.css"
-import MenuBar from "../Bar/MenuBar"
+import MenuBar from "components/bar/MenuBar"
 import { useRef, useState } from "react"
 import { Link } from "react-router-dom"
-import { inCloser } from "../api/inClosing"
-import { useAlert } from "../hooks/useAlert"
+import { inCloser } from "api/inClosing"
+import { useAlert } from "hooks/useAlert"
 const Login_page = () => {
     const [[result, setResult], loginState] = [useState({}), inCloser.useSetLoginStateMutation()]
     const [input_id, input_pw] = [useRef(), useRef()]

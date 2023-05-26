@@ -1,13 +1,13 @@
 import { useState } from "react"
 import { useSelector } from "react-redux"
 import { useNavigate } from "react-router-dom"
-import { selectUserCheck } from "../data"
-import MenuBar from "../Bar/MenuBar"
+import { selectUserCheck } from "data"
+import MenuBar from "components/bar/MenuBar"
 import "./StyleChange.moudule.css"
-import pageback_btn from "../img/pageback_btn.png"
-import { useAlert } from "../hooks/useAlert"
-import UserSeasonStyle from "./UserSeasonStyle"
-import { useClear } from "../hooks/useClear"
+import pageback_btn from "img/pageback_btn.png"
+import { useAlert } from "hooks/useAlert"
+import UserSeasonStyle from "components/stylechange/UserSeasonStyle"
+import { useClear } from "hooks/useClear"
 
 export default function StyleChange() {
     const selector = useSelector(item => item.addStyleList)

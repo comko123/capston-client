@@ -1,5 +1,5 @@
 import { configureStore, createSlice } from "@reduxjs/toolkit"
-import { inCloser } from "./api/inClosing"
+import { inCloser } from "api/inClosing"
 const registration = createSlice({
     name: "registration",
     initialState: {

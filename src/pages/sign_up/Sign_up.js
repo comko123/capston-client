@@ -1,16 +1,16 @@
 import "./Sign_up.moudule.css"
 import { useState, lazy, Suspense } from "react"
-import MenuBar from "../../Bar/MenuBar"
+import MenuBar from "components/bar/MenuBar"
 import { useSelector } from "react-redux"
-import { inCloser } from "../../api/inClosing"
-import { useAlert } from "../../hooks/useAlert"
+import { inCloser } from "api/inClosing"
+import { useAlert } from "hooks/useAlert"
 import { Link, useNavigate } from "react-router-dom"
 import { signInfo, selectUserData, inputTypeAndPalcehorder, selectUserCheck, parsingLogic, } from "../../data"
-import FallBackWating from "../../pages/fallback/FallBackWating"
-const UserInFormationInput = lazy(() => import("./UserInFormationInput"))
-const UserInFormationRadio = lazy(() => import("./UserInFormationRadio"))
-const UserInFormationCheckBox = lazy(() => import("./UserInFormationCheckBox"))
-
+import FallBackWating from "pages/fallback/FallBackWating"
+const UserInFormationInput = lazy(() => import("components/sign_up/UserInFormationInput"))
+const UserInFormationRadio = lazy(() => import("components/sign_up/UserInFormationRadio"))
+const UserInFormationCheckBox = lazy(() => import("components/sign_up/UserInFormationCheckBox"))
+    
 const basicSetting = Object.keys(selectUserData)
 const userSetting = Object.keys(inputTypeAndPalcehorder)
 const styleObject = Object.keys(selectUserCheck)

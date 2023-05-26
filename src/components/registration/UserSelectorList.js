@@ -1,5 +1,5 @@
 import React from "react"
-import { useReduxClallBack } from "../hooks/useReduxClallBack"
+import { useReduxClallBack } from "hooks/useReduxClallBack"
 const UserSelectorList = ({ value, includeElement, season, clothing, list }) => {
     const { add, dpc, rmv } = useReduxClallBack({ list, value, index: "no1" })
     return (<><div className={"Myadress_main_component_items"}>

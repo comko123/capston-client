@@ -1,16 +1,17 @@
 import { useRef } from "react"
 import { Link, useNavigate, useSearchParams } from "react-router-dom"
-import MenuBar from "../../../Bar/MenuBar"
-import pen_square from "../../../img/pen_square.png"
-import mypage_btn from "../../../img/mypage_btn.png"
-import BorderSearchContentList from "./BorderSearchContentList"
-import BorderSearchButtonList from "./BorderSearchButtonList"
-import { inCloser } from "../../../api/inClosing"
+import MenuBar from "components/bar/MenuBar"
+import pen_square from "img/pen_square.png"
+import mypage_btn from "img/mypage_btn.png"
+import BorderSearchContentList from "components/bordersearch/BorderSearchContentList"
+import BorderSearchButtonList from "components/bordersearch/BorderSearchButtonList"
+import { inCloser } from "api/inClosing"
 const styleBorderObject = { border: "2px solid #4254ff", backgroundColor: "white", color: "#4254ff" }
 const styleBoxObject = { backgroundColor: "#4254ff", color: "white" }
 const BorderSearchPage = () => {
-    const [searchParams] = useSearchParams(); const navigate = useNavigate()
-    const searchRef = useRef();
+    const [searchParams] = useSearchParams() 
+    const navigate = useNavigate()
+    const searchRef = useRef()
     const userText = searchParams.get("id")
     const pageNumber = +searchParams.get("number")
     const { isLoading, data } = inCloser.useGetBorderSearchArticlesQuery({ info: userText, num: searchParams.get("number") })

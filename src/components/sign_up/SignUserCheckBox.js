@@ -1,5 +1,5 @@
 import React from "react"
-import { useReduxClallBack } from "../../hooks/useReduxClallBack"
+import { useReduxClallBack } from "hooks/useReduxClallBack"
 
 const SignUserCheckBox = ({ value, list }) => {
     const { add, dpc, rmv } = useReduxClallBack({ list, value, index: "no4" })

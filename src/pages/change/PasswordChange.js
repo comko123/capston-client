@@ -1,8 +1,8 @@
 import { useState, useRef } from "react"
 import { useNavigate } from "react-router-dom"
-import { inCloser } from "../api/inClosing"
-import { changePassword, parsingLogic } from "../data"
-import { useAlert } from "../hooks/useAlert"
+import { inCloser } from "api/inClosing"
+import { changePassword, parsingLogic } from "data"
+import { useAlert } from "hooks/useAlert"
 import "./PasswordChange.moudule.css"
 
 export default function PasswordChange() {

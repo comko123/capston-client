@@ -2,20 +2,20 @@
 import { useState, useEffect } from "react"
 import { useSelector } from "react-redux"
 import { useNavigate } from "react-router-dom"
-import { selectDataParse, infoUser, certifiedToken, parsingLogic } from "../data"
-import MenuBar from "../Bar/MenuBar"
-import pageback_btn from "../img/pageback_btn.png"
+import { selectDataParse, infoUser, certifiedToken, parsingLogic } from "data"
+import MenuBar from "components/bar/MenuBar"
+import pageback_btn from "img/pageback_btn.png"
 import "./MyClothing.moudule.css"
-import { useAlert } from "../hooks/useAlert"
-import UserSeasonClothing from "./UserSeasonClothing"
-import { useClear } from "../hooks/useClear"
-import { inCloser } from "../api/inClosing"
+import { useAlert } from "hooks/useAlert"
+import UserSeasonClothing from "components/registration/UserSeasonClothing"
+import { useClear } from "hooks/useClear"
+import { inCloser } from "api/inClosing"
 const MyClothing = () => {
     const selector = useSelector(item => item.addStyleList)
     const [selectData, userIn] = [Object.keys(selector.no1), Object.keys(infoUser)]
     const [[message, setMessage], [state, setState]] = [useState({}), useState([])]
     const [styleModify, navigate] = [inCloser.useSetStyleInfoMutation(), useNavigate()]
-    useClear(); 
+    useClear() 
     useAlert(message, '/')
     useEffect(() => {
         (
