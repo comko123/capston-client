@@ -1,6 +1,6 @@
 export const wheather = JSON.parse(sessionStorage.getItem("wheatherInfo"))
 export const userLoginInfo = JSON.parse(sessionStorage.getItem("login_information"))
-export const certifiedToken = JSON.parse(sessionStorage.getItem("login_information"))?.token
+export const certifiedToken = userLoginInfo?.token
 export const selectUserCheck = { 스타일: ["스트릿", "댄디", "캐주얼", "빈티지", "놈코어"] }
 export const inputTypeAndPalcehorder = { email: ["text", "E-mail"], password: ["password", "비밀번호"] }
 
