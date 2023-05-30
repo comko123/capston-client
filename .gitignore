@@ -10,7 +10,9 @@
 
 # production
 /build
-
+/img
+/fonts
+/reset.css
 # misc
 .DS_Store
 .env.local
