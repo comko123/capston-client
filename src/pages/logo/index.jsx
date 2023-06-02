@@ -2,7 +2,7 @@
 import { Link } from "react-router-dom"
 import { useState, useEffect } from "react"
 import MenuBar from "components/bar/MenuBar"
-import WeatherComponents from "../weather/WeatherComponents"
+import WeatherComponents from "../weather/index"
 import "./LogoWithMainPage.moudule.css"
 import mypage_btn from "img/mypage_btn.png"
 import { useCookies } from "react-cookie"

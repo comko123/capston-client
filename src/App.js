@@ -1,23 +1,23 @@
 /*eslint-disable*/
 import { Routes, Route, useNavigate } from "react-router-dom"
 import { useEffect, lazy, Suspense } from "react"
-import LogoWithMainPage from "pages/logo/LogoWithMainPage"
-import FallBackWating from "pages/fallback/FallBackWating"
-const Mypage = lazy(() => import("pages/my_page/Mypage"))
-const ErrorPages = lazy(() => import("pages/error/ErrorPages"))
-const Write = lazy(() => import("pages/write/Write"))
-const Comment = lazy(() => import("pages/comment/Comment"))
-const InfoToMyInfo = lazy(() => import("pages/implements/InfoToMyInfo"))
-const Login_page = lazy(() => import("pages/log_in/Login_page"))
-const InfoToWeather = lazy(() => import("pages/implements/InfoToWeather"))
-const PasswordChange = lazy(() => import("pages/change/PasswordChange"))
-const StyleChange = lazy(() => import("pages/stylechange/StyleChange"))
-const MyClothing = lazy(() => import("pages/registration/MyClothing"))
-const InfoToMyClothing = lazy(() => import("pages/implements/InfoToMyClothing"))
-const WritingLetter = lazy(() => import("pages/writingletter/WritingLetter"))
-const Sign_up = lazy(() => import("pages/sign_up/Sign_up"))
-const Border = lazy(() => import("pages/border/Border"))
-const BorderSearchPage = lazy(() => import("pages/bordersearch/BorderSearchPage"))
+import LogoWithMainPage from "pages/logo/index"
+import FallBackWating from "pages/fallback/index"
+const Mypage = lazy(() => import("pages/my_page/index"))
+const ErrorPages = lazy(() => import("pages/error/index"))
+const Write = lazy(() => import("pages/write/index"))
+const Comment = lazy(() => import("pages/comment/index"))
+const InfoToMyInfo = lazy(() => import("pages/implements/info_to_myinfo/index"))
+const Login_page = lazy(() => import("pages/log_in/index"))
+const InfoToWeather = lazy(() => import("pages/implements/info_to_weather/index"))
+const PasswordChange = lazy(() => import("pages/change/index"))
+const StyleChange = lazy(() => import("pages/stylechange/index"))
+const MyClothing = lazy(() => import("pages/registration/index"))
+const InfoToMyClothing = lazy(() => import("pages/implements/info_to_myclothing/index"))
+const WritingLetter = lazy(() => import("pages/writingletter/index"))
+const Sign_up = lazy(() => import("pages/sign_up/index"))
+const Border = lazy(() => import("pages/border/index"))
+const BorderSearchPage = lazy(() => import("pages/bordersearch/index"))
 
 const loginState = () => {
     const gett = sessionStorage.getItem("login_information")

@@ -18,6 +18,9 @@ const registration = createSlice({
 })
 export const { addStyle, removeStyle, deduplicationStyle, clearStyle, inputLengthStyle } = registration.actions
 export default configureStore({
-    reducer: { addStyleList: registration.reducer, [inCloser.reducerPath]: inCloser.reducer },
-    middleware: (getDefaultMiddleware) => getDefaultMiddleware().concat(inCloser.middleware)
+    reducer: { 
+        addStyleList: registration.reducer, 
+        [inCloser.reducerPath]: inCloser.reducer 
+        },
+        middleware: (getDefaultMiddleware) => getDefaultMiddleware().concat(inCloser.middleware)
 })
